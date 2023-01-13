@@ -31,7 +31,7 @@
                             <div class="form-group row">
                                 <label for="name" class="col-xs-3 col-form-label"><?php echo display('medicine_code')?> <i class="text-danger">*</i></label>
                                 <div class="col-xs-9">
-                                    <input name="code"  type="text" class="form-control" id="code" placeholder="<?php echo display('medicine_code')?>">
+                                    <input name="code" type="text" class="form-control" id="code" placeholder="<?php echo display('medicine_code')?>">
                                 </div>
                             </div>
 

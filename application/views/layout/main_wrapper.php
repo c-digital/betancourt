@@ -421,6 +421,8 @@ $settings = $this->db->select("site_align")
             <li class="<?php echo (($this->uri->segment(1) == "pharmacy" && $this->uri->segment(2) == "medicine" && $this->uri->segment(3) == "form")? "active" : null) ?>"><a href="<?php echo base_url('pharmacy/mercaderia/form') ?>"> Ingreso de mercadería</a></li>
             <?php } ?>
 
+            <li class="<?php echo (($this->uri->segment(1) == "pharmacy" && $this->uri->segment(2) == "medicine")? "active" : null) ?>"><a href="/pharmacy/mercaderia/index"> Listado de ingreso de mercadería</a></li>
+
             <?php
             if($this->permission->method('add_medicine','create')->access()){
             ?>
@@ -436,8 +438,6 @@ $settings = $this->db->select("site_align")
             <li class="<?php echo (($this->uri->segment(1) == "pharmacy" && $this->uri->segment(2) == "venta" && $this->uri->segment(3) == "listado")? "active" : null) ?>"><a href="/pharmacy/venta/listado"> Listado de ventas</a></li>
 
             <li class="<?php echo (($this->uri->segment(1) == "pharmacy" && $this->uri->segment(2) == "proveedores")? "active" : null) ?>"><a href="/pharmacy/proveedores"> Listado de proveedores</a></li>
-
-            <li class="<?php echo (($this->uri->segment(1) == "pharmacy" && $this->uri->segment(2) == "medicine")? "active" : null) ?>"><a href="/pharmacy/mercaderia/index"> Listado de ingreso de mercadería</a></li>
         </ul>
     </li> 
     <?php } ?>

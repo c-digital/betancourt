@@ -26,7 +26,7 @@
 
                                 <div class="col-xs-4">
                                     <label for="numero_factura"><?php echo 'Número factura' ?></label>
-                                    <input name="numero_factura" type="text" class="form-control" id="numero_factura">
+                                    <input name="numero_factura" required type="text" class="form-control" id="numero_factura">
                                 </div>
                             </div>
 
@@ -223,6 +223,11 @@
             </div>
 
             <div class="form-group">
+                <label for="codigo">Código</label>
+                <input type="text" class="form-control" name="producto_codigo">
+            </div>
+
+            <div class="form-group">
                 <label for="categoria">Categoría</label>
                 <select name="producto_categoria" class="form-control">
                     <option value=""></option>
@@ -259,6 +264,27 @@
 
 <script>
     $(document).ready(function () {
+
+        $('[name=codigo]').keyup(function () {
+            codigo = $('[name=codigo]').val();
+
+            $.ajax({
+                type: 'GET',
+                url: '/pharmacy/mercaderia/info',
+                data: {
+                    codigo: codigo
+                },
+                success: function (response) {
+                    response = JSON.parse(response);
+                    $('[name=nombre_producto]').val(response.name);
+                    $('[name=nombre_producto]').trigger('change');
+                },
+                error: function (error) {
+                    console.log(error.responseText);
+                },
+            });
+        });
+
         $('.guardar-proveedor').click(function () {
             proveedor_nombre = $('[name=proveedor_nombre]').val();
             proveedor_nit = $('[name=proveedor_nit]').val();
@@ -288,6 +314,7 @@
             producto_descripcion = $('[name=producto_descripcion]').val();
             producto_precio = $('[name=producto_precio]').val();
             producto_fabricado_por = $('[name=producto_fabricado_por]').val();
+            producto_codigo = $('[name=producto_codigo]').val();
 
             $.ajax({
                 type: 'POST',
@@ -297,7 +324,8 @@
                     categoria: producto_categoria,
                     descripcion: producto_descripcion,
                     precio: producto_precio,
-                    fabricado_por: producto_fabricado_por
+                    fabricado_por: producto_fabricado_por,
+                    codigo: producto_codigo
                 }
             });
 

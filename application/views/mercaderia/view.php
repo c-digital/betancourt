@@ -68,36 +68,45 @@
                                 <th><?php echo 'Lote'; ?></th>
                                 <th><?php echo 'Cantidad'; ?></th> 
                                 <th><?php echo 'Precio compra'; ?></th>
+                                <th><?php echo 'Total'; ?></th>
                                 <th><?php echo 'Fecha vencimiento'; ?></th>
                             </tr>
                         </thead>
                         <tbody>
-                        	<?php $i = 1; foreach ($mercaderia as $item): ?>
-	                        <tr>
-	                            <td class="description">
-	                                <p><?php echo $i; ?></p> 
-	                            </td>
-	                            <td class="description">
-	                                <p><?php echo $item->codigo; ?></p> 
-	                            </td>
-	                            <td class="charge">
-	                                <p><?php echo $item->nombre_producto; ?></p> 
-	                            </td>
-	                            <td class="discount">
-	                                <p><?php echo $item->lote; ?></p> 
-	                            </td>
-	                            <td class="ballance">
-	                                <p><?php echo $item->cantidad; ?></p>
-	                            </td>
-	                            <td class="ballance">
-	                                <p><?php echo $item->precio_compra; ?></p>
-	                            </td>
-	                            <td class="ballance">
-	                                <p><?php echo $item->fecha_vencimiento_producto; ?></p>
-	                            </td>
-	                        </tr>
-	                    	<?php $i++; endforeach; ?>
-                        </tbody> 
+                        	<?php $i = 1; $total = 0; foreach ($mercaderia as $item): ?>
+    	                        <tr>
+    	                            <td class="description">
+    	                                <p><?php echo $i; ?></p> 
+    	                            </td>
+    	                            <td class="description">
+    	                                <p><?php echo $item->codigo; ?></p> 
+    	                            </td>
+    	                            <td class="charge">
+    	                                <p><?php echo $item->nombre_producto; ?></p> 
+    	                            </td>
+    	                            <td class="discount">
+    	                                <p><?php echo $item->lote; ?></p> 
+    	                            </td>
+    	                            <td class="ballance">
+    	                                <p><?php echo $item->cantidad; ?></p>
+    	                            </td>
+    	                            <td class="ballance">
+    	                                <p><?php echo number_format($item->precio_compra, 2); ?></p>
+    	                            </td>
+                                    <td class="ballance">
+                                        <p><?php echo number_format($item->precio_compra * $item->cantidad, 2); ?></p>
+                                    </td>
+    	                            <td class="ballance">
+    	                                <p><?php echo $item->fecha_vencimiento_producto; ?></p>
+    	                            </td>
+    	                        </tr>
+	                    	<?php $i++; $total = $total + ($item->precio_compra * $item->cantidad); endforeach; ?>
+
+                            <tr>
+                                <th colspan="6"></th>
+                                <th style="text-align: center"><?php echo number_format($total, 2); ?></th>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 

@@ -15,6 +15,8 @@ class Mercaderia extends CI_Controller {
         if ($this->session->userdata('isLogIn') == false) {
             redirect('login');
         }
+
+        $this->db->query("SET sql_mode=''");
 	}
 
     public function index()
@@ -40,7 +42,7 @@ class Mercaderia extends CI_Controller {
 
         $where = implode(' AND ', $where);
 
-        $sql = "SELECT * FROM mercaderia WHERE $where";
+        $sql = "SELECT *, SUM(cantidad * precio_compra) AS total FROM mercaderia WHERE $where GROUP BY numero_factura";
 
         $data['mercaderias'] = $this->db
             ->query($sql)
@@ -109,7 +111,7 @@ class Mercaderia extends CI_Controller {
         redirect("/pharmacy/mercaderia/view/$id_mercaderia");
     }
 
-    public function view($id)
+    public function view($numero_factura)
     {
         $data = [];
 
@@ -117,11 +119,18 @@ class Mercaderia extends CI_Controller {
 
         $data['website'] = $this->bill_model->website();
 
-        $query = $this->db->query("SELECT * FROM mercaderia WHERE id_mercaderia = $id");
+        $query = $this->db->query("SELECT * FROM mercaderia WHERE numero_factura = '$numero_factura'");
         $data['mercaderia'] = $query->result();
 
         $data['content'] = $this->load->view('mercaderia/view', $data, true);
 
         $this->load->view('layout/main_wrapper', $data);
+    }
+
+    public function info()
+    {
+        $codigo = $_GET['codigo'];
+        $medicine = $this->db->from('ha_medicine')->where('code', $codigo)->get()->row();
+        echo json_encode(['id' => $medicine->id, 'name' => $medicine->name]);
     }
 }

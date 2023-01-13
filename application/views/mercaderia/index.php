@@ -74,11 +74,7 @@
                             <th><?php echo display('date_invoice') ?></th>
                             <th><?php echo display('number_invoice') ?></th>
                             <th><?php echo display('provider') ?></th>
-                            <th><?php echo display('name_product') ?></th>
-                            <th><?php echo display('batch') ?></th>
-                            <th><?php echo display('quantity') ?></th>
-                            <th><?php echo display('purchase_price') ?></th>
-                            <th><?php echo display('date_expiration_product') ?></th>
+                            <th><?php echo display('total') ?></th>
                             <th><?php echo display('user') ?></th>
                             <th></th>
                         </tr>
@@ -92,14 +88,10 @@
                                     <td><?php echo $mercaderia->fecha_factura; ?></td>
                                     <td><?php echo $mercaderia->numero_factura; ?></td>
                                     <td><?php echo $mercaderia->proveedor; ?></td>
-                                    <td><?php echo $mercaderia->nombre_producto; ?></td>
-                                    <td><?php echo $mercaderia->lote; ?></td>
-                                    <td><?php echo $mercaderia->cantidad; ?></td>
-                                    <td><?php echo $mercaderia->precio_compra; ?></td>
-                                    <td><?php echo $mercaderia->fecha_vencimiento_producto; ?></td>
+                                    <td><?php echo number_format($mercaderia->total, 2); ?></td>
                                     <td><?php echo $mercaderia->usuario; ?></td>
                                     <td>
-                                        <a href="<?php echo '/pharmacy/mercaderia/view/' . $mercaderia->id; ?>" class="btn btn-default btn-sm">
+                                        <a href="<?php echo '/pharmacy/mercaderia/view/' . $mercaderia->numero_factura; ?>" class="btn btn-default btn-sm">
                                             <i class="fa fa-eye"></i> Ver
                                         </a>
                                     </td>

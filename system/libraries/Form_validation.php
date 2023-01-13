@@ -249,6 +249,15 @@ class CI_Form_validation {
 		return $this;
 	}
 
+	function medicine_edit_unique($value, $params)
+    {
+    	$medicine = $this->CI->db->where('code', $value)->get('ha_medicine')->row();
+        $this->set_message('medicine_edit_unique', "Este código '$value' ya está en uso por el medicamento '<a target='_blank' style='color: white' href='/pharmacy/medicine/form/$medicine->id'>$medicine->name</a>'.");
+        list($table, $field, $current_id) = explode(".", $params);
+        $result = $this->CI->db->where($field, $value)->get($table)->row();
+        return ($result && $result->id != $current_id) ? FALSE : TRUE;
+    }
+
 	// --------------------------------------------------------------------
 
 	/**

@@ -41,7 +41,7 @@ class Proveedores extends CI_Controller {
         $this->db->query($sql);
 
         $this->session->set_flashdata('success', 'Proveedor creado satisfactoriamente');
-        return $this->redirect('/pharmacy/proveedores');
+        return redirect('/pharmacy/proveedores');
     }
 
     public function editar($id)
@@ -63,7 +63,7 @@ class Proveedores extends CI_Controller {
         $this->db->query($sql);
 
         $this->session->set_flashdata('success', 'Proveedor editado satisfactoriamente');
-        return $this->redirect('/pharmacy/proveedores');
+        return redirect('/pharmacy/proveedores');
     }
 
     public function eliminar()
@@ -74,7 +74,7 @@ class Proveedores extends CI_Controller {
         $this->db->query($sql);
 
         $this->session->set_flashdata('success', 'Proveedor eliminado satisfactoriamente');
-        return $this->redirect('/pharmacy/proveedores');
+        return redirect('/pharmacy/proveedores');
     }
 }
 

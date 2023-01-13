@@ -57,7 +57,9 @@ class Medicine extends CI_Controller {
         $data['module'] = display("pharmacy");
         /*----------FORM VALIDATION RULES----------*/
         $this->form_validation->set_rules('name', display('medicine_name') ,'required|max_length[255]');
-        $this->form_validation->set_rules('code', display('medicine_code') ,'required|max_length[255]');
+
+        $this->form_validation->set_rules('code', display('medicine_code') ,'medicine_edit_unique[ha_medicine.code.'.$id.']|required|max_length[255]');
+
         $this->form_validation->set_rules('category_id', display('category_name') ,'required|max_length[11]');
         $this->form_validation->set_rules('description', display('description'),'trim');
         $this->form_validation->set_rules('status', display('status') ,'required');
