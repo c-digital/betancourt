@@ -15,6 +15,6 @@ class Productos extends CI_Controller {
 
     public function create() {
         extract($_POST);
-        $this->db->query("INSERT INTO ha_medicine (name, category_id, description, quantity, price, manufactured_by, create_date, status) VALUES ('$nombre', '$categoria', '$descripcion', '0', '$precio', '$fabricado_por', DATE(NOW()), 1)");
+        $this->db->query("INSERT INTO ha_medicine (code, name, category_id, description, quantity, price, manufactured_by, create_date, status) VALUES ('$codigo', '$nombre', '$categoria', '$descripcion', '0', '$precio', '$fabricado_por', DATE(NOW()), 1)");
     }
 }

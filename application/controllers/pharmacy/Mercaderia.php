@@ -75,6 +75,11 @@ class Mercaderia extends CI_Controller {
         $query = $this->db->query("SELECT id, name FROM ha_category");
         $data['categorias'] = $query->result();
 
+        $data['proveedores'] = $this->db
+            ->from('proveedores')
+            ->get()
+            ->result();
+
         $data['content'] = $this->load->view('mercaderia/form', $data, true);
 
         $this->load->view('layout/main_wrapper', $data);

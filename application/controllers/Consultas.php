@@ -310,6 +310,8 @@ class Consultas extends CI_Controller {
                 if ($monto != 0) {
                     $saldo = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row()->saldo;
 
+                    $saldo = $saldo + $monto;
+
                     $sql = "
                         INSERT INTO caja (
                             tipo_movimiento,

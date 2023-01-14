@@ -122,11 +122,19 @@
                                         <th>Lote</th>
                                         <th>Cantidad</th>
                                         <th>Precio compra</th>
+                                        <th>Total</th>
                                         <th>Fecha de vencimiento</th>
                                     </tr>
                                 </thead>
 
                                 <tbody class="tabla-productos"></tbody>
+
+                                <tfooter>
+                                    <tr>
+                                        <th colspan="6"></th>
+                                        <th class="total_general">0</th>
+                                    </tr>
+                                </tfooter>
                             </table>
 
                             <hr>
@@ -249,8 +257,14 @@
 
             <div class="form-group">
                 <label for="fabricado_por">Fabricado por</label>
-                <input type="text" class="form-control" name="producto_fabricado_por">
+                <select name="producto_fabricado_por" class="form-control">
+                    <option value=""></option>
+                    <?php foreach ($proveedores as $proveedor): ?>
+                        <option value="<?php echo $proveedor->nombre ?>"><?php echo $proveedor->nombre ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -329,12 +343,22 @@
                 }
             });
 
+            $('[name=producto_nombre]').val('');
+            $('[name=producto_categoria]').val('').trigger('change');
+            $('[name=producto_descripcion]').val('');
+            $('[name=producto_precio]').val('');
+            $('[name=producto_fabricado_por]').val('');
+            $('[name=producto_codigo]').val('');
+
             $('[name=nombre_producto]').append('<option selected value="' + producto_nombre + '">' + producto_nombre + '</option>');
             $('.close_crear_producto').click();
         });
 
         i = 0;
         j = 1;
+
+        total_general = $('.total_general').html();
+        total_general = parseFloat(total_general);
 
         $('.agregar-producto').click(function () {
             codigo = $('[name=codigo]').val();
@@ -343,6 +367,7 @@
             cantidad = $('[name=cantidad]').val();
             precio_compra = $('[name=precio_compra]').val();
             fecha_vencimiento_producto = $('[name=fecha_vencimiento_producto]').val();
+            total = parseFloat(cantidad) * parseFloat(precio_compra);
 
             $('.tabla-productos').append(`
                 <tr>
@@ -352,6 +377,7 @@
                     <td>${lote}</td>
                     <td>${cantidad}</td>
                     <td>${precio_compra}</td>
+                    <td>${total}</td>
                     <td>${fecha_vencimiento_producto}</td>
                 </tr>
 
@@ -363,8 +389,12 @@
                 <input type="hidden" name="productos[${i}][fecha_vencimiento_producto]" value="${fecha_vencimiento_producto}">
             `);
 
+            total_general = total_general + total;
+
+            $('.total_general').html(total_general);
+
             $('[name=codigo]').val('');
-            $('[name=nombre_producto]').val('');
+            $('[name=nombre_producto]').val('').trigger('change');
             $('[name=lote]').val('');
             $('[name=cantidad]').val('');
             $('[name=precio_compra]').val('');
