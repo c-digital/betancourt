@@ -65,8 +65,11 @@
                             <select name="metodo_pago" class="form-control">
                                 <option value="Todos">Todos</option>
                                 <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?> value="Efectivo">Efectivo</option>
+                                <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'QR') ? 'selected' : '' ?> value="QR">QR</option>
+                                <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Débito') ? 'selected' : '' ?> value="Débito">Débito</option>
+                                <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Crédito') ? 'selected' : '' ?> value="Crédito">Crédito</option>
                                 <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Transferencia') ? 'selected' : '' ?> value="Transferencia">Transferencia</option>
-                                <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Cheque') ? 'selected' : '' ?> value="Cheque">Cheque</option>
+                                <option <?php echo (isset($_GET['metodo_pago']) && $_GET['metodo_pago'] == 'Otros') ? 'selected' : '' ?> value="Otros">Otros</option>
                             </select>
                         </div>
 
@@ -120,6 +123,7 @@
                             <th class="text-center">Método de pago</th>
                             <th class="text-center">Concepto</th>
                             <th class="text-center">Cajero</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -132,6 +136,11 @@
                                 <td class="text-center"><?php echo $movimiento->metodo_pago; ?></td>
                                 <td class="text-center"><?php echo $movimiento->concepto; ?></td>
                                 <td class="text-center"><?php echo $movimiento->cajero; ?></td>
+                                <td class="text-center">
+                                    <a href="/billing/caja/uno/<?php echo $movimiento->id; ?>" target="_blank" class="btn btn-default btn-sm">
+                                        <span class="fa fa-eye"></span> Ver ticket
+                                    </a>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -171,10 +180,13 @@
             <div class="form-group">
                 <label for="metodo_pago">Método de pago</label>
                 <select name="metodo_pago" class="form-control" required>
-                    <option value=""></option>
+                    <option value="Todos">Todos</option>
                     <option value="Efectivo">Efectivo</option>
+                    <option value="QR">QR</option>
+                    <option value="Débito">Débito</option>
+                    <option value="Crédito">Crédito</option>
                     <option value="Transferencia">Transferencia</option>
-                    <option value="Cheque">Cheque</option>
+                    <option value="Otros">Otros</option>
                 </select>
             </div>
 

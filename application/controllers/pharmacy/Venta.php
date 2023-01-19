@@ -15,6 +15,8 @@ class Venta extends CI_Controller
         if ($this->session->userdata('isLogIn') == false) {
             redirect('login');
         }
+
+        $this->db->query("SET sql_mode=''");
 	}
 
 	public function listado()

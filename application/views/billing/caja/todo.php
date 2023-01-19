@@ -131,7 +131,7 @@
                                             <p><?php echo 'Dinero en caja'; ?></p> 
                                         </td>
                                         <td class="description">
-                                            <p><?php echo number_format($saldo, 2); ?></p> 
+                                            <p><?php echo number_format($entradas-$salidas, 2); ?></p> 
                                         </td>
                                     </tr>
 

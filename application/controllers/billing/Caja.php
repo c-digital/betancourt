@@ -52,17 +52,13 @@ class Caja extends CI_Controller {
 			$where[] =  "cajero = '$cajero_select'";
 		}
 
-		if (!(isset($_GET['inicio']) && $_GET['inicio'] != '') && !(isset($_GET['fin']) && $_GET['fin'] != '')) {
-			$where[] = "fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' AND cajero = '$cajero' ORDER BY id DESC LIMIT 1)";
-		}
-
 		if (count($where)) {
 			$where = implode(' AND ', $where);
 		} else {
-			$where = '1';
+			$where = "fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1) AND cajero = '$cajero'";
 		}
 
-		$data['movimientos'] = $this->db->query("SELECT * FROM caja WHERE $where AND cajero = '$cajero'")->result();
+		$data['movimientos'] = $this->db->query("SELECT * FROM caja WHERE $where")->result();
 
 		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$data['estado'] = $caja->estado;
@@ -119,7 +115,7 @@ class Caja extends CI_Controller {
       
       	$cajero = $this->session->userdata('fullname');
 
-        $data['movimientos'] = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' AND fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' AND cajero = '$cajero' ORDER BY id DESC LIMIT 1, 1) ORDER BY id DESC")->result();
+        $data['movimientos'] = $this->db->query("SELECT * FROM caja WHERE concepto NOT LIKE '%cierre%' AND cajero = '$cajero' AND fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' AND cajero = '$cajero' ORDER BY id DESC LIMIT 1, 1) ORDER BY id DESC")->result();
 
         $caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$data['estado'] = $caja->estado;
@@ -127,9 +123,9 @@ class Caja extends CI_Controller {
 
 		$data['entradas'] = $this->db->query("SELECT SUM(monto) AS entradas FROM caja WHERE cajero = '$cajero' AND tipo_movimiento = 'Entrada' AND fecha >= (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1 OFFSET 1)")->row()->entradas;
 
-		$data['salidas'] = $this->db->query("SELECT SUM(monto) AS salidas FROM caja WHERE cajero = '$cajero' AND tipo_movimiento = 'Salida' AND fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1 OFFSET 1)")->row()->salidas;
+		$data['salidas'] = $this->db->query("SELECT SUM(monto) AS salidas FROM caja WHERE cajero = '$cajero' AND concepto NOT LIKE '%cierre%' AND tipo_movimiento = 'Salida' AND fecha > (SELECT fecha FROM caja WHERE estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1 OFFSET 1)")->row()->salidas;
 
-		$data['tipos'] = $this->db->query("SELECT metodo_pago, SUM(monto) AS total FROM caja WHERE cajero = '$cajero' AND fecha > (SELECT fecha FROM caja WHERE cajero = '$cajero' AND estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1, 1) ORDER BY id ASC")->result();
+		$data['tipos'] = $this->db->query("SELECT metodo_pago, SUM(monto) AS total FROM caja WHERE cajero = '$cajero' AND tipo_movimiento = 'Entrada' AND fecha > (SELECT fecha FROM caja WHERE cajero = '$cajero' AND estado = 'Caja cerrada' ORDER BY id DESC LIMIT 1, 1) GROUP BY metodo_pago")->result();
 
 		$data['content'] = $this->load->view('billing/caja/todo', $data, true);
         $this->load->view('layout/main_wrapper', $data);

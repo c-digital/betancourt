@@ -103,7 +103,7 @@
                                            </a>
 
                                            <?php if ($estado == 'Caja abierta' && $consulta->estado != 'Pagado'): ?>
-                                               <button type="button" data-toggle="modal" data-id="<?php echo $consulta->id; ?>" data-target="#modalCobrar" class="btn btn-default btn-xs">
+                                               <button type="button" data-toggle="modal" data-monto="<?php echo $consulta->monto; ?>" data-id="<?php echo $consulta->id; ?>" data-target="#modalCobrar" class="btn btn-default btn-xs">
                                                   <i class="fa fa-money"></i> Cobrar
                                                </button>
                                            <?php endif; ?>
@@ -166,6 +166,10 @@
 
       <form action="" method="POST">
           <div class="modal-body">
+            <div class="text-center" id="monto-a-cobrar">
+                
+            </div>
+
             <div class="form-group">
                 <label for="efectivo">Efectivo</label>
                 <input type="number" name="pagos[efectivo]" value="0.00" class="form-control">
@@ -209,9 +213,11 @@
     $(document).ready(function () {
         $('#modalCobrar').on('show.bs.modal', function (event) {
           id = $(event.relatedTarget).attr('data-id');
+          monto = $(event.relatedTarget).attr('data-monto');
           modal = $(this);
           form = modal.parents().find('form');
           form.attr('action', '/consultas/cobrar/' + id);
+          $('#monto-a-cobrar').html('Monto a cobrar: ' + monto);
         })
     });
 </script>

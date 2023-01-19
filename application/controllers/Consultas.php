@@ -55,9 +55,9 @@ class Consultas extends CI_Controller {
             $where[] = "c.estado = '$estado'";
         }
 
-        if (!isset($_GET['estado']) || $_GET['estado'] == '') {
-            $estado = $_GET['estado'];
-            $where[] = "(c.estado != 'Pagado' AND c.estado != 'Cancelada')";
+        if (isset($_GET['patient_id']) && $_GET['patient_id'] != '') {
+            $patient_id = $_GET['patient_id'];
+            $where[] = "p.patient_id = '$patient_id'";
         }
 
         if (empty($where)) {
@@ -347,7 +347,7 @@ class Consultas extends CI_Controller {
 
         $this->session->set_flashdata('success', 'Consulta cobrada satisfactoriamente');
 
-        return redirect('/consultas');
+        return redirect('/consultas/factura/' . $id);
     }
 
     public function factura($id)

@@ -67,7 +67,8 @@ class Bill extends CI_Controller {
 
 
 	public function form(){
-		$caja = $this->db->query("SELECT * FROM caja ORDER BY id DESC")->row();
+		$cajero = $this->session->userdata('fullname');
+		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$estado = $caja->estado;
 
 		if ($estado == 'Caja cerrada') {
@@ -330,7 +331,8 @@ class Bill extends CI_Controller {
 
 	public function edit($bill_id = null)
 	{
-		$caja = $this->db->query("SELECT * FROM caja ORDER BY id DESC")->row();
+		$cajero = $this->session->userdata('fullname');
+		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$estado = $caja->estado;
 
 		if ($estado == 'Caja cerrada') {

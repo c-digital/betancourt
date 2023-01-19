@@ -166,6 +166,9 @@
                 },
                 success: function (response) {
                     $('.table-result-search').html(response);
+                },
+                error: function (error) {
+                    $('body').html(error.responseText);
                 }
             });
         });
