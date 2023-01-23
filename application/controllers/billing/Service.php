@@ -82,6 +82,7 @@ class Service extends CI_Controller {
 			'amount'                  => $this->input->post('amount'), 
 			'status'                  => $this->input->post('status'),
 			'uci'                     => $this->input->post('uci'),
+			'consulta'                => $this->input->post('consulta'),
 			'professional_commission' => $this->input->post('professional_commission'),
 		); 
 		#-------------------------------#

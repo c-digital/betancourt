@@ -51,12 +51,22 @@
 				               <input type="text" class="form-control" readonly name="edad">
 				            </div>
 
-				            <div class="col-md-8" style="margin-top: 20px">
+				            <div class="col-md-10" style="margin-top: 20px">
 				               <label for="profesional_id">Profesional</label>
 				               <select name="profesional_id" class="form-control">
 				               	  <option value=""></option>
 				                  <?php foreach ($profesionales as $profesional): ?>
 				                     <option value="<?php echo $profesional->user_id; ?>"><?php echo $profesional->firstname . ' ' . $profesional->lastname; ?></option>
+				                  <?php endforeach; ?>
+				               </select>
+				            </div>
+
+				            <div class="col-md-10" style="margin-top: 20px">
+				               <label for="tipo_consulta">Tipo de consulta</label>
+				               <select name="tipo_consulta" class="form-control">
+				               	  <option value=""></option>
+				                  <?php foreach ($tipo_consultas as $tipo_consulta): ?>
+				                     <option data-amount="<?php echo $tipo_consulta->amount; ?>" value="<?php echo $tipo_consulta->id; ?>"><?php echo $tipo_consulta->name; ?></option>
 				                  <?php endforeach; ?>
 				               </select>
 				            </div>
@@ -385,6 +395,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+	$('[name=tipo_consulta]').change(function () {
+		amount = $('[name=tipo_consulta] option:selected').attr('data-amount');
+		$('[name=monto]').val(amount);
+	});
+
     //check patient id
     $('#patient_id').keyup(function(){
         var pid = $(this);
@@ -433,6 +448,8 @@ $(document).ready(function() {
             }
         });
     });
+
+});
  
     
 </script>

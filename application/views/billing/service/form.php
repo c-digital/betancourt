@@ -73,6 +73,17 @@
 
                             <!--Radio-->
                             <div class="form-group row">
+                                <label class="col-sm-3"><?php echo 'Relacionado a consulta' ?></label>
+                                <div class="col-xs-9"> 
+                                    <div class="form-check">
+                                        <label class="radio-inline"><input <?php echo ($service->consulta == 'Si') ? 'checked' : '' ?> type="radio" name="consulta" required value="Si"><?php echo 'Si' ?></label>
+                                        <label class="radio-inline"><input <?php echo ($service->consulta == 'No') ? 'checked' : '' ?> type="radio" name="consulta" required value="No"><?php echo 'No' ?></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Radio-->
+                            <div class="form-group row">
                                 <label class="col-sm-3"><?php echo display('status') ?></label>
                                 <div class="col-xs-9"> 
                                     <div class="form-check">

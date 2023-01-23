@@ -33,10 +33,8 @@
                 <label for="estado">Estado</label>
                 <select name="estado" class="form-control">
                     <option value=""></option>
-                    <option value="En espera">En espera</option>
-                    <option value="En atención">En atención</option>
-                    <option value="Pagado">Pagado</option>
-                    <option value="Cancelada">Cancelada</option>
+                    <option value="En atención">En espera</option>
+                    <option value="Finalizada">Finalizada</option>
                 </select>
             </div>
         </div>
@@ -67,7 +65,7 @@
                     <table width="100%" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                              <th>ID</th>
                               <th>Paciente</th>
                               <th>Profesional</th>
                               <th>Fecha</th>

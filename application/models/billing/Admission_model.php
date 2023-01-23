@@ -11,6 +11,27 @@ class Admission_model extends CI_Model {
    
 	public function read($limit, $offset)
 	{ 
+		if ($_GET['estado'] == 'finished') {
+			return $this->db->select("
+				ad.*,
+				pa.id AS pid,
+				CONCAT_WS(' ', pa.firstname, pa.lastname) AS patient_name,
+				CONCAT_WS(' ', dr.firstname, dr.lastname) AS doctor_name,
+				in.insurance_name,
+				bp.name AS package_name,
+			")
+			->from("bill_admission AS ad")
+			->join("patient AS pa", "pa.patient_id = ad.patient_id", "left")
+			->join("user AS dr", "dr.user_id = ad.doctor_id", "left")
+			->join("inc_insurance AS in", "in.id = ad.insurance_id", "left")
+			->join("bill_package AS bp", "bp.id = ad.package_id", "left")
+			->where('ad.estado', 'Finalizado')
+			->limit($limit, $offset)
+			->order_by('id','desc')
+			->get()
+			->result();
+		}
+
 		return $this->db->select("
 			ad.*,
 			pa.id AS pid,
@@ -24,6 +45,7 @@ class Admission_model extends CI_Model {
 		->join("user AS dr", "dr.user_id = ad.doctor_id", "left")
 		->join("inc_insurance AS in", "in.id = ad.insurance_id", "left")
 		->join("bill_package AS bp", "bp.id = ad.package_id", "left")
+		->where('ad.estado IS NULL', null)
 		->limit($limit, $offset)
 		->order_by('id','desc')
 		->get()

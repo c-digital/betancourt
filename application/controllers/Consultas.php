@@ -55,6 +55,10 @@ class Consultas extends CI_Controller {
             $where[] = "c.estado = '$estado'";
         }
 
+        if (!isset($_GET['estado'])) {
+            $where[] = "c.estado = 'En atención'";
+        }
+
         if (isset($_GET['patient_id']) && $_GET['patient_id'] != '') {
             $patient_id = $_GET['patient_id'];
             $where[] = "p.patient_id = '$patient_id'";
@@ -141,6 +145,8 @@ class Consultas extends CI_Controller {
 
         $data['enfermedades'] = $query->result();
 
+        $data['tipo_consultas'] = $this->db->query("SELECT * FROM bill_service WHERE consulta = 'Si'")->result();
+
         $data['content'] = $this->load->view('editar_consulta', $data, true);
         $this->load->view('layout/main_wrapper', $data);
     }
@@ -172,6 +178,8 @@ class Consultas extends CI_Controller {
 
         $data['enfermedades'] = $query->result();
 
+        $data['tipo_consultas'] = $this->db->query("SELECT * FROM bill_service WHERE consulta = 'Si'")->result();
+
         $data['content'] = $this->load->view('crear_consulta', $data, true);
 
         $this->load->view('layout/main_wrapper', $data);
@@ -191,6 +199,7 @@ class Consultas extends CI_Controller {
 
         $patient_id = $_POST['patient_id'];
         $profesional_id = $_POST['profesional_id'];
+        $tipo_consulta = $_POST['tipo_consulta'];
         $foto_perfil = $_FILES['foto_perfil']['name'];
         $anamnesis = json_encode($_POST['anamnesis']);
         $monto = $_POST['monto'];
@@ -199,9 +208,9 @@ class Consultas extends CI_Controller {
         $this->db->query("
             INSERT INTO
                 consultas
-                (monto, foto_perfil, fotos, patient_id, profesional_id, fecha, anamnesis, estado)
+                (monto, foto_perfil, fotos, patient_id, profesional_id, fecha, anamnesis, estado, tipo_consulta)
             VALUES
-                ('$monto', '$foto_perfil', '$fotos', '$patient_id', '$profesional_id', NOW(), '$anamnesis', 'En espera');
+                ('$monto', '$foto_perfil', '$fotos', '$patient_id', '$profesional_id', NOW(), '$anamnesis', 'En atención', '$tipo_consulta');
         ");
 
         return redirect('/consultas');
@@ -222,6 +231,7 @@ class Consultas extends CI_Controller {
         $id = $_POST['id'];
         $patient_id = $_POST['patient_id'];
         $profesional_id = $_POST['profesional_id'];
+        $tipo_consulta = $_POST['tipo_consulta'];
         $foto_perfil = $_FILES['foto_perfil']['name'];
         $anamnesis = json_encode($_POST['anamnesis']);
         $monto = $_POST['monto'];
@@ -234,7 +244,8 @@ class Consultas extends CI_Controller {
                 fotos = '$fotos',
                 patient_id = '$patient_id',
                 profesional_id = '$profesional_id',
-                anamnesis = '$anamnesis'
+                anamnesis = '$anamnesis',
+                tipo_consulta = '$tipo_consulta',
             WHERE
                 id = '$id'
         ");
@@ -300,8 +311,6 @@ class Consultas extends CI_Controller {
         $estado = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row()->estado;
 
         $pagos = json_encode($_POST['pagos']);
-
-        $this->db->query("UPDATE consultas SET estado = 'Pagado', pagos = '$pagos' WHERE id = '$id'");
 
         if ($estado == 'Caja abierta') {
             $concepto = "Pago de consulta #$id";

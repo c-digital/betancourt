@@ -67,6 +67,12 @@ class Admission extends CI_Controller {
 		$this->load->view('layout/main_wrapper',$data);
 	} 
 
+	public function finish($id)
+	{
+		$this->db->query("UPDATE bill_admission SET estado = 'Finalizado' WHERE id = $id");
+		return redirect('/billing/admission');
+	}
+
 
 
 	public function form($admission_id = null){ 

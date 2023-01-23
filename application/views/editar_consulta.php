@@ -52,12 +52,22 @@
 			               <input type="text" class="form-control" name="edad" value="<?php echo $edad ?>">
 			            </div>
 
-			            <div class="col-md-8" style="margin-top: 20px">
+			            <div class="col-md-10" style="margin-top: 20px">
 			               <label for="profesional_id">Profesional</label>
 			               <select name="profesional_id" class="form-control">
 			                  <option value=""></option>
 			                  <?php foreach ($profesionales as $profesional): ?>
 			                     <option <?php echo ($profesional->user_id == $consulta->profesional_id) ? 'selected' : ''; ?> value="<?php echo $profesional->user_id; ?>"><?php echo $profesional->nombre; ?></option>
+			                  <?php endforeach; ?>
+			               </select>
+			            </div>
+
+			            <div class="col-md-8" style="margin-top: 20px">
+			               <label for="tipo_consulta">Tipo de consulta</label>
+			               <select name="tipo_consulta" class="form-control">
+			               	  <option value=""></option>
+			                  <?php foreach ($tipo_consultas as $tipo_consulta): ?>
+			                     <option data-amount="<?php echo $tipo_consulta->amount; ?>" value="<?php echo $tipo_consulta->id; ?>"><?php echo $tipo_consulta->name; ?></option>
 			                  <?php endforeach; ?>
 			               </select>
 			            </div>
@@ -250,6 +260,17 @@
 			                     </div>
 			                  </div>
 
+			                  <div class="col-md-6">
+			                  	<div class="form-group">
+			                  		<label for="estado">Estado</label>
+
+			                  		<select name="estado" required class="form-control">
+			                  			<option <?php $consulta->estado == 'En atención' ? 'selected' : '' ?> value="En atención">En atención</option>
+			                  			<option <?php $consulta->estado == 'Finalizada' ? 'selected' : '' ?> value="Finalizada">Finalizada</option>
+			                  		</select>
+			                  	</div>
+			                  </div>
+
 			                  <div class="col-md-12">
 			                     <button type="submit" class="btn btn-info">Modificar consulta</button>
 
@@ -404,6 +425,12 @@
 
 <script>
    $(document).ready(function () {
+
+   		$('[name=tipo_consulta]').change(function () {
+			amount = $('[name=tipo_consulta] option:selected').attr('data-amount');
+			$('[name=monto]').val(amount);
+		});
+
       $('#user').change(function () {
          input = this;
          if (input.files && input.files[0]) {

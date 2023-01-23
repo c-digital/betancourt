@@ -10,6 +10,10 @@
                     <a class="btn btn-success" href="<?php echo base_url("billing/admission/form") ?>"> <i class="fa fa-plus"></i>  <?php echo display('add_admission') ?> </a>  
 
                      <a class="btn btn-primary" href="<?php echo base_url("billing/bill/") ?>"> <i class="fa fa-list"></i>  <?php echo display('bill_list') ?> </a>  
+
+                     <a class="btn btn-primary" href="<?php echo base_url("billing/admission") ?>"> <i class="fa fa-list"></i>  <?php echo 'Ver no finalizadas' ?> </a>  
+
+                     <a class="btn btn-primary" href="<?php echo base_url("billing/admission?estado=finished") ?>"> <i class="fa fa-list"></i>  <?php echo 'Ver finalizadas' ?> </a>  
                     
                 </div>
             </div>
@@ -85,6 +89,8 @@
                                         ?>
                                         <a href="<?php echo base_url("medication_visit/visits/create?pid=$admission->patient_id") ?>" class="btn btn-xs  bg-navy-blue" data-toggle="tooltip" data-placement="top" title="<?= display('add_visit')?>"><?= display('patient_visit')?></a> 
                                          <?php } ?> </center>
+
+                                         <a href="/billing/admission/finish/<?php echo $admission->id; ?>" class="btn btn-success btn-xs">Marcar como finalizado</a>
                                     </td>
                                     <td><?php echo $admission->package_name; ?></td>
                                     <td><?php echo $admission->insurance_name; ?></td>
