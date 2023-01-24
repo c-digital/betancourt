@@ -23,6 +23,83 @@ class Bill extends CI_Controller {
 		if ($this->session->userdata('isLogIn') == false) 
 			redirect('login');
 	}
+
+	public function all($admission_id)
+	{
+		$sql = "
+			SELECT
+				b.admission_id,
+				DATE(NOW()) AS bill_date,
+				ba.patient_id AS patient_id,
+				p.date_of_birth,
+				CONCAT_WS(' ', p.firstname, p.lastname) AS patient_name,
+				p.sex,
+				p.address,
+				CONCAT_WS(' ', d.firstname, d.lastname) AS doctor_name,
+				ba.admission_date,
+				bp.name as package_name,
+				DATEDIFF(ba.discharge_date, ba.admission_date) as total_days,
+				ba.discharge_date AS discharge_date,
+				ini.insurance_name AS insurance_name,
+				ba.policy_no
+			FROM
+				bill b
+					LEFT JOIN bill_admission ba ON ba.admission_id = b.admission_id
+					LEFT JOIN patient p ON p.patient_id = ba.patient_id
+					LEFT JOIN user d ON d.user_id = ba.doctor_id
+					LEFT JOIN bill_package bp ON bp.id = ba.package_id
+					LEFT JOIN inc_insurance ini ON ini.id = ba.insurance_id
+			WHERE
+				b.admission_id = '$admission_id'
+		";
+
+		$data['services'] = $this->db->select("
+				bill_details.*, 
+				bill_service.id AS id, 
+				bill_service.name AS name,
+				CONCAT_WS(' ', user.firstname, user.lastname) AS professional,
+				bill_details.professional_id
+			")->from("bill_details")
+			->join("bill_service", "bill_service.id = bill_details.service_id","left")
+			->join("user", "user.user_id = bill_details.professional_id","left")
+			->where("bill_details.admission_id", $admission_id)
+			->get()
+			->result();
+
+		$data['advance'] = $this->db->select("DATE(a.date) AS date, a.receipt_no, a.amount")
+			->from("bill_advanced AS a")
+			->where("a.admission_id", $admission_id)
+			->get()
+			->result();
+
+		$data['bed'] = $this->db->query("
+			SELECT
+			    bdas.assign_date AS adate,
+			    bdas.discharge_date AS ddate,
+			    bm_room.charge,
+			    bm_bed.bed_number,
+			    DATEDIFF(bdas.discharge_date, bdas.assign_date) AS tdays
+			FROM
+			    bm_bed_assign as bdas
+			    LEFT JOIN bm_room ON bm_room.id = bdas.room_id
+			    LEFT JOIN bm_bed ON bm_bed.id = bdas.bed_id
+			WHERE
+			    bdas.bill_id IN (
+			        SELECT
+			            bill.bill_id
+			        FROM
+			            bill
+			        WHERE
+			            bill.admission_id = 'UXUNS6AB'
+			    );
+			")->result();
+
+		$data['website'] = $this->bill_model->website();
+		$data['bill'] = $this->db->query($sql)->row();
+
+		$data['content'] = $this->load->view('billing/bill/all', $data, true);		
+		$this->load->view('layout/main_wrapper', $data);
+	}
  
 	public function index(){
 		$data['module'] = display("billing"); 

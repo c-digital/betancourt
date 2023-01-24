@@ -69,7 +69,7 @@ class Admission extends CI_Controller {
 
 	public function finish($id)
 	{
-		$this->db->query("UPDATE bill_admission SET estado = 'Finalizado' WHERE id = $id");
+		$this->db->query("UPDATE bill_admission SET discharge_date = DATE(NOW()), estado = 'Finalizado' WHERE id = $id");
 		return redirect('/billing/admission');
 	}
 

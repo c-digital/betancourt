@@ -76,7 +76,7 @@ class Bill_model extends CI_Model {
 				in.insurance_name AS insurance_name,
 
 				bp.id as package_id,
-				bp.name as package_name, 
+				bp.name as package_name,
 				bp.services as services
 			")
 			->from("bill AS bi")
