@@ -65,32 +65,36 @@
                                     <td><?php echo $admission->doctor_name; ?></td>
                                     <td><?php echo $admission->guardian_name; ?></td>
                                     <td><?php echo $admission->guardian_contact; ?></td>
-                                    <td><center>
-                                        <?php
-                                        if($this->permission->method('admission_list','create')->access() || $this->permission->method('admission_list','update')->access()){
-                                        ?>
-                                        <a href="<?php echo base_url("billing/advance/form?aid=$admission->admission_id") ?>" class="btn btn-xs  btn-primary" data-toggle="tooltip" data-placement="top" title="<?= display('advance_payment')?>"><i class="fa fa-dollar"></i></a> 
-                                         <?php } ?> 
+                                    <td>
+                                        <center>
+
+                                        <a href="/billing/sales/cash?id_admission=<?php echo $admission->id; ?>" class="btn btn-primary btn-xs">Venta a contado</a>
+
+                                        <a href="/billing/sales/credit?id_admission=<?php echo $admission->id; ?>" class="btn btn-primary btn-xs">Venta a crédito</a>
+
+                                        <!-- <a href="<?php echo base_url("billing/advance/form?aid=$admission->admission_id") ?>" class="btn btn-xs  btn-primary" data-toggle="tooltip" data-placement="top" title="<?= display('advance_payment')?>"><i class="fa fa-dollar"></i></a>
 
                                          <?php
                                         if($this->permission->method('admission_list','create')->access() || $this->permission->method('admission_list','update')->access()){
                                         ?>
                                         <a href="<?php echo base_url("billing/bill/form?aid=$admission->admission_id") ?>" class="btn btn-xs  btn-success" data-toggle="tooltip" data-placement="top" title="<?= display('add_bill')?>"><i class="fa fa-file"></i></a> 
-                                         <?php } ?> 
+                                         <?php } ?>  -->
 
                                          <?php
                                         if($this->permission->method('add_medication','create')->access()){
                                         ?>
-                                        <a href="<?php echo base_url("medication_visit/medications/create?pid=$admission->patient_id") ?>" class="btn btn-xs  btn-info" data-toggle="tooltip" data-placement="top" title="<?= display('add_medication')?>"><i class="fa fa-user-md"></i></a> 
+                                        <a href="<?php echo base_url("medication_visit/medications/create?pid=$admission->patient_id") ?>" class="btn btn-xs  btn-info" data-toggle="tooltip" data-placement="top" title="<?= display('add_medication')?>"><i class="fa fa-user-md"></i> Agregar medicación</a> 
                                          <?php } ?> 
 
                                           <?php
                                         if($this->permission->method('add_medication','create')->access()){
                                         ?>
                                         <a href="<?php echo base_url("medication_visit/visits/create?pid=$admission->patient_id") ?>" class="btn btn-xs  bg-navy-blue" data-toggle="tooltip" data-placement="top" title="<?= display('add_visit')?>"><?= display('patient_visit')?></a> 
-                                         <?php } ?> </center>
+                                         <?php } ?>
 
                                          <a href="/billing/admission/finish/<?php echo $admission->id; ?>" class="btn btn-success btn-xs">Marcar como finalizado</a>
+
+                                         </center>
                                     </td>
                                     <td><?php echo $admission->package_name; ?></td>
                                     <td><?php echo $admission->insurance_name; ?></td>
