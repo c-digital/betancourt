@@ -137,9 +137,15 @@
                                 <td class="text-center"><?php echo $movimiento->concepto; ?></td>
                                 <td class="text-center"><?php echo $movimiento->cajero; ?></td>
                                 <td class="text-center">
-                                    <a href="/billing/caja/uno/<?php echo $movimiento->id; ?>" target="_blank" class="btn btn-default btn-sm">
-                                        <span class="fa fa-eye"></span> Ver ticket
-                                    </a>
+                                    <?php if (strpos($movimiento->concepto, 'factura')): ?>
+                                        <a href="/billing/bill/view/<?php echo trim(explode(':', $movimiento->concepto)[1]); ?>" target="_blank" class="btn btn-default btn-sm">
+                                            <span class="fa fa-eye"></span> Ver factura
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="/billing/caja/uno/<?php echo $movimiento->id; ?>" target="_blank" class="btn btn-default btn-sm">
+                                            <span class="fa fa-eye"></span> Ver ticket
+                                        </a>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

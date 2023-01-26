@@ -113,8 +113,8 @@
                                 <th><?php echo display('serial'); ?></th>
                                 <th><?php echo display('service_name'); ?></th>
                                 <th><?php echo display('quantity'); ?></th>
+                                <th><?php echo display('quantity'); ?></th>
                                 <th><?php echo display('rate'); ?></th>
-                                <th><?php echo display('subtotal'); ?></th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -131,11 +131,19 @@
                             </td>
                             <td class="description">
                                 <p>
-                                    <?php echo $service->name; ?>
-                                    <?php if ($service->professional_id): ?> 
-                                        <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
+                                    <?php if ($service->product): ?>
+                                        <?php $medicine = $this->db->from('almacenes_productos')->where('id', $service->service_id)->get()->row() ?>
+
+                                        <?php echo 'Producto: ' . $medicine->name; ?>
+
+                                    <?php else: ?>
+                                        <?php echo 'Servicio: ' . $service->name; ?>
+
+                                        <?php if ($service->professional_id): ?> 
+                                            <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
+                                        <?php endif; ?>
                                     <?php endif; ?>
-                                </p> 
+                                </p>  
                             </td>
                             <td class="charge">
                                 <p><?php echo $service->quantity; ?></p> 

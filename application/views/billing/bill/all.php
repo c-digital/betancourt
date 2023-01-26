@@ -115,6 +115,8 @@
                                 <th><?php echo display('quantity'); ?></th>
                                 <th><?php echo display('rate'); ?></th>
                                 <th><?php echo display('subtotal'); ?></th> 
+                                <th>Numero factura</th>
+                                <th>Estado factura</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,9 +133,17 @@
                             </td>
                             <td class="description">
                                 <p>
-                                    <?php echo $service->name; ?>
-                                    <?php if ($service->professional_id): ?> 
-                                        <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
+                                    <?php if ($service->product): ?>
+                                        <?php $medicine = $this->db->from('almacenes_productos')->where('id', $service->service_id)->get()->row() ?>
+
+                                        <?php echo 'Producto: ' . $medicine->name; ?>
+
+                                    <?php else: ?>
+                                        <?php echo 'Servicio: ' . $service->name; ?>
+
+                                        <?php if ($service->professional_id): ?> 
+                                            <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </p> 
                             </td>
@@ -145,6 +155,20 @@
                             </td>
                             <td class="ballance">
                                 <p><?php echo ($service->quantity*$service->amount); ?></p> 
+                            </td>
+                            <td class="discount">
+                                <p>
+                                    <a href="https://clinicamedicabetancourt.com/billing/bill/view/<?php echo $service->bill_id; ?>">
+                                        <?php echo $service->bill_id; ?>                                        
+                                    </a>
+                                </p> 
+                            </td>
+                            <td class="discount">
+                                <?php if ($service->bill_status == 'Pagada'): ?>
+                                    <span class="label label-xs label-success"><?php echo $service->bill_status; ?></span>
+                                <?php else: ?>
+                                    <span class="label label-xs label-danger"><?php echo $service->bill_status; ?></span>
+                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php
@@ -288,23 +312,23 @@
                         <table class="payment">
                             <thead>
                                 <tr>
-                                    <td><?php echo display('total'); ?></td>
+                                    <td><?php echo 'Total'; ?></td>
                                     <th><?php echo  @sprintf("%.2f", (isset($subtotal)?$subtotal+$pay_medicine+$pay_bed:"0.00")) ?></th>
                                 </tr>
                             </thead>
                             <tbody> 
-                                <tr>
+                                <!-- <tr>
                                     <td><?php echo display('medicine').' '.display('bill'); ?></td>
                                     <td><?php echo  @sprintf("%.2f", (isset($pay_medicine)?$pay_medicine:0.00)) ?></td>
-                                </tr> 
+                                </tr> --> 
                                 <tr> 
                                     <td><?php echo display('bed_bill'); ?></td>
                                     <td><?php echo  @sprintf("%.2f", $pay_bed) ?></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td><?php echo display('pay_advance'); ?></td>
                                     <td><?php echo  @sprintf("%.2f", (isset($pay_advance)?$pay_advance:"0.00")) ?></td>
-                                </tr> 
+                                </tr>  -->
                                 <tr> 
                                     <td><?php echo display('discount'); ?> (<?php echo  @sprintf("%.2f", (($bill->discount/$subtotal)*100)) ?>%)</td>
                                     <td><?php echo  @sprintf("%.2f", $bill->discount) ?></td>
@@ -316,7 +340,7 @@
                             </tbody>
                             <thead>
                                 <tr>
-                                    <td><?php echo display('payable'); ?></td>
+                                    <td><?php echo 'Total a pagar'; ?></td>
                                     <th><?php echo  @sprintf("%.2f", ($subtotal-$bill->discount+$bill->tax+$pay_bed+$pay_medicine-$pay_advance),2) ?></th>
                                 </tr>
                             </thead>

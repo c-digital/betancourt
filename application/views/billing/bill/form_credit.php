@@ -21,7 +21,7 @@
         if($this->permission->method('add_bill','create')->access()){
         ?>
         <div class="panel-body">
-            <?php echo form_open('billing/bill/form', array('class'=>'billig-form')) ?>
+            <?php echo form_open('billing/bill/form_credit', array('class'=>'billig-form')) ?>
                 <div class="row">
                     <div class="col-sm-9">
                         <div class="row">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <input name="bill_date" type="text" class="form-control datepicker" id="bill_date"  placeholder="<?php echo display('bill_date') ?>" autocomplete="off" required/>
+                                    <input name="bill_date" type="text" class="form-control datepicker" id="bill_date"  placeholder="<?php echo display('bill_date') ?>" autocomplete="off"/>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
@@ -204,7 +204,7 @@
                                                 'Card'=>display('card'),
                                                 'Cheque'=>display('cheque'),
                                             );
-                                            echo form_dropdown('payment_method', $paymentList, null, array('class'=>'form-control basic-single', 'required'=>'required'));
+                                            echo form_dropdown('payment_method', $paymentList, null, array('class'=>'form-control basic-single'));
                                         ?>  
                                     </div>
                                 </div>
@@ -315,7 +315,7 @@
                     </div>
                 </div>  -->
 
-                <input type="hidden" name="status" value="1">
+                <input type="hidden" name="status" value="0">
 
 
                 <div class="panel-footer text-center"> 

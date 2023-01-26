@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 25-01-2023 a las 10:20:51
+-- Tiempo de generación: 25-01-2023 a las 14:16:58
 -- Versión del servidor: 5.7.41
 -- Versión de PHP: 7.4.33
 
@@ -71,6 +71,7 @@ INSERT INTO `acc_coa` (`HeadCode`, `HeadName`, `PHeadName`, `HeadLevel`, `IsActi
 ('502020100010', '11-David-Rojas', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2023-01-19 22:55:21', '', '0000-00-00 00:00:00'),
 ('502020100011', '12-Dr. Mario -G. Cuella Lens', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2023-01-19 23:06:40', '', '0000-00-00 00:00:00'),
 ('502020100012', '13-Susel-Fernandes', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2023-01-24 19:49:24', '', '0000-00-00 00:00:00'),
+('502020100013', '14-Isabel -A', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2023-01-25 13:24:30', '', '0000-00-00 00:00:00'),
 ('502020100001', '2-Farmacia-Farmacia', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2022-04-19 12:14:08', '', '0000-00-00 00:00:00'),
 ('502020100002', '3-Dra Susel-Betancourt', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2022-04-19 12:51:57', '', '0000-00-00 00:00:00'),
 ('502020100003', '4-Lola Melean-Rodriguez', 'Employee Payable', 4, 1, 1, 0, 'L', 0, 0, '0.00', '1', '2022-04-30 14:05:44', '', '0000-00-00 00:00:00'),
@@ -273,7 +274,7 @@ CREATE TABLE `acc_transaction` (
   `VNo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Vtype` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `VDate` date DEFAULT NULL,
-  `COAID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `COAID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Narration` text COLLATE utf8_unicode_ci,
   `Debit` decimal(18,2) DEFAULT NULL,
   `Credit` decimal(18,2) DEFAULT NULL,
@@ -315,7 +316,9 @@ INSERT INTO `acc_transaction` (`ID`, `VNo`, `Vtype`, `VDate`, `COAID`, `Narratio
 (22, 'BLIVBWA4H', 'Patient Bill', '2023-01-24', '102030200008', 'Patient Credit For Bill amount - P9AS15E5', '0.00', '240.00', 2, '1', '1', '2023-01-24 23:52:03', NULL, NULL, '1'),
 (23, 'BLIVBWA4H', 'Patient Bill', '2023-01-24', '102010204', 'Card or Cheque In Debit For Bill from Patient- P9AS15E5', '240.00', '0.00', 2, '1', '1', '2023-01-24 23:52:03', NULL, NULL, '1'),
 (24, '5', 'Patient Advance', '2023-01-24', '102030200008', 'Advance For Patient Id P9AS15E5', '0.00', '300.00', 2, '1', '1', '2023-01-24 23:52:32', NULL, NULL, '1'),
-(25, '5', 'Patient Advance', '2023-01-24', '102010204', 'Advance Payment For Patient Id P9AS15E5', '300.00', '0.00', 2, '1', '1', '2023-01-24 23:52:32', NULL, NULL, '1');
+(25, '5', 'Patient Advance', '2023-01-24', '102010204', 'Advance Payment For Patient Id P9AS15E5', '300.00', '0.00', 2, '1', '1', '2023-01-24 23:52:32', NULL, NULL, '1'),
+(26, 'BLZFUZS0A', 'Patient Bill', '2023-01-25', NULL, 'Patient Credit For Bill amount - ', '0.00', '400.00', 2, '1', '1', '2023-01-25 17:06:04', NULL, NULL, '1'),
+(27, 'BLZFUZS0A', 'Patient Bill', '2023-01-25', '102010204', 'Card or Cheque In Debit For Bill from Patient- ', '400.00', '0.00', 2, '1', '1', '2023-01-25 17:06:04', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -586,7 +589,9 @@ INSERT INTO `bill` (`id`, `bill_id`, `bill_type`, `bill_date`, `admission_id`, `
 (61, 'BL0MJZ3UI', 'ipd', '2023-01-20', 'UXUNS6AB', 0, 0, 25, 'Cash', '', '', '', '2023-01-24 23:38:42', 0, NULL),
 (62, 'BLH2CERBT', 'ipd', '2023-01-24', 'UXUNS6AB', 0, 0, 450, 'Cash', '', '', '', '2023-01-24 23:39:54', 0, NULL),
 (66, 'BLIVBWA4H', 'ipd', '2023-01-24', 'U4DW0K57', 0, 0, 240, 'Cash', '', '', '', '2023-01-24 23:58:50', 1, NULL),
-(67, 'BLQLK6B41', 'ipd', '2023-01-24', 'U4DW0K57', 0, 0, 151, 'Cash', '', '', '', '2023-01-24 23:59:20', 1, NULL);
+(67, 'BLQLK6B41', 'ipd', '2023-01-24', 'U4DW0K57', 0, 0, 151, 'Cash', '', '', '', '2023-01-24 23:59:20', 1, NULL),
+(68, 'BLOH9XWI2', 'ipd', '2023-01-25', 'U4DW0K57', 0, 0, 400, 'Cash', '', '', '', '2023-01-25 17:05:34', 1, NULL),
+(69, 'BLZFUZS0A', 'ipd', '2023-01-25', 'U4DW0K57', 0, 0, 400, 'Cash', '', '', '', '2023-01-25 17:06:04', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -746,6 +751,7 @@ CREATE TABLE `bill_details` (
   `professional_id` int(11) DEFAULT NULL,
   `quantity` float DEFAULT '0',
   `amount` float DEFAULT '0',
+  `product` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -754,32 +760,34 @@ CREATE TABLE `bill_details` (
 -- Volcado de datos para la tabla `bill_details`
 --
 
-INSERT INTO `bill_details` (`id`, `bill_id`, `admission_id`, `package_id`, `service_id`, `professional_id`, `quantity`, `amount`, `date`, `status`) VALUES
-(5, 'BLS5B7T9P', 'UVO75KZT', 0, 2, NULL, 1, 150, '2020-07-20', ''),
-(6, 'BLS5B7T9P', 'UVO75KZT', 0, 1, NULL, 1, 300, '2020-07-20', ''),
-(7, 'BLBN4QAHI', 'U0ELD0ZO', 1, 2, NULL, 2, 150, '2022-06-14', ''),
-(8, 'BLBN4QAHI', 'U0ELD0ZO', 1, 1, NULL, 1, 300, '2022-06-14', ''),
-(23, 'BLSTTNWY1', 'U925TR6P', 0, 25, 3, 1, 100, '2022-06-29', ''),
-(32, 'BLMP2DMJ2', 'UPDTSJ41', 0, 3, NULL, 1, 5000, '2022-06-29', ''),
-(33, 'BLXTCBCOT', 'U925TR6P', 0, 27, NULL, 1, 20, '2022-07-06', ''),
-(41, 'BLA666Q5R', 'U85PU9CD', 0, 32, NULL, 1, 300, '2023-01-23', ''),
-(42, 'BLA666Q5R', 'U85PU9CD', 0, 5, NULL, 1, 150, '2023-01-23', ''),
-(43, 'BLA666Q5R', 'U85PU9CD', 0, 22, NULL, 1, 100, '2023-01-23', ''),
-(44, 'BLA666Q5R', 'U85PU9CD', 0, 37, NULL, 1, 123, '2023-01-23', ''),
-(45, 'BLJJ0N7RA', 'UXUNS6AB', 0, 32, NULL, 1, 300, '2023-01-24', ''),
-(46, 'BLJJ0N7RA', 'UXUNS6AB', 0, 5, NULL, 1, 150, '2023-01-24', ''),
-(47, 'BLJJ0N7RA', 'UXUNS6AB', 0, 8, NULL, 1, 150, '2023-01-24', ''),
-(48, 'BLJJ0N7RA', 'UXUNS6AB', 0, 22, NULL, 1, 100, '2023-01-24', ''),
-(49, 'BLJJ0N7RA', 'UXUNS6AB', 0, 24, NULL, 1, 80, '2023-01-24', ''),
-(50, 'BLJJ0N7RA', 'UXUNS6AB', 0, 30, NULL, 1, 120, '2023-01-24', ''),
-(51, 'BL0MJZ3UI', 'UXUNS6AB', 0, 14, NULL, 1, 25, '2023-01-24', ''),
-(52, 'BLH2CERBT', 'UXUNS6AB', 0, 32, NULL, 1, 300, '2023-01-24', ''),
-(53, 'BLH2CERBT', 'UXUNS6AB', 0, 8, NULL, 1, 150, '2023-01-24', ''),
-(59, 'BLIVBWA4H', 'U4DW0K57', 0, 10, NULL, 1, 20, '2023-01-24', ''),
-(60, 'BLIVBWA4H', 'U4DW0K57', 0, 27, NULL, 1, 20, '2023-01-24', ''),
-(61, 'BLIVBWA4H', 'U4DW0K57', 0, 11, NULL, 1, 200, '2023-01-24', ''),
-(62, 'BLQLK6B41', 'U4DW0K57', 0, 5, NULL, 1, 150, '2023-01-24', ''),
-(63, 'BLQLK6B41', 'U4DW0K57', 0, 15, NULL, 1, 1, '2023-01-24', '');
+INSERT INTO `bill_details` (`id`, `bill_id`, `admission_id`, `package_id`, `service_id`, `professional_id`, `quantity`, `amount`, `product`, `date`, `status`) VALUES
+(5, 'BLS5B7T9P', 'UVO75KZT', 0, 2, NULL, 1, 150, NULL, '2020-07-20', ''),
+(6, 'BLS5B7T9P', 'UVO75KZT', 0, 1, NULL, 1, 300, NULL, '2020-07-20', ''),
+(7, 'BLBN4QAHI', 'U0ELD0ZO', 1, 2, NULL, 2, 150, NULL, '2022-06-14', ''),
+(8, 'BLBN4QAHI', 'U0ELD0ZO', 1, 1, NULL, 1, 300, NULL, '2022-06-14', ''),
+(23, 'BLSTTNWY1', 'U925TR6P', 0, 25, 3, 1, 100, NULL, '2022-06-29', ''),
+(32, 'BLMP2DMJ2', 'UPDTSJ41', 0, 3, NULL, 1, 5000, NULL, '2022-06-29', ''),
+(33, 'BLXTCBCOT', 'U925TR6P', 0, 27, NULL, 1, 20, NULL, '2022-07-06', ''),
+(41, 'BLA666Q5R', 'U85PU9CD', 0, 32, NULL, 1, 300, NULL, '2023-01-23', ''),
+(42, 'BLA666Q5R', 'U85PU9CD', 0, 5, NULL, 1, 150, NULL, '2023-01-23', ''),
+(43, 'BLA666Q5R', 'U85PU9CD', 0, 22, NULL, 1, 100, NULL, '2023-01-23', ''),
+(44, 'BLA666Q5R', 'U85PU9CD', 0, 37, NULL, 1, 123, NULL, '2023-01-23', ''),
+(45, 'BLJJ0N7RA', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, '2023-01-24', ''),
+(46, 'BLJJ0N7RA', 'UXUNS6AB', 0, 5, NULL, 1, 150, NULL, '2023-01-24', ''),
+(47, 'BLJJ0N7RA', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, '2023-01-24', ''),
+(48, 'BLJJ0N7RA', 'UXUNS6AB', 0, 22, NULL, 1, 100, NULL, '2023-01-24', ''),
+(49, 'BLJJ0N7RA', 'UXUNS6AB', 0, 24, NULL, 1, 80, NULL, '2023-01-24', ''),
+(50, 'BLJJ0N7RA', 'UXUNS6AB', 0, 30, NULL, 1, 120, NULL, '2023-01-24', ''),
+(51, 'BL0MJZ3UI', 'UXUNS6AB', 0, 14, NULL, 1, 25, NULL, '2023-01-24', ''),
+(52, 'BLH2CERBT', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, '2023-01-24', ''),
+(53, 'BLH2CERBT', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, '2023-01-24', ''),
+(59, 'BLIVBWA4H', 'U4DW0K57', 0, 10, NULL, 1, 20, NULL, '2023-01-24', ''),
+(60, 'BLIVBWA4H', 'U4DW0K57', 0, 27, NULL, 1, 20, NULL, '2023-01-24', ''),
+(61, 'BLIVBWA4H', 'U4DW0K57', 0, 11, NULL, 1, 200, NULL, '2023-01-24', ''),
+(62, 'BLQLK6B41', 'U4DW0K57', 0, 5, NULL, 1, 150, NULL, '2023-01-24', ''),
+(63, 'BLQLK6B41', 'U4DW0K57', 0, 15, NULL, 1, 1, NULL, '2023-01-24', ''),
+(64, 'BLOH9XWI2', 'U4DW0K57', 0, 8, NULL, 5, 20, 1, '2023-01-25', ''),
+(65, 'BLOH9XWI2', 'U4DW0K57', 0, 32, NULL, 1, 300, 0, '2023-01-25', '');
 
 -- --------------------------------------------------------
 
@@ -1055,7 +1063,10 @@ INSERT INTO `caja` (`id`, `tipo_movimiento`, `fecha`, `monto`, `metodo_pago`, `c
 (133, 'Entrada', '2023-01-24 18:36:00', '300', 'Efectivo', 'sra susel para compra de verduras', '500', 'Caja abierta', 'Lola Melean Rodriguez'),
 (134, 'Salida', '2023-01-24 18:38:34', '270', 'Efectivo', 'compra de verduras', '230', 'Caja abierta', 'Lola Melean Rodriguez'),
 (135, 'Entrada', '2023-01-24 20:58:50', '240.00', 'Efectivo', 'Pago de factura: BLIVBWA4H', '2040', 'Caja abierta', 'Administrador betancourt'),
-(136, 'Entrada', '2023-01-24 20:59:20', '151.00', 'Efectivo', 'Pago de factura: BLQLK6B41', '2191', 'Caja abierta', 'Administrador betancourt');
+(136, 'Entrada', '2023-01-24 20:59:20', '151.00', 'Efectivo', 'Pago de factura: BLQLK6B41', '2191', 'Caja abierta', 'Administrador betancourt'),
+(137, 'Salida', '2023-01-25 13:35:54', '2191', NULL, 'Cierre de caja', '0', 'Caja cerrada', 'Lola Melean Rodriguez'),
+(138, 'Entrada', '2023-01-25 13:37:14', '200', 'Efectivo', 'Apertura de caja', '200', 'Caja abierta', 'Lola Melean Rodriguez'),
+(139, 'Entrada', '2023-01-25 14:06:04', '400.00', 'Efectivo', 'Pago de factura: BLZFUZS0A', '2591', 'Caja abierta', 'Administrador betancourt');
 
 -- --------------------------------------------------------
 
@@ -1488,7 +1499,14 @@ INSERT INTO `ha_category` (`id`, `name`, `description`, `status`) VALUES
 (120, 'Antibacteriano', '<p>Un antimicrobiano es un agente que mata microorganismos o detiene su crecimiento.​ Los medicamentos antimicrobianos se pueden agrupar de acuerdo con los microorganismos contra los que actúan principalmente. Por ejemplo, los antibióticos se usan contra las bacterias y los antifúngicos contra los hongos.</p>', 1),
 (121, 'Antibacteriano', '<p>Un antimicrobiano es un agente que mata microorganismos o detiene su crecimiento.​ Los medicamentos antimicrobianos se pueden agrupar de acuerdo con los microorganismos contra los que actúan principalmente. Por ejemplo, los antibióticos se usan contra las bacterias y los antifúngicos contra los hongos.</p>', 1),
 (122, 'Antioxidante', '<div class=\"wWOJcd\" tabindex=\"0\">\r\n<div id=\"exacc_FPLPY7-5CM_Q5OUPhM6_sAo_7\" class=\"iDjcJe IX9Lgd wwB5gf\">El ácido ascórbico pertenece a una <strong>clase de medicamentos</strong> llamados antioxidantes. El cuerpo lo necesita para ayudar a la cicatrización de las heridas, mejorar la absorción de hierro de los alimentos vegetales y apoyar el sistema inmunológico.</div>\r\n</div>', 1),
-(123, 'Suero  Hidroelectrolítico', '<div class=\"wWOJcd\" tabindex=\"0\">\r\n<div id=\"exacc_rSPQY8aZNYWa0AbcjrGYCA_3\" class=\"iDjcJe IX9Lgd wwB5gf\">¿Qué es Ringer lactato y para qué sirve?</div>\r\n<div class=\"YsGUOb\"> </div>\r\n<div class=\"r21Kzd\" data-hveid=\"CBcQAQ\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQuk56BAgXEAE\"> </div>\r\n</div>\r\n<div id=\"exacc_rSPQY8aZNYWa0AbcjrGYCA_4\" class=\"MBtdbb\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQ7NUEegQIFxAD\">\r\n<div class=\"ymu2Hb\">\r\n<div id=\"_rSPQY8aZNYWa0AbcjrGYCA_38\" class=\"t0bRye r2fjmd\" data-hveid=\"CBcQBA\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQu04oAHoECBcQBA\">\r\n<div id=\"rSPQY8aZNYWa0AbcjrGYCA__20\">\r\n<div class=\"wDYxhc\" data-md=\"61\">\r\n<div class=\"LGOjhe\" data-attrid=\"wa:/description\" data-hveid=\"CBIQAA\"><span class=\"ILfuVd\" lang=\"es\"><span class=\"hgKElc\">Indicado para la rehidratación y restauración del equilibrio hidroelectrolítico, cuando hay pérdida de líquidos e iones cloruro, sodio, potasio y calcio y para la prevención y el tratamiento de la acidosis metabólica.</span></span></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 1);
+(123, 'Suero  Hidroelectrolítico', '<div class=\"wWOJcd\" tabindex=\"0\">\r\n<div id=\"exacc_rSPQY8aZNYWa0AbcjrGYCA_3\" class=\"iDjcJe IX9Lgd wwB5gf\">¿Qué es Ringer lactato y para qué sirve?</div>\r\n<div class=\"YsGUOb\"> </div>\r\n<div class=\"r21Kzd\" data-hveid=\"CBcQAQ\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQuk56BAgXEAE\"> </div>\r\n</div>\r\n<div id=\"exacc_rSPQY8aZNYWa0AbcjrGYCA_4\" class=\"MBtdbb\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQ7NUEegQIFxAD\">\r\n<div class=\"ymu2Hb\">\r\n<div id=\"_rSPQY8aZNYWa0AbcjrGYCA_38\" class=\"t0bRye r2fjmd\" data-hveid=\"CBcQBA\" data-ved=\"2ahUKEwiGpK-j6-D8AhUFDdQKHVxHDIMQu04oAHoECBcQBA\">\r\n<div id=\"rSPQY8aZNYWa0AbcjrGYCA__20\">\r\n<div class=\"wDYxhc\" data-md=\"61\">\r\n<div class=\"LGOjhe\" data-attrid=\"wa:/description\" data-hveid=\"CBIQAA\"><span class=\"ILfuVd\" lang=\"es\"><span class=\"hgKElc\">Indicado para la rehidratación y restauración del equilibrio hidroelectrolítico, cuando hay pérdida de líquidos e iones cloruro, sodio, potasio y calcio y para la prevención y el tratamiento de la acidosis metabólica.</span></span></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 1),
+(124, 'Anticonceptivos', '<p><strong>Es un contraceptivo que contiene cobre en el cuerpo del DIU</strong>, esta formado por una T flexible de polietileno contiene hilo de cobre en el centro y dos hilos blancos de polietileno que sirven para su retiro.</p>', 1),
+(125, 'Antiacidos antiflatulentos antiulcerosos', '<div class=\"wWOJcd\" tabindex=\"0\">\r\n<div id=\"exacc_YDDRY-e6KorD5OUP7Na-sAk_3\" class=\"iDjcJe IX9Lgd wwB5gf\">¿Qué es el Diposan y para qué sirve?</div>\r\n<div class=\"YsGUOb\"> </div>\r\n<div class=\"r21Kzd\" data-hveid=\"CBkQAQ\" data-ved=\"2ahUKEwjn6r3D6-L8AhWKIbkGHWyrD5YQuk56BAgZEAE\"> </div>\r\n</div>\r\n<div id=\"exacc_YDDRY-e6KorD5OUP7Na-sAk_4\" class=\"MBtdbb\" data-ved=\"2ahUKEwjn6r3D6-L8AhWKIbkGHWyrD5YQ7NUEegQIGRAD\">\r\n<div class=\"ymu2Hb\">\r\n<div id=\"_YDDRY-e6KorD5OUP7Na-sAk_37\" class=\"t0bRye r2fjmd\" data-hveid=\"CBkQBA\" data-ved=\"2ahUKEwjn6r3D6-L8AhWKIbkGHWyrD5YQu04oAHoECBkQBA\">\r\n<div id=\"YDDRY-e6KorD5OUP7Na-sAk__12\">\r\n<div class=\"wDYxhc\" data-md=\"61\">\r\n<div class=\"LGOjhe\" data-attrid=\"wa:/description\" data-hveid=\"CBUQAA\"><span class=\"ILfuVd\" lang=\"es\"><span class=\"hgKElc\">Anti-flatulento <strong>que</strong> tiene propiedad de producir la eliminación de las burbujas gaseosas por fermentaciones y putrefacciones gastrointestinales u otras causas.</span></span></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 1),
+(126, 'Antibióticos De Cefalosporina.', '<p>Ceftriaxona <strong>es un antibiótico para adultos y niños</strong> (incluidos los bebés recién nacidos). Produce su efecto eliminando las bacterias causantes de infecciones. Pertenece a un grupo de medicamentos llamados cefalosporinas.</p>', 1),
+(127, 'Antagonistas De Los Receptores H2 De La Histamina.', '<p>Los antagonistas de los receptores H2 <strong>son medicamentos que ayudan a disminuir el ácido gástrico</strong>. La sobredosis de antagonistas de los receptores H2 ocurre cuando alguien toma una cantidad mayor a la normal o recomendada de este medicamento. Esto puede suceder de forma accidental o intencional.</p>', 1),
+(128, 'Ortopramidas.', '<p>LAS ORTOPRAMIDAS, DE LAS QUE METOCLOPRAMIDA, SULPIRIDA Y CLEBOPRIDA SON LAS MAS CONOCIDAS, <strong>SE UTILIZAN PARA EL TRATAMIENTO DE CIERTOS DESORDENES DEL TRACTO GASTROINTESTINAL</strong>, SI BIEN ADEMAS PRESENTAN UN PERFIL PSICOFARMACOLOGICO QUE SUGIERE SU INDICACION EN LA TERAPIA DE ALGUNAS ENFERMEDADES DE ORIGEN CENTRAL.</p>', 1),
+(129, 'Alcaloide Derivado Del Ergot', '<p>La ergonovina, también conocida como ergometrina, es un <strong>alcaloide derivado del ergot</strong> que se obtiene del cornezuelo del centeno con propiedades oxitócicas poderosas, por lo que aumenta de manera notable la actividad motora del útero.</p>', 1),
+(130, 'Antianémicos', '<p><strong>Mecanismo de acción</strong>: Todos los principios activos presentan el mismo <strong>mecanismo de acción</strong> son <strong>antianémicos</strong> que contienen hierro II. El hierro interviene en la síntesis de hemoglobina presente en los glóbulos rojos.</p>', 1);
 
 -- --------------------------------------------------------
 
@@ -1557,7 +1575,7 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (15, '5', 'Guantes Quirúrgicos # 7', 22, '<p>Guantes Quir&uacute;rgicos # 7</p>', 50, 4, 'Intermedical', '2023-01-13', 1),
 (16, '6', 'Guantes Quirúrgicos # 7.5', 22, '<p>Guantes Quir&uacute;rgicos # 7.5</p>', 50, 4, 'Intermedical', '2023-01-13', 1),
 (17, '7', 'Guantes Quirúrgicos # 8', 22, '<p>Guantes Quir&uacute;rgicos # 8</p>', 81, 4, 'Intermedical', '2023-01-13', 1),
-(18, '9', 'Jeringa 5 ml', 22, '<p>Jeringa 5 ml</p>', 568, 1.5, 'Intermedical', '2023-01-13', 1),
+(18, '9', 'Jeringa 5 ml', 22, '<p>Jeringa 5 ml</p>', 572, 1.5, 'Intermedical', '2023-01-13', 1),
 (19, '8', 'Jeringa 20 ml', 22, '<p>Jeringa 20 ml</p>', 123, 1.5, 'Intermedical', '2023-01-13', 1),
 (20, '1234', 'Bránula # 18', 22, '<p>Br&aacute;nula # 18</p>', 145, 4.99, 'Intermedical', '2023-01-12', 1),
 (21, '123', 'Bránula # 20', 22, '<p>Br&aacute;nula # 20</p>', 100, 4.99, 'Intermedical', '2023-01-12', 1),
@@ -1614,7 +1632,6 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (73, '1032', 'Sevogesic Frasco 250 ml (Sevoflurano Anestésico)', 18, '<p>Es un agente anest&eacute;sico l&iacute;quido no inflamable que se administra por vaporizaci&oacute;n, y qu&iacute;micamente es un derivado fluorinado del &eacute;ter metil isopropilo, que induce una p&eacute;rdida de conciencia suave y r&aacute;pida durante la inducci&oacute;n inhalatoria y una r&aacute;pida recuperaci&oacute;n despu&eacute;s de su discontinuaci&oacute;n.</p>', 1, 6, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (74, '1177', 'Tramadol 100 mg Ampolla Intro Veno', 59, 'Los fármacos agonistas puros son los siguientes: morfina, metadona, meperidina, tramadol, codeína, dihidrocodeína y dextropropoxifeno. Son fármacos con una baja actividad intrínseca (eficacia), de forma que su curva dosis-respuesta presenta un efecto techo menor que el máximo efecto produci do por un agonista puro.', 10, 11.9, '', '2023-01-17', 1),
 (75, '1126', 'Vancomicina 1 gr', 60, 'La vancomicina pertenece a una clase de medicamentos llamados antibióticos glicopéptidos. Su acción consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por vía oral.', 10, 40.99, '', '2023-01-17', 1),
-(77, '1126', 'Vancomicina 1gr ', 60, 'La vancomicina pertenece a una clase de medicamentos llamados antibióticos glicopéptidos. Su acción consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por vía oral.', 0, 40.99, '', '2023-01-17', 1),
 (78, '1128', 'Vancomicina 500mg Ampolla', 60, 'La vancomicina pertenece a una clase de medicamentos llamados antibióticos glicopéptidos. Su acción consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por vía oral.', 10, 19.5, '', '2023-01-17', 1),
 (79, '5110', 'Suero Dextrosa 500 ml', 108, '<p>Qu&eacute; es Suero Glucosado Vitulia 5% y para qu&eacute; se utiliza para el tratamiento de la p&eacute;rdida de agua (deshidrataci&oacute;n hipert&oacute;nica) por v&oacute;mitos, diarrea. como aporte de energ&iacute;a en nutrici&oacute;n parenteral cuando la toma de alimentos por la boca est&aacute; limitada.</p>', 98, 18, 'N Y L', '2023-01-24', 1),
 (80, '5120', 'Suero Fisiológico', 0, 'Suero Fisiológico Vitulia se utiliza para reemplazar el agua y las sales de sodio y cloruro que pueden llegar a ser bajos como consecuencia de diferentes alteraciones o trastornos. También se utiliza como solución de transporte de otros medicamentos compatibles.', 0, 15, '', '2023-01-17', 1),
@@ -1663,7 +1680,19 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (124, '38', 'Agujas Pencan # 27 /Obesos', 22, 'Agujas punta de lápiz para anestesia espinal y punción lumbar diagnóstica · Con medidas de 22G a 27G. · El diseño de la punta permite una mínima penetración ', 4, 0, 'Betancourt', '2023-01-24', 1),
 (125, '69', 'Acetilcisteína 300mg-3ml', 14, 'La acetilcisteína es una clase de medicamento llamado agente mucolítico. Funciona diluyendo el moco en los conductos respiratorios, lo que facilita que al toser salga el moco y despeje las vías respiratorias.', 8, 0, 'Betancourt', '2023-01-24', 1),
 (126, '78', 'Neostigmina 0,5mg/1ml', 51, 'La neostigmina es un inhibidor reversible de la enzima colinesterasa, que impide la destrucción de la acetilcolina y produce un efecto parasimpaticomimético indirecto mediante el aumento de la concentración de acetilcolina en el receptor', 2, 0, 'Betancourt', '2023-01-24', 1),
-(127, '39', 'Agujas Pencan #27 /Normal ', 22, '<p><em>Agujas</em>&nbsp;punta de l&aacute;piz para anestesia espinal y punci&oacute;n lumbar diagn&oacute;stica &middot; Con medidas de 22G a&nbsp;<em>27G</em>. &middot; El dise&ntilde;o de la punta permite una m&iacute;nima penetraci&oacute;n&nbsp;...</p>', 2, 0, 'Betancourt', '2023-01-25', 1);
+(127, '39', 'Agujas Pencan #27 /Normal ', 22, '<p><em>Agujas</em>&nbsp;punta de l&aacute;piz para anestesia espinal y punci&oacute;n lumbar diagn&oacute;stica &middot; Con medidas de 22G a&nbsp;<em>27G</em>. &middot; El dise&ntilde;o de la punta permite una m&iacute;nima penetraci&oacute;n&nbsp;...</p>', 2, 0, 'Betancourt', '2023-01-25', 1),
+(128, '24', 'Copper T Dispositivo Intrauterino DIU / TCU 380-A', 47, '<p>&nbsp;<strong>Es un contraceptivo que contiene cobre en el cuerpo del DIU</strong>, esta formado por una T flexible de polietileno contiene hilo de cobre en el centro y dos hilos blancos de polietileno que sirven para su retiro.</p>', 1, 0, 'Betancourt', '2023-01-25', 1),
+(129, '100', 'Diposan 100Mg Dimetilpolisiloxano', 125, '<p><strong>Anti-flatulento que tiene propiedad de producir la eliminaci&oacute;n de las burbujas gaseosas por fermentaciones y putrefacciones gastrointestinales u otras causas</strong>.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(130, '35', 'Jeringa 10ml', 22, '<p>&nbsp;<strong>Jeringa</strong>&nbsp;hipodermica desechable de&nbsp;<strong>10 ml</strong>&nbsp;con&nbsp;<strong>aguja</strong>&nbsp;calibre 21 x 1 1/2 - de tres partes, plastipak luer lock. Uso: Utilizadas para administraci&oacute;n de medicamentos y/o soluciones y extracci&oacute;n de l&iacute;quidos corporales.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(131, '99', 'Ceftriaxona Sódica 1G', 126, '<p>&nbsp;Ceftriaxona&nbsp;<strong>es un antibi&oacute;tico para adultos y ni&ntilde;os</strong>&nbsp;(incluidos los beb&eacute;s reci&eacute;n nacidos). Produce su efecto eliminando las bacterias causantes de infecciones. Pertenece a un grupo de medicamentos llamados cefalosporinas.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(132, '85', 'Dexametasona 8mg/2ml Amp.', 63, '<p>La dexametasona es un&nbsp;<strong>corticosteroide</strong>, es decir, es similar a una hormona natural producida por las gl&aacute;ndulas suprarrenales. Por lo general, se usa para reemplazar este producto qu&iacute;mico cuando su cuerpo no fabrica suficiente.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(133, '59', 'Ranitidina 50mg/2ml Amp.', 127, '<p>La ranitidina&nbsp;<strong>es un principio activo que se utiliza para reducir la producci&oacute;n de &aacute;cido en el est&oacute;mago en situaciones como la &uacute;lcera g&aacute;strica o el reflujo gastroesof&aacute;gico</strong>. Como se ha informado previamente, la NDMA est&aacute; clasificada como un probable carcin&oacute;geno en humanos en base a estudios en animales.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(134, '17', 'Metoclopramida 10mg Amp.', 128, '<p>La&nbsp;<strong>metoclopramida</strong>&nbsp;inyectable se utiliza para aliviar los s&iacute;ntomas provocados por el vaciamiento lento del est&oacute;mago en personas que tienen diabetes. Estos s&iacute;ntomas incluyen n&aacute;useas, v&oacute;mitos, acidez estomacal, p&eacute;rdida del apetito y una sensaci&oacute;n de saciedad que permanece mucho tiempo despu&eacute;s de las comidas.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(135, '32', 'Agua Destilada 5ml/ Amp.', 62, '<p>Indicaciones: El agua est&eacute;ril para inyectables&nbsp;<strong>se usa principalmente para diluci&oacute;n de medicamentos de uso parenteral</strong>. Posolog&iacute;a: La v&iacute;a de administraci&oacute;n depende de la v&iacute;a por la cual se administra el medicamento,</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(136, '45', 'Ergometrina Maleato 0,2mg/1ml Amp.', 129, '<p>La ergonovina, tambi&eacute;n conocida como ergometrina, es un&nbsp;<strong>alcaloide derivado del ergot</strong>&nbsp;que se obtiene del cornezuelo del centeno con propiedades oxit&oacute;cicas poderosas, por lo que aumenta de manera notable la actividad motora del &uacute;tero.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(137, '1626', 'Tegaderm 10cm x 12cm', 22, '<p>El ap&oacute;sito Tegaderm&nbsp;<strong>retiene los componentes naturales de la cicatrizaci&oacute;n de las heridas para mantener un ambiente h&uacute;medo</strong>. Permite la monitorizaci&oacute;n visual permanente del sitio IV y de la herida.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(138, '1683', 'Tegaderm 6,5cm x 7cm', 22, '<p>El ap&oacute;sito Tegaderm&nbsp;<strong>retiene los componentes naturales de la cicatrizaci&oacute;n de las heridas para mantener un ambiente h&uacute;medo</strong>. Permite la monitorizaci&oacute;n visual permanente del sitio IV y de la herida.</p>', 0, 0, 'Betancourt', '2023-01-25', 1),
+(139, '7509', 'Placa / Electro Adultos', 22, '<p><strong>Placa</strong>&nbsp;electrocauterio es indicado para actuar como polvo pasivo de electrocirug&iacute;a permitiendo que la energ&iacute;a retorne a la consola con el prop&oacute;sito de evitar lesiones en la piel del paciente.</p>', 0, 0, 'Betancourt', '2023-01-25', 1);
 
 -- --------------------------------------------------------
 
@@ -2933,7 +2962,9 @@ INSERT INTO `mercaderia` (`id`, `id_mercaderia`, `fecha_entrada`, `fecha_factura
 (126, 22, '2023-01-25', '2023-01-25', '0', 'Betancourt', '987', 'Vitamina C / 1g', '200552', '10', '0', '2023-05-22', 'Jose Ginarte'),
 (127, 23, '2023-01-25', '2023-01-25', '0', 'Betancourt', '39', 'Agujas Pencan #27 /Normal ', '18M19H8B03', '2', '0', '2023-11-30', 'Jose Ginarte'),
 (128, 24, '2023-01-25', '2023-01-25', '0', 'Betancourt', '38', 'Agujas Pencan # 27 /Obesos', '19F13H8B01', '4', '0', '2024-06-30', 'Jose Ginarte'),
-(129, 25, '2023-01-25', '2023-01-25', '0', 'Betancourt', '0', 'Jeringas 3ml', '201908A', '1', '0', '2024-07-31', 'Jose Ginarte');
+(129, 25, '2023-01-25', '2023-01-25', '0', 'Betancourt', '0', 'Jeringas 3ml', '201908A', '1', '0', '2024-07-31', 'Jose Ginarte'),
+(130, 26, '2023-01-25', '2023-01-25', '0', 'Betancourt', '9', 'Jeringa 5 ml', '20170425', '4', '0', '2022-04-25', 'Jose Ginarte'),
+(131, 27, '2023-01-25', '2023-01-25', '0', 'Betancourt', '24', 'Copper T Dispositivo Intrauterino DIU / TCU 380-A', '192258', '1', '0', '2026-04-30', 'Jose Ginarte');
 
 -- --------------------------------------------------------
 
@@ -3055,7 +3086,7 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`id`, `patient_id`, `firstname`, `lastname`, `email`, `password`, `phone`, `mobile`, `address`, `sex`, `blood_group`, `date_of_birth`, `affliate`, `picture`, `created_by`, `create_date`, `status`, `user_role`) VALUES
 (1, 'P6953OWI', 'asdas', 'asd', 'admin@demo.com', 'e10adc3949ba59abbe56e057f20f883e', '0987', '09876543', 'sdfsd dsdf', 'Male', 'A+', '2019-02-08', NULL, '', 1, '2020-05-23', 1, ''),
-(2, 'PELWQ10G', 'Jerin', 'khan', 'jerin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-06-15', 1, ''),
+(2, 'PELWQ10G', 'Jerin', 'khan', 'jerin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, '04246402701', 'Calle 90, Av. 16', 'Male', 'O+', '1993-01-01', NULL, NULL, NULL, '2020-06-15', 1, ''),
 (3, 'PQHZMY23', 'Erick', 'Gonçalves dos Santos', 'dr.ericksantos@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '71608981', 'AV: Bush 570', 'Male', 'B+', '1986-11-11', NULL, 'assets/images/patient/16f0af76557761d01260952cea9ee26a.jpg', 1, '2022-04-19', 1, ''),
 (4, 'PJXGONMO', 'Lola', 'Melean Rodriguez', 'lolita_@hotmail.com', '1ac0d72d238c86b2029c8419ba2574a2', '', '70241149', 'SANTA CRUZ DE LA SIERRA', 'Female', 'O+', '1982-03-03', NULL, '', 4, '2022-04-30', 1, ''),
 (5, 'PHLJBMVS', 'Marco Antonio', 'Condori Vargas', 'Dr_Mco@yahoo.com', 'bf5d288868d1fe98adf551840c4065a2', '', '74210887', 'cuarto anillo', 'Female', 'O+', '1982-03-03', NULL, '', 4, '2022-06-08', 1, ''),
@@ -4365,7 +4396,8 @@ INSERT INTO `sec_userrole` (`id`, `user_id`, `roleid`, `createby`, `createdate`)
 (9, '10', 1, '1', '2023-01-13 00:00:00'),
 (10, '11', 1, '1', '2023-01-19 00:00:00'),
 (11, '12', 2, '1', '2023-01-19 00:00:00'),
-(12, '13', 1, '1', '2023-01-24 00:00:00');
+(12, '13', 1, '1', '2023-01-24 00:00:00'),
+(13, '14', 1, '1', '2023-01-25 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -4571,7 +4603,7 @@ INSERT INTO `sub_module` (`id`, `mid`, `name`, `description`, `image`, `director
 (19, 7, 'Assign To Doctor', 'Assign To Doctor', 'application/modules/store/assets/images/thumbnail.jpg', 'assign_to_doctor', 1),
 (20, 8, 'Add Patient Case Study', 'Add Patient Case Study', 'application/modules/store/assets/images/thumbnail.jpg', 'add_patient_case_study', 1),
 (21, 8, 'Patient Case Study List', 'Patient Case Study List', 'application/modules/store/assets/images/thumbnail.jpg', 'patient_case_study_list', 1),
-(22, 8, 'Prescription List', '	\r\nPrescription List', 'application/modules/store/assets/images/thumbnail.jpg', 'prescription_list', 1),
+(22, 8, 'Prescription List', '  \r\nPrescription List', 'application/modules/store/assets/images/thumbnail.jpg', 'prescription_list', 1),
 (23, 9, 'Debit Voucher', 'Debit Vouche', 'application/modules/store/assets/images/thumbnail.jpg', 'debit_voucher', 1),
 (24, 9, 'Account List', 'Account List', 'application/modules/store/assets/images/thumbnail.jpg', 'account_list', 1),
 (25, 9, 'Credit Voucher', 'Credit Voucher', 'application/modules/store/assets/images/thumbnail.jpg', 'credit_voucher', 1),
@@ -4754,7 +4786,8 @@ INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `email`, `password`, `us
 (10, 'Noel', 'Atiare', 'noel.am.09@gmail.com', '0f0f71fb2e0267644c8212fd1fde813d', 1, NULL, NULL, NULL, 'Male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-01-13', NULL, 1),
 (11, 'David', 'Rojas', 'david.rojas30@gmail.com', 'b730b4173e762690ea5744c2e993faa7', 1, NULL, '', '1970-01-01', 'Male', NULL, '', '', '', '', '', '', 11, '2023-01-20', NULL, 1),
 (12, 'Dr. Mario ', 'G. Cuellar Yoens', 'info@clinicamedicabetancourt.com', 'd41d8cd98f00b204e9800998ecf8427e', 2, 0, '', '2023-01-20', 'Male', '', NULL, NULL, NULL, NULL, NULL, NULL, 11, '2023-01-20', NULL, 1),
-(13, 'Susel', 'Fernandes', 'susel1@clinicamedicabetancourt.com', 'f56674f69a7fa034d5684969e1be8b72', 1, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-01-24', NULL, 1);
+(13, 'Susel', 'Fernandes', 'susel1@clinicamedicabetancourt.com', 'f56674f69a7fa034d5684969e1be8b72', 1, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-01-24', NULL, 1),
+(14, 'Isabel ', 'A', 'Contaduria1985@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, NULL, NULL, 'Female', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2023-01-25', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -4794,7 +4827,8 @@ INSERT INTO `user_lang` (`id`, `user_id`, `firstname`, `lastname`, `language`, `
 (9, 10, 'Noel', 'Atiare', 'Español', 'Cajero', 'Zoillo Flores', '', '75369846', 'Admin', '', '', ''),
 (10, 11, 'David', 'Rojas', 'Español', 'Administrador', 'Zoillo Flores', '', '0', '0', '', '', ''),
 (11, 12, 'Dr. Mario ', 'G. Cuella Lens', 'Español', 'Ginecologo', 'trompillo', '', '70241149', 'ginecologo', '', '', ''),
-(12, 13, 'Susel', 'Fernandes', 'Español', '1', 'a', '', '12345', 'qwer', '', '', '');
+(12, 13, 'Susel', 'Fernandes', 'Español', '1', 'a', '', '12345', 'qwer', '', '', ''),
+(13, 14, 'Isabel ', 'A', 'Español', 'A', 'A', '', '12345', 'Qwe', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -4959,7 +4993,12 @@ INSERT INTO `user_log` (`id`, `user_id`, `in_time`, `out_time`, `date`, `status`
 (120, 7, '14:23:17', '19:40:05', '2023-01-24', 0),
 (121, 4, '14:54:10', '00:00:00', '2023-01-24', 1),
 (122, 13, '19:49:43', '19:50:04', '2023-01-24', 1),
-(123, 8, '12:41:50', '00:00:00', '2023-01-25', 1);
+(123, 8, '12:41:50', '00:00:00', '2023-01-25', 1),
+(124, 1, '13:21:54', '00:00:00', '2023-01-25', 1),
+(125, 14, '13:29:46', '00:00:00', '2023-01-25', 1),
+(126, 6, '14:54:13', '00:00:00', '2023-01-25', 1),
+(127, 13, '14:55:07', '00:00:00', '2023-01-25', 1),
+(128, 4, '16:33:44', '00:00:00', '2023-01-25', 1);
 
 -- --------------------------------------------------------
 
@@ -6157,7 +6196,7 @@ ALTER TABLE `acc_account_name`
 -- AUTO_INCREMENT de la tabla `acc_transaction`
 --
 ALTER TABLE `acc_transaction`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `acm_account`
@@ -6211,7 +6250,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT de la tabla `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `bill_admission`
@@ -6229,7 +6268,7 @@ ALTER TABLE `bill_advanced`
 -- AUTO_INCREMENT de la tabla `bill_details`
 --
 ALTER TABLE `bill_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `bill_package`
@@ -6271,7 +6310,7 @@ ALTER TABLE `bm_room`
 -- AUTO_INCREMENT de la tabla `caja`
 --
 ALTER TABLE `caja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `cm_patient`
@@ -6337,7 +6376,7 @@ ALTER TABLE `ha_birth`
 -- AUTO_INCREMENT de la tabla `ha_category`
 --
 ALTER TABLE `ha_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT de la tabla `ha_death`
@@ -6355,7 +6394,7 @@ ALTER TABLE `ha_investigation`
 -- AUTO_INCREMENT de la tabla `ha_medicine`
 --
 ALTER TABLE `ha_medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `ha_operation`
@@ -6427,7 +6466,7 @@ ALTER TABLE `medication`
 -- AUTO_INCREMENT de la tabla `mercaderia`
 --
 ALTER TABLE `mercaderia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT de la tabla `message`
@@ -6517,7 +6556,7 @@ ALTER TABLE `sec_role`
 -- AUTO_INCREMENT de la tabla `sec_userrole`
 --
 ALTER TABLE `sec_userrole`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `setting`
@@ -6583,13 +6622,13 @@ ALTER TABLE `time_slot`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `user_lang`
 --
 ALTER TABLE `user_lang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `user_language`
@@ -6601,7 +6640,7 @@ ALTER TABLE `user_language`
 -- AUTO_INCREMENT de la tabla `user_log`
 --
 ALTER TABLE `user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

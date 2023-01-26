@@ -20,6 +20,8 @@ class Bill extends CI_Controller {
 			'bed_manager/bed_model'
 		));
 
+		$this->db->query("SET sql_mode=''");
+
 		if ($this->session->userdata('isLogIn') == false) 
 			redirect('login');
 	}
@@ -58,8 +60,10 @@ class Bill extends CI_Controller {
 				bill_service.id AS id, 
 				bill_service.name AS name,
 				CONCAT_WS(' ', user.firstname, user.lastname) AS professional,
-				bill_details.professional_id
+				bill_details.professional_id,
+				IF (bill.status, 'Pagada', 'Pendiente') AS bill_status
 			")->from("bill_details")
+			->join('bill', 'bill.bill_id = bill_details.bill_id', 'left')
 			->join("bill_service", "bill_service.id = bill_details.service_id","left")
 			->join("user", "user.user_id = bill_details.professional_id","left")
 			->where("bill_details.admission_id", $admission_id)
@@ -142,8 +146,8 @@ class Bill extends CI_Controller {
 		$this->load->view('layout/main_wrapper',$data);
 	} 
 
-
-	public function form(){
+	public function form_credit(){
+		$data['medicines'] = $this->db->query('SELECT name, id, quantity, price FROM almacenes_productos WHERE quantity > 0 GROUP BY name')->result();
 		$cajero = $this->session->userdata('fullname');
 		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$estado = $caja->estado;
@@ -186,9 +190,7 @@ class Bill extends CI_Controller {
 		    )
 		);
  
-		$this->form_validation->set_rules('bill_date', display('bill_date'),'required|max_length[10]');
 		$this->form_validation->set_rules('total', display('total'),'required|max_length[11]');
-		$this->form_validation->set_rules('payment_method', display('payment_method'),'required|max_length[255]'); 
 		$this->form_validation->set_rules('note', display('note'),'max_length[1024]');
 
 		#-------------------------------#
@@ -370,6 +372,248 @@ class Bill extends CI_Controller {
 			{
 				$this->session->set_flashdata('exception', display('please_try_again'));
 			} 
+			redirect('billing/bill/form_credit');
+		} else {  
+			$data['doctor_list'] = $this->admission_model->doctor_list();
+			$data['room_list'] = $this->room_model->room_list();
+			$data['service_list'] = $this->service_model->readList();
+			$data['content'] = $this->load->view('billing/bill/form_credit',$data,true);
+			$this->load->view('layout/main_wrapper',$data);
+		} 
+	} 
+
+
+	public function form(){
+		$cajero = $this->session->userdata('fullname');
+		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
+		$estado = $caja->estado;
+
+		$data['medicines'] = $this->db->query('SELECT name, id, quantity, price FROM almacenes_productos WHERE quantity > 0 GROUP BY name')->result();
+
+		if ($estado == 'Caja cerrada') {
+			$this->session->set_flashdata('exception', 'No puede realizar operaciones de facturacion porque la caja está cerrada');
+			return redirect('billing/bill');
+		}
+
+		$data['module'] = display("billing");
+		$data['title'] = display('add_bill');
+		$data['admission_id'] = (!empty($this->input->get('aid'))?$this->input->get('aid'):null);
+		#-------------------------------#
+		$this->form_validation->set_rules(
+		    'admission_id', display('admission_id'),
+		    array(
+		        'required',
+			    array(
+	                'admission_callable',
+			        function($value)
+			        {
+						$rows = $this->db->select("admission_id")
+			             	->from("bill_admission")
+			             	->where("admission_id", $value)
+			             	->get()
+			             	->num_rows();
+
+			            if ($rows>0) 
+			            {
+			            	return true;
+			            }
+			            else 
+			            {
+			            	$this->form_validation->set_message('admission_callable', 'The {field} is not valid!');
+	                       
+			            	return false;
+			            }
+			        }
+			    )
+		    )
+		);
+ 
+		$this->form_validation->set_rules('bill_date', display('bill_date'),'required|max_length[10]');
+		$this->form_validation->set_rules('total', display('total'),'required|max_length[11]');
+		$this->form_validation->set_rules('payment_method', display('payment_method'),'required|max_length[255]'); 
+		$this->form_validation->set_rules('note', display('note'),'max_length[1024]');
+
+		#-------------------------------#
+		$bill_id = 'BL'.$this->randStrGen(2, 7);
+		$patient_id = $this->input->post('patient_id');
+		$admission_id = $this->input->post('admission_id');
+		$package_id   = $this->input->post('package_id');
+		#-------------------------------#
+		$data['bill'] = (object)$postData = array(
+			'bill_id'        => $bill_id, 
+			'bill_type'      => 'ipd', 
+			'bill_date'      => date('Y-m-d', strtotime($this->input->post('bill_date'))),
+			'admission_id'   => $admission_id, 
+			'discount'       => $this->input->post('discount'), 
+			'tax'            => $this->input->post('tax'), 
+			'total'          => $this->input->post('payable'), 
+			'payment_method' => $this->input->post('payment_method'),   
+			'card_cheque_no' => $this->input->post('card_cheque_no'),
+			'receipt_no'     => $this->input->post('receipt_no'),
+			'note'           => $this->input->post('note'),
+			'date'           => date('Y-m-d H:i:s'),
+			'status'         => $this->input->post('status'),
+		);
+
+		#-------------------------------#
+		if ($this->form_validation->run()) {
+
+			if ($this->bill_model->create($postData)) {
+				$this->session->unset_userdata('admission_id');
+
+				#------------bill details--------------#
+				$sID   			= $this->input->post('service_id');
+				$sName 			= $this->input->post('service_name');
+				$sProfessional  = $this->input->post('service_professional');
+				$sQty  			= $this->input->post('quantity');
+				$sAmt  			= $this->input->post('amount');
+				$product  		= $this->input->post('product');
+				$services 		= array();
+
+				for ($i=0; $i < sizeof($sID); $i++)
+				{
+					$service_id = $sID[$i];
+					$service = $this->db->query("SELECT * FROM bill_service WHERE id = $service_id")->row();
+
+					if (isset($service->professional_commission) && $service->professional_commission) {
+						$professional_id = $sProfessional[0];
+					}
+
+					if(!empty($sID[$i]))  
+					$this->db->insert('bill_details', array(
+						'bill_id' 	   		=> $bill_id,
+						'admission_id' 		=> $admission_id,
+						'package_id'   		=> $package_id,
+						'service_id'   		=> $sID[$i],
+						'professional_id'   => $professional_id,
+						'product'           => $product[$i],
+						'quantity'     		=> $sQty[$i],
+						'amount'       		=> $sAmt[$i],
+						'date'         		=> date('Y-m-d')
+					));
+
+					if (isset($service->professional_commission) && $service->professional_commission) {
+						unset($sProfessional[0]);
+					}
+				} 
+				#-------------------------------#
+
+			   #--------Chart Of Account Info-------#
+			   $p_name = $this->db->select('firstname,lastname')->from('patient')->where('patient_id',$patient_id)->get()->row();
+			  
+			   $c_acc=$patient_id.'-'.$p_name->firstname.'-'.$p_name->lastname;
+		       $coatransactionInfo = $this->db->select('HeadCode')->from('acc_coa')->where('HeadName',$c_acc)->get()->row();
+		       $COAID = $coatransactionInfo->HeadCode;
+
+		        // patient cash in for credit 
+			   $patientCashInCredit = array(
+			      'VNo'         => $bill_id,
+			      'Vtype'       => 'Patient Bill',
+			      'VDate'       => date('Y-m-d'),
+			      'COAID'       => $COAID,
+			      'Narration'   => 'Patient Credit For Bill amount - '.$patient_id,
+			      'Debit'       => 0,
+			      'Credit'      => $postData['total'],
+			      'StoreID'     => 2,
+			      'IsPosted'    => 1,
+			      'CreateBy'    => $this->session->userdata('user_id'),
+			      'CreateDate'  => date('Y-m-d H:i:s'),
+			      'IsAppove'    => 1
+		       ); 
+
+		        if($postData['payment_method']=='cash'){
+			  		 //ACC cash in hand receivable  Debit
+				 	  $receivable = array(
+					      'VNo'            => $bill_id,
+					      'Vtype'          => 'Patient Bill',
+					      'VDate'          => date('Y-m-d'),
+					      'COAID'          => 1020101,
+					      'Narration'      => 'Cash In Hand Debit For Bill from Patient- '.$patient_id,
+					      'Debit'          => $postData['total'],
+					      'Credit'         => 0,
+					      'IsPosted'       => 1,
+					      'StoreID'        => 2,
+					      'CreateBy'       => $this->session->userdata('user_id'),
+					      'CreateDate'     => date('Y-m-d H:i:s'),
+					      'IsAppove'       => 1
+					    );
+				}else{
+					//Account check or card in state bank receivable  Debit
+				 	  $receivable = array(
+					      'VNo'            => $bill_id,
+					      'Vtype'          => 'Patient Bill',
+					      'VDate'          => date('Y-m-d'),
+					      'COAID'          => 102010204,
+					      'Narration'      => 'Card or Cheque In Debit For Bill from Patient- '.$patient_id,
+					      'Debit'          => $postData['total'],
+					      'Credit'         => 0,
+					      'IsPosted'       => 1,
+					      'StoreID'        => 2,
+					      'CreateBy'       => $this->session->userdata('user_id'),
+					      'CreateDate'     => date('Y-m-d H:i:s'),
+					      'IsAppove'       => 1
+					    );
+				}
+		      
+				// insert transaction
+				$this->db->insert('acc_transaction',$patientCashInCredit);
+			    $this->db->insert('acc_transaction',$receivable);
+			    #--------------------------------#
+
+				$this->session->set_flashdata('message', display('save_successfully'));
+
+				if ($postData['status']==1){
+					$monto = $this->input->post('payable');
+
+					if ($this->input->post('payment_method') == 'Cash') {
+						$metodo_pago = 'Efectivo';
+					}
+
+					if ($this->input->post('payment_method') == 'Card') {
+						$metodo_pago = 'Tarjeta';
+					}
+
+					if ($this->input->post('payment_method') == 'Cheque') {
+						$metodo_pago = 'Cheque';
+					}
+
+					$concepto = 'Pago de factura: ' . $bill_id;
+
+					$saldo = $caja->saldo+$monto;
+
+					$cajero = $_SESSION['fullname'];
+
+					$this->db->query("
+						INSERT INTO caja (
+								tipo_movimiento,
+								fecha,
+								monto,
+								metodo_pago,
+								concepto,
+								saldo,
+								estado,
+								cajero)
+						VALUES (
+							'Entrada',
+							NOW(),
+							'$monto',
+							'$metodo_pago',
+							'$concepto',
+							'$saldo',
+							'Caja abierta',
+							'$cajero');
+					");
+					$this->db->where('patient_id', $patient_id)->where('bill_id', null)->update('medication', array('bill_id'=>$bill_id, 'status'=>1));
+					redirect("billing/bill/view/".$postData['bill_id']);
+				}else{
+					$this->db->where('patient_id', $patient_id)->where('bill_id', null)->update('medication', array('bill_id'=>$bill_id));
+				}
+
+			} 
+			else 
+			{
+				$this->session->set_flashdata('exception', display('please_try_again'));
+			} 
 			redirect('billing/bill/form/');
 		} else {  
 			$data['doctor_list'] = $this->admission_model->doctor_list();
@@ -392,6 +636,7 @@ class Bill extends CI_Controller {
 		$data['bed']     = $this->bill_model->bed_payment($data['bill']->patient_id, $bill_id);  
 		$data['pay_medicine'] = $this->bill_model->medicine_amount($data['bill']->patient_id, $bill_id);
 		$data['website'] = $this->bill_model->website();  
+
 		$data['content'] = $this->load->view('billing/bill/view',$data,true);
 		$this->load->view('layout/main_wrapper',$data);
 	}
