@@ -123,6 +123,7 @@
                         <?php 
                         $subtotal = "0.00"; 
                         $sl = 1; 
+                        $pagado = 0;
                         foreach($services as $service)
                         {  
                             $subtotal+=($service->quantity*$service->amount);
@@ -164,7 +165,7 @@
                                 </p> 
                             </td>
                             <td class="discount">
-                                <?php if ($service->bill_status == 'Pagada'): ?>
+                                <?php if ($service->bill_status == 'Pagada'): $pagado = $pagado + ($service->quantity*$service->amount); ?>
                                     <span class="label label-xs label-success"><?php echo $service->bill_status; ?></span>
                                 <?php else: ?>
                                     <span class="label label-xs label-danger"><?php echo $service->bill_status; ?></span>
@@ -342,6 +343,22 @@
                                 <tr>
                                     <td><?php echo 'Total a pagar'; ?></td>
                                     <th><?php echo  @sprintf("%.2f", ($subtotal-$bill->discount+$bill->tax+$pay_bed+$pay_medicine-$pay_advance),2) ?></th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <br>
+
+                        <table class="payment">
+                            <thead>
+                                <tr>
+                                    <td><?php echo 'Total pagado'; ?></td>
+                                    <th><?php echo  @sprintf("%.2f", ($pagado),2) ?></th>
+                                </tr>
+
+                                <tr>
+                                    <td><?php echo 'Total pendiente'; ?></td>
+                                    <th><?php echo  @sprintf("%.2f", (($subtotal-$bill->discount+$bill->tax+$pay_bed+$pay_medicine-$pay_advance)-$pagado),2) ?></th>
                                 </tr>
                             </thead>
                         </table>

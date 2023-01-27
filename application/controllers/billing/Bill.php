@@ -614,7 +614,7 @@ class Bill extends CI_Controller {
 			{
 				$this->session->set_flashdata('exception', display('please_try_again'));
 			} 
-			redirect('billing/bill/form/');
+			redirect("billing/bill/view/$bill_id");
 		} else {  
 			$data['doctor_list'] = $this->admission_model->doctor_list();
 			$data['room_list'] = $this->room_model->room_list();
