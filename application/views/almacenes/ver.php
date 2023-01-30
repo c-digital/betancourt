@@ -60,21 +60,9 @@
                                         <?php } ?>
 
                                         <?php
-                                         if($this->permission->method('medicine_list','read')->access()){
-                                         ?>
-                                        <a href="<?php echo base_url("pharmacy/medicine/details/$producto->id") ?>" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a> 
-                                        <?php } ?>
-
-                                        <?php
-                                         if($this->permission->method('medicine_list','update')->access()){
-                                         ?>
-                                        <a href="<?php echo base_url("pharmacy/medicine/form/$producto->id") ?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a> 
-                                        <?php } ?>
-
-                                        <?php
                                          if($this->permission->method('medicine_list','delete')->access()){
                                          ?>
-                                        <a href="<?php echo base_url("pharmacy/medicine/delete/$producto->id") ?>" class="btn btn-xs btn-danger" onclick="return confirm('<?php echo display('are_you_sure') ?>') "><i class="fa fa-trash"></i></a> 
+                                        <a href="<?php echo base_url("pharmacy/almacenes/deleteProduct/$producto->id") ?>" class="btn btn-xs btn-danger" onclick="return confirm('<?php echo display('are_you_sure') ?>') "><i class="fa fa-trash"></i></a> 
                                         <?php } ?>
 
                                     </td>
@@ -113,11 +101,13 @@
        $(".add_stock").click(function(){
          var id = $(this).attr('data-id');
           $.ajax({
-            url : "<?php echo site_url('pharmacy/medicine/get_stock')?>/" + id,
+            url : "<?php echo site_url('pharmacy/almacenes/get_stock')?>/" + id,
             type: "GET",
             dataType: "JSON",
             success: function(data)
             {
+
+              console.log(data);
              
               $('[name="id"]').val(data.id);
               $('[name="name"]').val(data.name);
@@ -127,6 +117,8 @@
               },
               error: function (jqXHR, textStatus, errorThrown)
               {
+                console.log(jqXHR.responseText);
+
                 data = JSON.parse(jqXHR.responseText);
 
                 $('[name="id"]').val(data.id);

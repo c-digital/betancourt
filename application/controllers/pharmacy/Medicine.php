@@ -139,8 +139,18 @@ class Medicine extends CI_Controller {
 
     // get stock by medicine id
     public function get_stock($id){
-        error_reporting(0);
-        $stock = $this->medicine_model->get_stock($id);
+        //error_reporting(0);
+
+        if ($url) {
+            $this->db->select("*")
+                ->from('almacenes_productos')
+                ->where('id',$id)
+                ->get()
+                ->row(); 
+        } else {
+            $stock = $this->medicine_model->get_stock($id);
+        }
+
         echo json_encode($stock);
     }
 

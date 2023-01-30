@@ -95,8 +95,10 @@
                                 <td><?php echo !empty($bill->total_days)?$bill->total_days+1:0; ?></td>
                             </tr>
                             <tr>
-                                <td><?php echo display('discharge_date'); ?>:</td>
-                                <td><?php echo $bill->discharge_date; ?></td>
+                                <?php if ($bill->status): ?>
+                                    <td><?php echo 'Fecha de pago'; ?>:</td>
+                                    <td><?php echo $bill->date; ?></td>
+                                <?php endif; ?>
                                 <td><?php echo display('insurance_name'); ?>:</td>
                                 <td><?php echo $bill->insurance_name; ?></td>
                                 <td><?php echo display('policy_no'); ?>:</td>

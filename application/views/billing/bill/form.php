@@ -32,7 +32,7 @@
                                             <?php 
                                                 $aid = (!empty($this->session->userdata('admission_id'))?$this->session->userdata('admission_id'):null)
                                             ?>
-                                            <input type="text" class="form-control" id="admission_id" value="<?= (!empty($aid)?$aid:$admission_id);?>" name="admission_id" placeholder="<?php echo display('admission_id') ?>" required/>
+                                            <input type="text" class="form-control" id="admission_id" value="<?= (!empty($aid)?$aid:$admission_id);?>" name="admission_id" placeholder="<?php echo display('admission_id') ?>"/>
                                             <span class="input-group-btn"></span>
                                         </div> 
                                     </div>
@@ -43,7 +43,7 @@
                                     
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="patient_id" id="patient_id" value="" placeholder="<?php echo display('patient_id') ?>" readonly/>
+                                            <input type="text" class="form-control" name="patient_id" id="patient_id" value="" placeholder="<?php echo display('patient_id') ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -881,6 +881,34 @@ $(document).ready(function(){
             error : function()
             {
                 alert('failed');
+            }
+        });
+    });
+
+    $('[name=patient_id]').keyup(function () {
+        patient_id = $(this).val();
+
+        $.ajax({
+            type: 'GET',
+            url: '/billing/bill/getInfo',
+            data: {
+                patient_id: patient_id
+            },
+            success: function (response) {
+                response = JSON.parse(response);
+
+                sex = response.sex.toLowerCase();
+
+                $('#patient_name').val(response.firstname + ' ' + response.lastname);
+                $('#date_of_birth').val(response.date_of_birth);                
+                $('#address').val(response.address);
+
+                $('#' + sex).attr('checked', 'checked');
+
+                console.log(sex);
+            },
+            error: function (error) {
+                console.log(error.responseText);
             }
         });
     });

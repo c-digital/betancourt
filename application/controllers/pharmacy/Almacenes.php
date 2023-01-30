@@ -17,11 +17,20 @@ class Almacenes extends CI_Controller {
 
     public function index()
     {
-
         $data['title'] = 'Almacenes';
         $data['almacenes'] = $this->db->query("SELECT almacenes.id, almacenes.nombre FROM almacenes")->result();
         $data['content'] = $this->load->view('almacenes/index', $data, true);
         $this->load->view('layout/main_wrapper', $data);
+    }
+
+    public function get_stock($id){
+        $this->db->select("*")
+                ->from('almacenes_productos')
+                ->where('id',$id)
+                ->get()
+                ->row();
+
+        echo json_encode($stock);
     }
 
     public function create()
@@ -38,6 +47,18 @@ class Almacenes extends CI_Controller {
         redirect('/pharmacy/almacenes');
     }
 
+    public function deleteProduct($id)
+    {
+        $producto = $this->db->from('almacenes_productos')
+            ->where('id', $id)
+            ->get()
+            ->row();
+
+        $id_almacen = $producto->id_almacen;
+
+        return redirect("/pharmacy/almacenes/ver/$id_almacen?delete=$id");
+    }
+
     public function delete($id)
     {
         $this->db->query("DELETE FROM almacenes WHERE id = $id");
@@ -46,6 +67,16 @@ class Almacenes extends CI_Controller {
 
     public function ver($id)
     {
+        if (isset($_GET['delete'])) {
+            $id_delete = $_GET['id'];
+
+            $this->db->from('almacenes_productos')
+                ->where('id', $id_delete)
+                ->delete();
+
+            return redirect("/pharmacy/almacenes/ver/$id");
+        }
+
         $almacen = $this->db->query("SELECT * FROM almacenes WHERE id = $id")->row();
         $data['title'] = $almacen->nombre;
 

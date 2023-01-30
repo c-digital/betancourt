@@ -32,6 +32,21 @@ class Medicine_model extends CI_Model {
  
 	public function update($data = [])
 	{
+		$producto = $this->db
+			->from($this->table)
+			->where('id', $data['id'])
+			->get()
+			->row();
+
+		$this->db->where('name', $producto->name)
+			->update('almacenes_productos', [
+				'name' => $data['name'],
+				'category_id' => $data['category_id'],
+				'description' => $data['description'],
+				'manufactured_by' => $data['manufactured_by'],
+				'price' => $data['price'],
+			]);
+
 		return $this->db->where('id',$data['id'])
 			->update($this->table,$data); 
 	} 

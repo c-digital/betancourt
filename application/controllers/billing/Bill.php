@@ -399,34 +399,6 @@ class Bill extends CI_Controller {
 		$data['title'] = display('add_bill');
 		$data['admission_id'] = (!empty($this->input->get('aid'))?$this->input->get('aid'):null);
 		#-------------------------------#
-		$this->form_validation->set_rules(
-		    'admission_id', display('admission_id'),
-		    array(
-		        'required',
-			    array(
-	                'admission_callable',
-			        function($value)
-			        {
-						$rows = $this->db->select("admission_id")
-			             	->from("bill_admission")
-			             	->where("admission_id", $value)
-			             	->get()
-			             	->num_rows();
-
-			            if ($rows>0) 
-			            {
-			            	return true;
-			            }
-			            else 
-			            {
-			            	$this->form_validation->set_message('admission_callable', 'The {field} is not valid!');
-	                       
-			            	return false;
-			            }
-			        }
-			    )
-		    )
-		);
  
 		$this->form_validation->set_rules('bill_date', display('bill_date'),'required|max_length[10]');
 		$this->form_validation->set_rules('total', display('total'),'required|max_length[11]');
@@ -662,35 +634,6 @@ class Bill extends CI_Controller {
 			return redirect('billing/bill');
 		}
 		
-		#-------------------------------#
-		$this->form_validation->set_rules(
-		    'admission_id', display('admission_id'),
-		    array(
-		        'required',
-			    array(
-	                'admission_callable',
-			        function($value)
-			        {
-						$rows = $this->db->select("admission_id")
-			             	->from("bill_admission")
-			             	->where("admission_id", $value)
-			             	->get()
-			             	->num_rows();
-
-			            if ($rows>0) 
-			            {
-			            	return true;
-			            }
-			            else 
-			            {
-			            	$this->form_validation->set_message('admission_callable', 'The {field} is not valid!');
-	                       
-			            	return false;
-			            }
-			        }
-			    )
-		    )
-		);
 
 		$this->form_validation->set_rules('bill_date', display('bill_date'),'required|max_length[10]');
 		$this->form_validation->set_rules('total', display('total'),'required|max_length[11]');
@@ -863,19 +806,17 @@ class Bill extends CI_Controller {
         }
         return $result;
     }
-    /*
-    |----------------------------------------------
-    |         Ends of id genaretor
-    |----------------------------------------------
-    */
 
-	/*
-	*------------------------------------------------------------
-	* 
-	*  BILL AJAX REQUEST 
-	*
-	*------------------------------------------------------------
-	*/
+    public function getInfo()
+    {
+    	$patient = $this->db->from('patient')
+    		->where('patient_id', $this->input->get('patient_id'))
+    		->get()
+    		->row();
+
+    	echo json_encode($patient);
+    }
+
 	public function getInformation()
 	{
 		$aid = $this->input->post('admission_id', true);

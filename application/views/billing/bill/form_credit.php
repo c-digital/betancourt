@@ -731,6 +731,34 @@ $(document).ready(function(){
                 console.log(e.responseText);
             }
         });
+
+        $('[name=patient_id]').keyup(function () {
+                patient_id = $(this).val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/billing/bill/getInfo',
+                    data: {
+                        patient_id: patient_id
+                    },
+                    success: function (response) {
+                        response = JSON.parse(response);
+
+                        sex = response.sex.toLowerCase();
+
+                        $('#patient_name').val(response.firstname + ' ' + response.lastname);
+                        $('#date_of_birth').val(response.date_of_birth);                
+                        $('#address').val(response.address);
+
+                        $('#' + sex).attr('checked', 'checked');
+
+                        console.log(sex);
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                });
+            });
     });
 
 

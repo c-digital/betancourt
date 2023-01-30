@@ -56,6 +56,7 @@ class Bill_model extends CI_Model {
 				bi.note AS note,
 				bi.status AS status,
 				bi.exam AS exam,
+				DATE(bi.date) AS date,
 
 				ba.patient_id AS patient_id,
 				ba.admission_date AS admission_date,
