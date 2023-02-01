@@ -147,7 +147,39 @@ class Bill extends CI_Controller {
 	} 
 
 	public function form_credit(){
-		$data['medicines'] = $this->db->query('SELECT name, id, quantity, price FROM almacenes_productos WHERE quantity > 0 GROUP BY name')->result();
+		$almacenes = $this->db->query('SELECT * FROM ha_medicine WHERE quantity > 0 GROUP BY name')->result();
+
+		$i = 0;
+		$j = 1;
+
+		foreach ($almacenes as $almacen) {
+			$data['medicines'][$i]['i'] = $j;
+			$data['medicines'][$i]['name'] = 'Producto: ' . $almacen->name . ' (Almacen general)';
+			$data['medicines'][$i]['id'] = $almacen->id;
+			$data['medicines'][$i]['quantity'] = $almacen->quantity;
+			$data['medicines'][$i]['amount'] = $almacen->price;
+			$data['medicines'][$i]['professional'] = '';
+			$data['medicines'][$i]['product'] = '1';
+
+			$i++;
+			$j++;
+		}
+
+		$farmacias = $this->db->query('SELECT a.*, f.nombre FROM almacenes_productos a INNER JOIN almacenes f ON a.id_almacen = f.id WHERE quantity > 0 GROUP BY name')->result();
+
+		foreach ($farmacias as $farmacia) {
+			$data['medicines'][$i]['i'] = $j;
+			$data['medicines'][$i]['name'] = 'Producto: ' . $farmacia->name . ' (' . $farmacia->nombre . ')';
+			$data['medicines'][$i]['id'] = $farmacia->id;
+			$data['medicines'][$i]['quantity'] = $farmacia->quantity;
+			$data['medicines'][$i]['amount'] = $farmacia->price;
+			$data['medicines'][$i]['professional'] = '';
+			$data['medicines'][$i]['product'] = '1';
+
+			$i++;
+			$j++;
+		}
+
 		$cajero = $this->session->userdata('fullname');
 		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$estado = $caja->estado;
@@ -388,7 +420,40 @@ class Bill extends CI_Controller {
 		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
 		$estado = $caja->estado;
 
-		$data['medicines'] = $this->db->query('SELECT name, id, quantity, price FROM almacenes_productos WHERE quantity > 0 GROUP BY name')->result();
+		$almacenes = $this->db->query('SELECT * FROM ha_medicine WHERE quantity > 0 GROUP BY name')->result();
+
+		$i = 0;
+		$j = 1;
+
+		foreach ($almacenes as $almacen) {
+			$data['medicines'][$i]['i'] = $j;
+			$data['medicines'][$i]['name'] = 'Producto: ' . $almacen->name . ' (Almacen general)';
+			$data['medicines'][$i]['id'] = $almacen->id;
+			$data['medicines'][$i]['quantity'] = $almacen->quantity;
+			$data['medicines'][$i]['price'] = $almacen->price;
+			$data['medicines'][$i]['professional'] = '';
+			$data['medicines'][$i]['product'] = '1';
+			$data['medicines'][$i]['almacen'] = 'general';
+
+			$i++;
+			$j++;
+		}
+
+		$farmacias = $this->db->query('SELECT a.*, f.nombre FROM almacenes_productos a INNER JOIN almacenes f ON a.id_almacen = f.id WHERE quantity > 0 GROUP BY name')->result();
+
+		foreach ($farmacias as $farmacia) {
+			$data['medicines'][$i]['i'] = $j;
+			$data['medicines'][$i]['name'] = 'Producto: ' . $farmacia->name . ' (' . $farmacia->nombre . ')';
+			$data['medicines'][$i]['id'] = $farmacia->id;
+			$data['medicines'][$i]['quantity'] = $farmacia->quantity;
+			$data['medicines'][$i]['price'] = $farmacia->price;
+			$data['medicines'][$i]['professional'] = '';
+			$data['medicines'][$i]['product'] = '1';
+			$data['medicines'][$i]['almacen'] = $farmacia->id_almacen;
+
+			$i++;
+			$j++;
+		}
 
 		if ($estado == 'Caja cerrada') {
 			$this->session->set_flashdata('exception', 'No puede realizar operaciones de facturacion porque la caja está cerrada');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 30-01-2023 a las 17:14:55
+-- Tiempo de generación: 31-01-2023 a las 13:29:41
 -- Versión del servidor: 5.7.41
 -- Versión de PHP: 7.4.33
 
@@ -84,7 +84,7 @@ INSERT INTO `acc_coa` (`HeadCode`, `HeadName`, `PHeadName`, `HeadLevel`, `IsActi
 ('50202', 'Account Payable', 'Ejemplo-3', 2, 1, 0, 1, 'L', 0, 0, '0.00', 'admin', '2015-10-15 19:50:43', '', '2020-02-02 00:00:00'),
 ('10203', 'Account Receivable', 'Activo Actual', 2, 1, 0, 0, 'A', 0, 0, '0.00', '', '2020-02-02 00:00:00', 'admin', '2013-09-18 15:29:35'),
 ('102', 'Activo Actual', 'Activos', 1, 1, 0, 0, 'A', 0, 0, '0.00', '1', '2022-06-02 00:14:06', 'admin', '2018-07-07 11:23:00'),
-('1', 'Activos', 'Chart Of Accounts', 0, 1, 0, 0, 'A', 0, 0, '0.00', '10', '2023-01-26 21:50:42', '', '2020-02-02 00:00:00'),
+('1', 'Activos', 'Plan de cuentas', 0, 1, 0, 0, 'A', 0, 0, '0.00', '10', '2023-01-26 21:50:42', '', '2020-02-02 00:00:00'),
 ('101', 'Activos no Circulantes', 'Activos', 1, 1, 0, 0, 'A', 0, 0, '0.00', '1', '2022-08-19 21:10:44', 'admin', '2015-10-15 15:29:11'),
 ('1020201', 'Advance', 'Advance, Deposit And Pre-payments', 3, 1, 0, 1, 'A', 0, 0, '0.00', 'Zoherul', '2015-05-31 13:29:12', 'admin', '2015-12-31 16:46:32'),
 ('102020103', 'Advance House Rent', 'Advance', 4, 1, 1, 0, 'A', 0, 0, '0.00', 'admin', '2016-10-02 16:55:38', 'admin', '2016-10-02 16:57:32'),
@@ -129,7 +129,7 @@ INSERT INTO `acc_coa` (`HeadCode`, `HeadName`, `PHeadName`, `HeadLevel`, `IsActi
 ('1010211', 'DSLR Camera', 'Office Equipment', 3, 1, 1, 0, 'A', 0, 0, '0.00', 'admin', '2015-10-15 15:53:17', 'admin', '2016-01-02 16:23:25'),
 ('4020908', 'Earned Leave', 'Salary & Allowances', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'admin', '2015-10-15 19:13:38', '', '2020-02-02 00:00:00'),
 ('4020607', 'Education Fair Expenses', 'Promonational Expence', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'admin', '2015-10-15 18:53:42', '', '2020-02-02 00:00:00'),
-('3', 'Egreso', 'Chart Of Accounts', 0, 1, 0, 0, 'I', 0, 0, '0.00', '1', '2023-01-26 20:05:46', '', '2020-02-02 00:00:00'),
+('3', 'Egreso', 'Plan de cuentas', 0, 1, 0, 0, 'I', 0, 0, '0.00', '1', '2023-01-26 20:05:46', '', '2020-02-02 00:00:00'),
 ('302', 'Ejemplo-1', 'Egreso', 1, 1, 0, 0, 'I', 0, 0, '0.00', '10', '2023-01-26 21:49:19', 'admin', '2016-09-25 11:04:09'),
 ('404', 'Ejemplo-10', 'Patrimonio', 1, 1, 1, 0, 'E', 0, 0, '0.00', '10', '2023-01-26 21:50:52', '', '2020-02-02 00:00:00'),
 ('401', 'Ejemplo-11', 'Patrimonio', 1, 1, 0, 0, 'E', 0, 0, '0.00', '10', '2023-01-26 21:51:03', 'admin', '2015-10-15 17:58:46'),
@@ -158,7 +158,7 @@ INSERT INTO `acc_coa` (`HeadCode`, `HeadName`, `PHeadName`, `HeadLevel`, `IsActi
 ('4021408', 'Furniture', 'Repair and Maintenance', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'admin', '2015-10-15 19:35:47', '', '2020-02-02 00:00:00'),
 ('10101', 'Furniture & Fixturers', 'Activos no Circulantes', 2, 1, 0, 1, 'A', 0, 0, '0.00', 'anwarul', '2013-08-20 16:18:15', 'anwarul', '2013-08-21 13:35:40'),
 ('4020406', 'Gas Bill', 'Utility Expenses', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'admin', '2015-10-15 18:59:20', '', '2020-02-02 00:00:00'),
-('5', 'Gastos', 'Chart Of Accounts', 0, 1, 0, 0, 'L', 0, 0, '0.00', '1', '2023-01-26 20:06:32', 'admin', '2015-10-15 19:46:54'),
+('5', 'Gastos', 'Plan de cuentas', 0, 1, 0, 0, 'L', 0, 0, '0.00', '1', '2023-01-26 20:06:32', 'admin', '2015-10-15 19:46:54'),
 ('20201', 'General Reserve', 'Ejemplo-5', 2, 1, 1, 0, 'L', 0, 0, '0.00', 'admin', '2016-09-25 14:07:12', 'admin', '2016-10-02 17:48:49'),
 ('10105', 'Generator', 'Activos no Circulantes', 2, 1, 1, 1, 'A', 0, 0, '0.00', 'Zoherul', '2016-02-27 16:02:35', 'admin', '2016-05-23 12:05:18'),
 ('4021414', 'Generator Repair', 'Repair and Maintenance', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'Zoherul', '2016-06-16 10:21:05', '', '2020-02-02 00:00:00'),
@@ -211,14 +211,15 @@ INSERT INTO `acc_coa` (`HeadCode`, `HeadName`, `PHeadName`, `HeadLevel`, `IsActi
 ('102030200008', 'P9AS15E5-Nisa-Delgado Enrolado', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '1', '2023-01-24 23:43:43', '', '0000-00-00 00:00:00'),
 ('4021412', 'PABX-Repair', 'Repair and Maintenance', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'Zoherul', '2016-04-24 14:40:18', '', '2020-02-02 00:00:00'),
 ('4020902', 'Part-time Staff Salary', 'Salary & Allowances', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'admin', '2015-10-15 19:12:06', '', '2020-02-02 00:00:00'),
-('2', 'Pasivos', 'Chart Of Accounts', 0, 1, 0, 0, 'L', 0, 0, '0.00', '1', '2023-01-26 20:04:03', '', '2020-02-02 00:00:00'),
+('2', 'Pasivos', 'Plan de cuentas', 0, 1, 0, 0, 'L', 0, 0, '0.00', '1', '2023-01-26 20:04:03', '', '2020-02-02 00:00:00'),
 ('1020302', 'Patient Receivable', 'Account Receivable', 3, 1, 0, 1, 'A', 0, 0, '0.00', '2', '2019-01-07 10:00:42', '', '2020-02-02 00:00:00'),
-('4', 'Patrimonio', 'Chart Of Accounts', 0, 1, 0, 0, 'E', 0, 0, '0.00', '10', '2023-01-26 21:47:39', '', '2020-02-02 00:00:00'),
+('4', 'Patrimonio', 'Plan de cuentas', 0, 1, 0, 0, 'E', 0, 0, '0.00', '10', '2023-01-26 21:47:39', '', '2020-02-02 00:00:00'),
 ('102030200006', 'PGOV0KON-jorge-torrico ortuño', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '4', '2022-07-08 12:33:51', '', '0000-00-00 00:00:00'),
 ('102030200003', 'PHLJBMVS-Marco Antonio-Condori Vargas', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '4', '2022-06-08 15:09:22', '', '0000-00-00 00:00:00'),
 ('1010202', 'Photocopy & Fax Machine', 'Office Equipment', 3, 1, 1, 0, 'A', 0, 0, '0.00', 'admin', '2015-10-15 15:47:27', 'admin', '2016-05-23 12:14:40'),
 ('4021411', 'Photocopy Machine Repair', 'Repair and Maintenance', 3, 1, 1, 0, 'E', 0, 0, '0.00', 'Zoherul', '2016-04-24 12:40:02', 'admin', '2017-04-27 17:03:17'),
 ('102030200002', 'PJXGONMO-Lola-Melean Rodriguez', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '4', '2022-04-30 14:12:47', '', '0000-00-00 00:00:00'),
+('102030200013', 'PKSDH0BU-Daiane-Marques', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '4', '2023-01-30 21:53:52', '', '0000-00-00 00:00:00'),
 ('102030200012', 'PMAWMJL5-juana -perez', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '4', '2023-01-30 19:33:20', '', '0000-00-00 00:00:00'),
 ('102030200001', 'PQHZMY23-Erick-Gonçalves dos Santos', 'Patient Receivable', 4, 1, 1, 0, 'A', 0, 0, '0.00', '1', '2022-04-19 12:46:53', '', '0000-00-00 00:00:00'),
 ('3020503', 'Practical Fee', 'Others (Non-Academic Income)', 3, 1, 1, 1, 'I', 0, 0, '0.00', 'admin', '2017-07-22 18:00:37', '', '2020-02-02 00:00:00'),
@@ -344,7 +345,9 @@ INSERT INTO `acc_transaction` (`ID`, `VNo`, `Vtype`, `VDate`, `COAID`, `Narratio
 (46, 'BLM75Y4XE', 'Patient Bill', '2023-01-28', '102030200001', 'Patient Credit For Bill amount - PQHZMY23', '0.00', '20.00', 2, '1', '1', '2023-01-28 02:44:22', NULL, NULL, '1'),
 (47, 'BLM75Y4XE', 'Patient Bill', '2023-01-28', '102010204', 'Card or Cheque In Debit For Bill from Patient- PQHZMY23', '20.00', '0.00', 2, '1', '1', '2023-01-28 02:44:22', NULL, NULL, '1'),
 (48, 'BLXXH79KA', 'Patient Bill', '2023-01-30', '102030200001', 'Patient Credit For Bill amount - PQHZMY23', '0.00', '200.00', 2, '1', '4', '2023-01-30 19:19:10', NULL, NULL, '1'),
-(49, 'BLXXH79KA', 'Patient Bill', '2023-01-30', '102010204', 'Card or Cheque In Debit For Bill from Patient- PQHZMY23', '200.00', '0.00', 2, '1', '4', '2023-01-30 19:19:10', NULL, NULL, '1');
+(49, 'BLXXH79KA', 'Patient Bill', '2023-01-30', '102010204', 'Card or Cheque In Debit For Bill from Patient- PQHZMY23', '200.00', '0.00', 2, '1', '4', '2023-01-30 19:19:10', NULL, NULL, '1'),
+(50, '6', 'Patient Advance', '2023-01-30', '102030200001', 'Advance For Patient Id PQHZMY23', '0.00', '500.00', 2, '1', '4', '2023-01-30 21:06:54', NULL, NULL, '1'),
+(51, '6', 'Patient Advance', '2023-01-30', '102010204', 'Advance Payment For Patient Id PQHZMY23', '500.00', '0.00', 2, '1', '4', '2023-01-30 21:06:54', NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -634,7 +637,9 @@ INSERT INTO `bill` (`id`, `bill_id`, `bill_type`, `bill_date`, `admission_id`, `
 (79, 'BL5DK9X70', 'ipd', '1970-01-01', 'UWSHNHVB', 0, 0, 600, 'Cash', '', '', '', '2023-01-27 20:14:26', 0, NULL),
 (80, 'BLTJ1V1CZ', 'ipd', '1970-01-01', 'U0MZY1MP', 0, 0, 120, 'Cash', '', '', '', '2023-01-27 20:52:03', 0, NULL),
 (81, 'BLM75Y4XE', 'ipd', '1970-01-01', 'U17Q99MO', 0, 0, 20, '', '', '', '', '2023-01-28 02:44:22', 0, NULL),
-(82, 'BLXXH79KA', 'ipd', '1970-01-01', 'U17Q99MO', 0, 0, 200, '', '', '', '', '2023-01-30 19:19:10', 0, NULL);
+(82, 'BLXXH79KA', 'ipd', '1970-01-01', 'U17Q99MO', 0, 0, 200, '', '', '', '', '2023-01-30 19:19:10', 0, NULL),
+(84, 'BLAX865YE', 'ipd', '2023-01-30', 'U17Q99MO', 0, 0, 180, 'Cash', '', '', '', '2023-01-30 21:42:20', 1, NULL),
+(85, 'BLJV6SON9', 'ipd', '2023-01-30', 'U17Q99MO', 0, 0, 180, 'Cash', '', '', '', '2023-01-30 21:44:39', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -715,13 +720,13 @@ INSERT INTO `bill_admission` (`id`, `admission_id`, `patient_id`, `doctor_id`, `
 (44, 'UWMEI18A', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (45, 'UZYSZNWN', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (46, 'UMFD5GFG', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(47, 'UPJD8ACS', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
+(47, 'UPJD8ACS', 'PQHZMY23', 3, 0, '2022-06-15', '2023-01-30', 0, '', '', '', '', '', '', 1, 'Finalizado', 1, 1, '0'),
 (48, 'U2AWRQ23', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (49, 'U9EZAWA2', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (50, 'UKJ8FDZO', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (51, 'UB1O1GC2', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (52, 'U6R1BVPO', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(53, 'UCTZO59T', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
+(53, 'UCTZO59T', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-01-30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
 (54, 'U2KAVOR4', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (55, 'UL3YUPVF', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (56, 'UKOGBXYC', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
@@ -780,7 +785,8 @@ INSERT INTO `bill_advanced` (`id`, `admission_id`, `patient_id`, `amount`, `paym
 (2, 'UXUNS6AB', 'P63G0TSG', 500, '', 'Cash', '00', '2023-01-18 21:30:19'),
 (3, 'U85PU9CD', 'P6953OWI', 1000, '', 'Cash', '', '2023-01-23 20:06:22'),
 (4, 'UQ9CFKN5', 'PQHZMY23', 500, 'efectivo', 'Cash', '', '2023-01-24 22:07:29'),
-(5, 'U4DW0K57', 'P9AS15E5', 300, '', 'Cash', '', '2023-01-24 23:52:32');
+(5, 'U4DW0K57', 'P9AS15E5', 300, '', 'Cash', '', '2023-01-24 23:52:32'),
+(6, 'U17Q99MO', 'PQHZMY23', 500, '0', 'Cash', '', '2023-01-30 21:06:54');
 
 -- --------------------------------------------------------
 
@@ -798,6 +804,7 @@ CREATE TABLE `bill_details` (
   `quantity` float DEFAULT '0',
   `amount` float DEFAULT '0',
   `product` int(11) DEFAULT NULL,
+  `almacen` varchar(256) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -806,51 +813,51 @@ CREATE TABLE `bill_details` (
 -- Volcado de datos para la tabla `bill_details`
 --
 
-INSERT INTO `bill_details` (`id`, `bill_id`, `admission_id`, `package_id`, `service_id`, `professional_id`, `quantity`, `amount`, `product`, `date`, `status`) VALUES
-(5, 'BLS5B7T9P', 'UVO75KZT', 0, 2, NULL, 1, 150, NULL, '2020-07-20', ''),
-(6, 'BLS5B7T9P', 'UVO75KZT', 0, 1, NULL, 1, 300, NULL, '2020-07-20', ''),
-(7, 'BLBN4QAHI', 'U0ELD0ZO', 1, 2, NULL, 2, 150, NULL, '2022-06-14', ''),
-(8, 'BLBN4QAHI', 'U0ELD0ZO', 1, 1, NULL, 1, 300, NULL, '2022-06-14', ''),
-(23, 'BLSTTNWY1', 'U925TR6P', 0, 25, 3, 1, 100, NULL, '2022-06-29', ''),
-(32, 'BLMP2DMJ2', 'UPDTSJ41', 0, 3, NULL, 1, 5000, NULL, '2022-06-29', ''),
-(33, 'BLXTCBCOT', 'U925TR6P', 0, 27, NULL, 1, 20, NULL, '2022-07-06', ''),
-(41, 'BLA666Q5R', 'U85PU9CD', 0, 32, NULL, 1, 300, NULL, '2023-01-23', ''),
-(42, 'BLA666Q5R', 'U85PU9CD', 0, 5, NULL, 1, 150, NULL, '2023-01-23', ''),
-(43, 'BLA666Q5R', 'U85PU9CD', 0, 22, NULL, 1, 100, NULL, '2023-01-23', ''),
-(44, 'BLA666Q5R', 'U85PU9CD', 0, 37, NULL, 1, 123, NULL, '2023-01-23', ''),
-(45, 'BLJJ0N7RA', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, '2023-01-24', ''),
-(46, 'BLJJ0N7RA', 'UXUNS6AB', 0, 5, NULL, 1, 150, NULL, '2023-01-24', ''),
-(47, 'BLJJ0N7RA', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, '2023-01-24', ''),
-(48, 'BLJJ0N7RA', 'UXUNS6AB', 0, 22, NULL, 1, 100, NULL, '2023-01-24', ''),
-(49, 'BLJJ0N7RA', 'UXUNS6AB', 0, 24, NULL, 1, 80, NULL, '2023-01-24', ''),
-(50, 'BLJJ0N7RA', 'UXUNS6AB', 0, 30, NULL, 1, 120, NULL, '2023-01-24', ''),
-(51, 'BL0MJZ3UI', 'UXUNS6AB', 0, 14, NULL, 1, 25, NULL, '2023-01-24', ''),
-(52, 'BLH2CERBT', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, '2023-01-24', ''),
-(53, 'BLH2CERBT', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, '2023-01-24', ''),
-(59, 'BLIVBWA4H', 'U4DW0K57', 0, 10, NULL, 1, 20, NULL, '2023-01-24', ''),
-(60, 'BLIVBWA4H', 'U4DW0K57', 0, 27, NULL, 1, 20, NULL, '2023-01-24', ''),
-(61, 'BLIVBWA4H', 'U4DW0K57', 0, 11, NULL, 1, 200, NULL, '2023-01-24', ''),
-(62, 'BLQLK6B41', 'U4DW0K57', 0, 5, NULL, 1, 150, NULL, '2023-01-24', ''),
-(63, 'BLQLK6B41', 'U4DW0K57', 0, 15, NULL, 1, 1, NULL, '2023-01-24', ''),
-(64, 'BLOH9XWI2', 'U4DW0K57', 0, 8, NULL, 5, 20, 1, '2023-01-25', ''),
-(65, 'BLOH9XWI2', 'U4DW0K57', 0, 32, NULL, 1, 300, 0, '2023-01-25', ''),
-(68, 'BL6ML2YKH', 'UQ9XF895', 0, 5, NULL, 1, 150, 0, '2023-01-25', ''),
-(69, 'BL6ML2YKH', 'UQ9XF895', 0, 59, NULL, 10, 3, 1, '2023-01-25', ''),
-(70, 'BLY16J17Q', 'UQ9XF895', 0, 14, NULL, 50, 5, 1, '2023-01-25', ''),
-(71, 'BLY16J17Q', 'UQ9XF895', 0, 9, NULL, 50, 150, 1, '2023-01-25', ''),
-(72, 'BLQCN9HFF', 'UQ9XF895', 0, 44, NULL, 5, 20, NULL, '2023-01-26', ''),
-(73, 'BL86BAUZY', 'UQ9XF895', 0, 9, NULL, 50, 150, NULL, '2023-01-26', ''),
-(74, 'BLT8HRXVR', 'UPLQ8V19', 0, 25, 5, 1, 100, 0, '2023-01-26', ''),
-(75, 'BLT8HRXVR', 'UPLQ8V19', 0, 9, 5, 1, 5, 1, '2023-01-26', ''),
-(76, 'BLX2Z3RKQ', 'UPLQ8V19', 0, 3, 3, 1, 200, NULL, '2023-01-26', ''),
-(77, 'BLX2Z3RKQ', 'UPLQ8V19', 0, 5, 3, 1, 150, NULL, '2023-01-26', ''),
-(78, 'BLY17H5GW', 'UWSHNHVB', 0, 37, NULL, 1, 123, 0, '2023-01-27', ''),
-(79, 'BL5DK9X70', 'UWSHNHVB', 0, 32, NULL, 1, 300, NULL, '2023-01-27', ''),
-(80, 'BL5DK9X70', 'UWSHNHVB', 0, 1, NULL, 1, 300, NULL, '2023-01-27', ''),
-(81, 'BLTJ1V1CZ', 'U0MZY1MP', 0, 15, NULL, 1, 100, NULL, '2023-01-27', ''),
-(82, 'BLTJ1V1CZ', 'U0MZY1MP', 0, 44, NULL, 1, 20, NULL, '2023-01-27', ''),
-(83, 'BLM75Y4XE', 'U17Q99MO', 0, 44, NULL, 1, 20, NULL, '2023-01-28', ''),
-(84, 'BLXXH79KA', 'U17Q99MO', 0, 23, NULL, 2, 100, NULL, '2023-01-30', '');
+INSERT INTO `bill_details` (`id`, `bill_id`, `admission_id`, `package_id`, `service_id`, `professional_id`, `quantity`, `amount`, `product`, `almacen`, `date`, `status`) VALUES
+(5, 'BLS5B7T9P', 'UVO75KZT', 0, 2, NULL, 1, 150, NULL, NULL, '2020-07-20', ''),
+(6, 'BLS5B7T9P', 'UVO75KZT', 0, 1, NULL, 1, 300, NULL, NULL, '2020-07-20', ''),
+(7, 'BLBN4QAHI', 'U0ELD0ZO', 1, 2, NULL, 2, 150, NULL, NULL, '2022-06-14', ''),
+(8, 'BLBN4QAHI', 'U0ELD0ZO', 1, 1, NULL, 1, 300, NULL, NULL, '2022-06-14', ''),
+(23, 'BLSTTNWY1', 'U925TR6P', 0, 25, 3, 1, 100, NULL, NULL, '2022-06-29', ''),
+(32, 'BLMP2DMJ2', 'UPDTSJ41', 0, 3, NULL, 1, 5000, NULL, NULL, '2022-06-29', ''),
+(33, 'BLXTCBCOT', 'U925TR6P', 0, 27, NULL, 1, 20, NULL, NULL, '2022-07-06', ''),
+(41, 'BLA666Q5R', 'U85PU9CD', 0, 32, NULL, 1, 300, NULL, NULL, '2023-01-23', ''),
+(42, 'BLA666Q5R', 'U85PU9CD', 0, 5, NULL, 1, 150, NULL, NULL, '2023-01-23', ''),
+(43, 'BLA666Q5R', 'U85PU9CD', 0, 22, NULL, 1, 100, NULL, NULL, '2023-01-23', ''),
+(44, 'BLA666Q5R', 'U85PU9CD', 0, 37, NULL, 1, 123, NULL, NULL, '2023-01-23', ''),
+(45, 'BLJJ0N7RA', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, NULL, '2023-01-24', ''),
+(46, 'BLJJ0N7RA', 'UXUNS6AB', 0, 5, NULL, 1, 150, NULL, NULL, '2023-01-24', ''),
+(47, 'BLJJ0N7RA', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, NULL, '2023-01-24', ''),
+(48, 'BLJJ0N7RA', 'UXUNS6AB', 0, 22, NULL, 1, 100, NULL, NULL, '2023-01-24', ''),
+(49, 'BLJJ0N7RA', 'UXUNS6AB', 0, 24, NULL, 1, 80, NULL, NULL, '2023-01-24', ''),
+(50, 'BLJJ0N7RA', 'UXUNS6AB', 0, 30, NULL, 1, 120, NULL, NULL, '2023-01-24', ''),
+(51, 'BL0MJZ3UI', 'UXUNS6AB', 0, 14, NULL, 1, 25, NULL, NULL, '2023-01-24', ''),
+(52, 'BLH2CERBT', 'UXUNS6AB', 0, 32, NULL, 1, 300, NULL, NULL, '2023-01-24', ''),
+(53, 'BLH2CERBT', 'UXUNS6AB', 0, 8, NULL, 1, 150, NULL, NULL, '2023-01-24', ''),
+(59, 'BLIVBWA4H', 'U4DW0K57', 0, 10, NULL, 1, 20, NULL, NULL, '2023-01-24', ''),
+(60, 'BLIVBWA4H', 'U4DW0K57', 0, 27, NULL, 1, 20, NULL, NULL, '2023-01-24', ''),
+(61, 'BLIVBWA4H', 'U4DW0K57', 0, 11, NULL, 1, 200, NULL, NULL, '2023-01-24', ''),
+(62, 'BLQLK6B41', 'U4DW0K57', 0, 5, NULL, 1, 150, NULL, NULL, '2023-01-24', ''),
+(63, 'BLQLK6B41', 'U4DW0K57', 0, 15, NULL, 1, 1, NULL, NULL, '2023-01-24', ''),
+(64, 'BLOH9XWI2', 'U4DW0K57', 0, 8, NULL, 5, 20, 1, NULL, '2023-01-25', ''),
+(65, 'BLOH9XWI2', 'U4DW0K57', 0, 32, NULL, 1, 300, 0, NULL, '2023-01-25', ''),
+(68, 'BL6ML2YKH', 'UQ9XF895', 0, 5, NULL, 1, 150, 0, NULL, '2023-01-25', ''),
+(69, 'BL6ML2YKH', 'UQ9XF895', 0, 59, NULL, 10, 3, 1, NULL, '2023-01-25', ''),
+(70, 'BLY16J17Q', 'UQ9XF895', 0, 14, NULL, 50, 5, 1, NULL, '2023-01-25', ''),
+(71, 'BLY16J17Q', 'UQ9XF895', 0, 9, NULL, 50, 150, 1, NULL, '2023-01-25', ''),
+(72, 'BLQCN9HFF', 'UQ9XF895', 0, 44, NULL, 5, 20, NULL, NULL, '2023-01-26', ''),
+(73, 'BL86BAUZY', 'UQ9XF895', 0, 9, NULL, 50, 150, NULL, NULL, '2023-01-26', ''),
+(74, 'BLT8HRXVR', 'UPLQ8V19', 0, 25, 5, 1, 100, 0, NULL, '2023-01-26', ''),
+(75, 'BLT8HRXVR', 'UPLQ8V19', 0, 9, 5, 1, 5, 1, NULL, '2023-01-26', ''),
+(76, 'BLX2Z3RKQ', 'UPLQ8V19', 0, 3, 3, 1, 200, NULL, NULL, '2023-01-26', ''),
+(77, 'BLX2Z3RKQ', 'UPLQ8V19', 0, 5, 3, 1, 150, NULL, NULL, '2023-01-26', ''),
+(78, 'BLY17H5GW', 'UWSHNHVB', 0, 37, NULL, 1, 123, 0, NULL, '2023-01-27', ''),
+(79, 'BL5DK9X70', 'UWSHNHVB', 0, 32, NULL, 1, 300, NULL, NULL, '2023-01-27', ''),
+(80, 'BL5DK9X70', 'UWSHNHVB', 0, 1, NULL, 1, 300, NULL, NULL, '2023-01-27', ''),
+(81, 'BLTJ1V1CZ', 'U0MZY1MP', 0, 15, NULL, 1, 100, NULL, NULL, '2023-01-27', ''),
+(82, 'BLTJ1V1CZ', 'U0MZY1MP', 0, 44, NULL, 1, 20, NULL, NULL, '2023-01-27', ''),
+(83, 'BLM75Y4XE', 'U17Q99MO', 0, 44, NULL, 1, 20, NULL, NULL, '2023-01-28', ''),
+(84, 'BLXXH79KA', 'U17Q99MO', 0, 23, NULL, 2, 100, NULL, NULL, '2023-01-30', '');
 
 -- --------------------------------------------------------
 
@@ -951,7 +958,7 @@ INSERT INTO `bill_service` (`id`, `name`, `description`, `quantity`, `amount`, `
 (56, 'Instrumentadora mas de 2 hrs (EMER)', '', 1, 200, 1, 'Si', 'Si', ''),
 (57, 'Instrumentadora mas de 2 hrs', '', 1, 150, 1, 'Si', 'Si', '60%'),
 (58, 'Luminoterapia 24 hrs', '', 1, 200, 1, 'Si', 'Si', ''),
-(59, 'Luminoterapia 24 hrs (EMER)', '', 1, 250, 1, 'Si', 'Si', ''),
+(59, 'Luminoterapia 24 hrs (EMER)', '', 1, 250, 1, 'No', 'No', ''),
 (60, 'Medio Incubadora', '', 1, 500, 1, 'Si', 'Si', ''),
 (62, 'Monitor por día ', '', 1, 150, 1, 'Si', 'Si', ''),
 (63, 'Monitor por día (EMER)', '', 1, 200, 1, 'Si', 'Si', ''),
@@ -1212,7 +1219,10 @@ INSERT INTO `caja` (`id`, `tipo_movimiento`, `fecha`, `monto`, `metodo_pago`, `c
 (184, 'Salida', '2023-01-30 09:59:17', '1300', NULL, 'Cierre de caja', '0', 'Caja cerrada', 'Lola Melean Rodriguez'),
 (185, 'Entrada', '2023-01-30 10:01:00', '500', 'Efectivo', 'Apertura de caja', '500', 'Caja abierta', 'Lola Melean Rodriguez'),
 (186, 'Entrada', '2023-01-30 16:11:08', '300', 'Efectivo', 'compra de material de escritorio', '800', 'Caja abierta', 'Lola Melean Rodriguez'),
-(187, 'Salida', '2023-01-30 16:13:41', '150', 'Efectivo', 'se gasto 150 bs en compra de papel bond ,lapiceros y fotocopias', '650', 'Caja abierta', 'Lola Melean Rodriguez');
+(187, 'Salida', '2023-01-30 16:13:41', '150', 'Efectivo', 'se gasto 150 bs en compra de papel bond ,lapiceros y fotocopias', '650', 'Caja abierta', 'Lola Melean Rodriguez'),
+(188, 'Salida', '2023-01-30 19:37:24', '650', NULL, 'Cierre de caja', '0', 'Caja cerrada', 'Lola Melean Rodriguez'),
+(189, 'Salida', '2023-01-30 23:22:26', '0', NULL, 'Cierre de caja', '0', 'Caja cerrada', 'Administrador betancourt'),
+(190, 'Entrada', '2023-01-31 12:40:35', '100', 'Efectivo', 'Apertura de caja', '100', 'Caja abierta', 'Administrador betancourt');
 
 -- --------------------------------------------------------
 
@@ -1332,14 +1342,14 @@ INSERT INTO `department` (`dprt_id`, `main_id`, `name`, `flaticon`, `description
 (23, 3, 'Obstetricia', 'vitamins', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ipsum magna, gravida nec erat ac, malesuada pharetra felis. Phasellus eu dolor orci. Duis et dictum sem, sit amet sagittis dolor. Curabitur scelerisque, nunc eget viverra malesuada, nunc ligula tincidunt nisi, eget elementum urna magna at dui. Praesent eu tincidunt arcu. Ut imperdiet a ligula nec dapibus. Aliquam erat volutpat. Donec auctor elementum accumsan. Vestibulum velit augue, feugiat ac nisl in, pharetra accumsan ligula. Proin nunc mauris, ultrices quis tristique vitae, ornare quis nunc. Aenean ut tincidunt lorem. Maecenas consectetur faucibus velit, nec tincidunt nulla fermentum sed.\r\n\r\n', '', 1),
 (25, 4, 'Cirugia General', 'tooth', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ipsum magna, gravida nec erat ac, malesuada pharetra felis. Phasellus eu dolor orci. Duis et dictum sem, sit amet sagittis dolor. Curabitur scelerisque, nunc eget viverra malesuada, nunc ligula tincidunt nisi, eget elementum urna magna at dui. Praesent eu tincidunt arcu. Ut imperdiet a ligula nec dapibus. Aliquam erat volutpat. Donec auctor elementum accumsan. Vestibulum velit augue, feugiat ac nisl in, pharetra accumsan ligula.', '', 1),
 (26, 3, 'Cirugia Plastica', 'sperm-2', 'fgdfg ghfgh fghftg fhrtg dgfgdfgd tfds', '', 1),
-(27, 4, 'Geriatria', 'surgery', 'Quis autem vel eum iriure dolor in…', 'assets_web/img/department/0f2e2ae455e4498f1623deddfd5662d3.png', 1),
+(27, 4, 'Geriatría', 'surgery', 'Quis autem vel eum iriure dolor in…', 'assets_web/img/department/0f2e2ae455e4498f1623deddfd5662d3.png', 1),
 (28, 4, 'Psicología', 'focus', 'Psicologia', 'assets_web/img/department/81f466eb971eb8667b38ffcc8f19d267.png', 1),
 (29, 4, 'Terapia Intensiva', 'herbal', 'Terapia intensiva', 'assets_web/img/department/026b1b2555099800df2dc244251495fd.png', 1),
 (30, 5, 'Enfermería', 'feeder', 'Las enfermeras son uno de los grupos de profesionales más confiables en Bolívia', 'assets_web/img/department/a7c06eb4301ccd7c402a9471386c37d4.jpg', 1),
 (31, 4, 'Cardiologia', 'heart', 'Departamento de Cardiaco', 'assets_web/img/department/ae0ee9e0cf963425e7ee8bb5f1f941cc.jpg', 1),
-(32, 4, 'Raio X', 'x-ray', 'Departamento de Imagenes', 'assets_web/img/department/1f5efdd2afb95c26431640b38d572265.jpg', 1),
+(32, 4, 'Rayos X', 'x-ray', 'Departamento de Imagenes', 'assets_web/img/department/1f5efdd2afb95c26431640b38d572265.jpg', 1),
 (33, 4, 'Pediatria', 'neurology', 'pediatria', 'assets_web/img/department/398dd38993cfe562035cba81569735f3.jpg', 1),
-(34, 4, 'Otorrinolaringologia', 'heart', 'cirugia', 'assets_web/img/department/b18ce79a1c0fe6f4ee487f3977e00084.jpg', 1);
+(34, 4, 'Otorrinolaringología', 'heart', 'cirugia', 'assets_web/img/department/b18ce79a1c0fe6f4ee487f3977e00084.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -1657,6 +1667,8 @@ INSERT INTO `ha_category` (`id`, `name`, `description`, `status`) VALUES
 (131, 'Vitaminas', '<p>Estas vitaminas <strong>ayudan al proceso que hace su cuerpo para obtener energía de la comida que usted consume.</strong> <strong>También ayudan a formar glóbulos rojos</strong>. Usted puede obtener vitaminas B en las proteínas como pescado, pollo, carne de res, huevos y productos lácteos</p>', 1),
 (132, 'Antiinflamatorios Sin Esteroides', '<p>Ketorolaco se usa para aliviar el dolor moderadamente fuerte, por lo general después de una operación quirúrgica. Pertenece a una clase de medicamentos llamados <strong>antiinflamatorios sin esteroides</strong>.</p>', 1),
 (133, 'Drenaje De Succión', '<p>El <strong>Hemosuctor</strong> premium es un evacuador descartable de fluidos acumulados en heridas cerradas.</p>', 1);
+INSERT INTO `ha_category` (`id`, `name`, `description`, `status`) VALUES
+(134, 'Agente Oncótico Derivado Del Plasma', '<p>La Albúmina Humana Grifols® 20% es una <strong>solución estéril de albúmina sérica, obtenida por fraccionamiento según el método de Cohn con etanol en frío, a partir de un pool de plasma de sangre venosa</strong>.</p>\r\n<p>La albúmina <strong>es una proteína producida por el hígado.</strong> <strong>La albúmina ingresa al torrente sanguíneo y ayuda a mantener el líquido sin que se filtre de los vasos sanguíneos a otros tejidos</strong>. También transporta varias hormonas, vitaminas y enzimas sustancias por el cuerpo.</p>\r\n<p>La <strong>albúmina</strong> es un agente oncótico derivado del plasma que se emplea para uso a corto plazo en el mantenimiento del volumen intravascular en situaciones clínicas limitadas actuando como un expansor de volumen.</p>', 1);
 
 -- --------------------------------------------------------
 
@@ -1731,54 +1743,45 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (21, '020303001', 'Bránula # 20', 22, '<p>Br&aacute;nula # 20</p>', 206, 4.99, 'Intermedical', '2023-01-25', 1),
 (23, '020303005', 'Bránula # 24', 22, '<p>Br&aacute;nula # 24</p>', 251, 4.99, 'Intermedical', '2023-01-25', 1),
 (25, NULL, 'teste', 1, 'teste', 0, 100, 'teste', '2023-01-12', 1),
-(29, '2', 'Cafeína 25% Ampolla IV.', 27, '<p><strong>Coadyuvante de la anestesia</strong>, contrae la vasculatura cerebral, lo que se acompa&ntilde;a de un descenso del flujo sangu&iacute;neo cerebral y de la tensi&oacute;n de ox&iacute;geno del cerebro. Produce un efecto inotr&oacute;pico positivo en el miocardio y un efecto cronotr&oacute;pico positivo en el nodo sinoauricular. Indicada en fatiga o somnolencia.</p>', 10, 9.1, 'V&C MEDICAMENTOS', '2023-01-13', 1),
-(30, '3', 'Ceftazídima 1 gr', 14, '<p>&nbsp;Los antibi&oacute;ticos&nbsp;<strong>son medicamentos que combaten infecciones causadas por bacterias en los seres humanos y los animales ya sea matando las bacterias o dificultando su crecimiento y multiplicaci&oacute;n</strong>.</p>', 10, 20, 'V&C MEDICAMENTOS', '2023-01-13', 1),
-(31, '1201', 'Amiodarona Ampolla ', 24, 'La amiodarona es un agente antiarrítmico usado en varios tipos de taquiarritmias tanto ventriculares como supraventriculares. Fue descubierto en 1961, pero no fue aprobado hasta 1985 para su uso en los Estados Unidos.', 20, 8.25, 'V&C MEDICAMENTOS', '2023-01-16', 1),
-(32, '1222', 'Citicolina 1gr Ampolla Intro Veno', 68, '<p>Los f&aacute;rmacos potenciadores del rendimiento, tambi&eacute;n conocidos como&nbsp;<strong>nootr&oacute;picos</strong>, como potenciadores cognitivos o como drogas inteligentes, son f&aacute;rmacos que supuestamente incrementan ciertas funciones mentales humanas como la memoria, la capacidad de concentraci&oacute;n, el aprendizaje, la creatividad, la motivaci&oacute;n</p>', 14, 59, 'V&C MEDICAMENTOS', '2023-01-16', 1),
-(33, '1222', 'Citicolina 1gr Ampolla Intro Veno', 28, 'Los fármacos potenciadores del rendimiento, también conocidos como nootrópicos, como potenciadores cognitivos o como drogas inteligentes, son fármacos que supuestamente incrementan ciertas funciones mentales humanas como la memoria, la capacidad de concentración, el aprendizaje, la creatividad, la motivación', 7, 45.2, '', '2023-01-16', 1),
-(34, '1153', 'Clindamicina 600 mg Ampolla Intro Veno', 29, '<p><strong>Antibi&oacute;tico natural del grupo de las lincosamidas extra&iacute;do del hongo Streptomyces lincolnensis</strong>. El mecanismo de acci&oacute;n se une a la subunidad 50S ribosomal de las bacterias inhibiendo la s&iacute;ntesis de prote&iacute;nas.</p>', 20, 17, 'V&C MEDICAMENTOS', '2023-01-16', 1),
-(35, '1153', 'Clindamicina 600 mg Ampolla Intro Veno', 29, 'Antibiótico natural del grupo de las lincosamidas extraído del hongo Streptomyces lincolnensis. El mecanismo de acción se une a la subunidad 50S ribosomal de las bacterias inhibiendo la síntesis de proteínas.', 10, 13, '', '2023-01-16', 1),
+(29, '1134', 'Cafeína 25% Ampolla IV.', 27, '<p><strong>Coadyuvante de la anestesia</strong>, contrae la vasculatura cerebral, lo que se acompa&ntilde;a de un descenso del flujo sangu&iacute;neo cerebral y de la tensi&oacute;n de ox&iacute;geno del cerebro. Produce un efecto inotr&oacute;pico positivo en el miocardio y un efecto cronotr&oacute;pico positivo en el nodo sinoauricular. Indicada en fatiga o somnolencia.</p>', 10, 9.1, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(30, '1223', 'Ceftazídima 1 gr', 14, '<p>&nbsp;Los antibi&oacute;ticos&nbsp;<strong>son medicamentos que combaten infecciones causadas por bacterias en los seres humanos y los animales ya sea matando las bacterias o dificultando su crecimiento y multiplicaci&oacute;n</strong>.</p>', 10, 20, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(31, '1201', 'Amiodarona Ampolla ', 24, '<p>La amiodarona es un agente antiarr&iacute;tmico usado en varios tipos de taquiarritmias tanto ventriculares como supraventriculares. Fue descubierto en 1961, pero no fue aprobado hasta 1985 para su uso en los Estados Unidos.</p>', 10, 10.8, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(32, '1222', 'Citicolina 1gr Ampolla Intro Veno', 68, '<p>Los f&aacute;rmacos potenciadores del rendimiento, tambi&eacute;n conocidos como&nbsp;<strong>nootr&oacute;picos</strong>, como potenciadores cognitivos o como drogas inteligentes, son f&aacute;rmacos que supuestamente incrementan ciertas funciones mentales humanas como la memoria, la capacidad de concentraci&oacute;n, el aprendizaje, la creatividad, la motivaci&oacute;n</p>', 7, 59, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(34, '1153', 'Clindamicina 600 mg Ampolla Intro Veno', 69, '<p><strong>Antibi&oacute;tico natural del grupo de las lincosamidas extra&iacute;do del hongo Streptomyces lincolnensis</strong>. El mecanismo de acci&oacute;n se une a la subunidad 50S ribosomal de las bacterias inhibiendo la s&iacute;ntesis de prote&iacute;nas.</p>', 10, 17, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (36, '1123', 'Colistina 100 mg Inyectable-Inhalatorio Intro Venoso', 30, '<p>Los polip&eacute;ptidos&nbsp;<strong>son antibi&oacute;ticos bactericidas producidos por diferentes cepas de Bacillus polymyxa (B.</strong>&nbsp;<strong>aerosporus), que act&uacute;an destruyendo la membrana celular bacteriana</strong>. La polimixina B y la colistina tienen una actividad similar, restringida a las bacterias gramnegativas, incluyendo Enterobacter,</p>', 10, 65, 'V&C MEDICAMENTOS', '2023-01-16', 1),
-(37, '1123', 'Colistina 100 mg Inyectable-Inhalatorio Intro Veno ', 30, 'Los polipéptidos son antibióticos bactericidas producidos por diferentes cepas de Bacillus polymyxa (B. aerosporus), que actúan destruyendo la membrana celular bacteriana. La polimixina B y la colistina tienen una actividad similar, restringida a las bacterias gramnegativas, incluyendo Enterobacter,', 10, 50, '', '2023-01-16', 1),
-(38, '1199', 'Diazepam 10 mg Ampolla IM Intro Veno', 49, '<p>El diazepam es un f&aacute;rmaco derivado de la 1,4-benzodiazepina que act&uacute;a como modulador alost&eacute;rico positivo de los receptores GABAA con propiedades ansiol&iacute;ticas, miorrelajantes, anticonvulsivantes y sedantes.​&nbsp;</p>', 20, 11, 'V&C MEDICAMENTOS', '2023-01-16', 1),
-(39, '1199', 'Diazepam 10 mg Amp Intro Veno ', 49, 'El diazepam es un fármaco derivado de la 1,4-benzodiazepina que actúa como modulador alostérico positivo de los receptores GABAA con propiedades ansiolíticas, miorrelajantes, anticonvulsivantes y sedantes.​\n', 0, 8, '', '2023-01-16', 1),
-(40, '1073', 'Dicynone 250 Ampolla', 0, ' Prevención y tratamiento de hemorragias capilares de cualquier origen o localización: hematuria, hematemesis, melena, epistaxis, gingivorragia.', 12, 37.5, '', '2023-01-16', 1),
-(41, '1246', 'Digoxina 0.25 mg Ampolla ', 74, '<p>La digoxina es un gluc&oacute;sido cardiot&oacute;nico, usado como agente antiarr&iacute;tmico empleado en la insuficiencia card&iacute;aca, y utilizado en otros trastornos card&iacute;acos como la fibrilaci&oacute;n auricular.</p>', 20, 9.2, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(42, '1124', 'Dobutamina 250 mg X 20 ml Richet', 34, '<p>La dobutamina es una amina simpaticomim&eacute;tica usada en el tratamiento de insuficiencia card&iacute;aca y choque cardiog&eacute;nico. Su mecanismo primario es la estimulaci&oacute;n directa del receptor adren&eacute;rgico beta 1 del sistema nervioso simp&aacute;tico. Es an&aacute;logo estructural al isoproterenol.​</p>', 20, 40.3, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(43, '1133', 'Dolgenal Ampolla Intro Veno ', 8, '<p>Antiinflamatorio no esteroideo, antipir&eacute;tico, con efecto analg&eacute;sico potente comparable a opioides. Inhibe la s&iacute;ntesis de prostaglandinas a nivel perif&eacute;rico mediante el bloqueo de la enzima ciclooxigenasa. Dolor agudo moderado a severo. Procesos inflamatorios osteoarticulares, artritis.</p>', 20, 13, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(44, '1123', 'Colistina 100 mg Inyectable-Inhalatorio', 30, 'La colistina es un antibiótico polimixina producido por ciertas cepas de la bacteria Paenibacillus polymyxa var. colistinus. La colistina es una mezcla de polipéptido cíclico colistin A y B. La colistina es efectiva contra todos los bacilos Gram-negativos y es usada como antibiótico polipéptido.', 0, 50, '', '2023-01-16', 1),
-(45, '1136', 'Domperidona Pediatrico 4 mg / 2 ml', 36, '<p>La domperidona es un antagonista dopamin&eacute;rgico actualmente autorizado para el alivio de los s&iacute;ntomas de n&aacute;useas y v&oacute;mitos (tanto en adultos como en ni&ntilde;os) as&iacute; como para el tratamiento de la sensaci&oacute;n de plenitud epig&aacute;strica, malestar abdominal alto y regurgitaci&oacute;n del contenido g&aacute;strico (indicaci&oacute;n reservada</p>', 20, 11.7, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(46, '1152', 'Etilefrina 10 mg Ampolla (Efortil)', 37, '<p>La etilefrina es un estimulante card&iacute;aco que se utiliza como antihipotensivo. Es una amina simpaticomim&eacute;tica de la serie 3-hidroxi-feniletanolamina utilizada en el tratamiento de la hipotensi&oacute;n ortost&aacute;tica de origen neurol&oacute;gico, cardiovascular, endocrino o metab&oacute;lico.</p>', 12, 13, 'V&C MEDICAMENTOS', '2023-01-27', 1),
+(38, '1199', 'Diazepam 10 mg Ampolla IM Intro Veno', 49, '<p>El diazepam es un f&aacute;rmaco derivado de la 1,4-benzodiazepina que act&uacute;a como modulador alost&eacute;rico positivo de los receptores GABAA con propiedades ansiol&iacute;ticas, miorrelajantes, anticonvulsivantes y sedantes.​&nbsp;</p>', 10, 10.5, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(40, '1073', 'Dicynone 250 Ampolla', 32, '<p>Prevenci&oacute;n y tratamiento de hemorragias capilares de cualquier origen o localizaci&oacute;n: hematuria, hematemesis, melena, epistaxis, gingivorragia.</p>', 12, 49, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(41, '1246', 'Digoxina 0.25 mg Ampolla ', 74, '<p>La digoxina es un gluc&oacute;sido cardiot&oacute;nico, usado como agente antiarr&iacute;tmico empleado en la insuficiencia card&iacute;aca, y utilizado en otros trastornos card&iacute;acos como la fibrilaci&oacute;n auricular.</p>', 10, 9.2, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(42, '1124', 'Dobutamina 250 mg X 20 ml Richet', 34, '<p>La dobutamina es una amina simpaticomim&eacute;tica usada en el tratamiento de insuficiencia card&iacute;aca y choque cardiog&eacute;nico. Su mecanismo primario es la estimulaci&oacute;n directa del receptor adren&eacute;rgico beta 1 del sistema nervioso simp&aacute;tico. Es an&aacute;logo estructural al isoproterenol.​</p>', 10, 40.3, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(43, '1133', 'Dolgenal Ampolla Intro Veno ', 8, '<p>Antiinflamatorio no esteroideo, antipir&eacute;tico, con efecto analg&eacute;sico potente comparable a opioides. Inhibe la s&iacute;ntesis de prostaglandinas a nivel perif&eacute;rico mediante el bloqueo de la enzima ciclooxigenasa. Dolor agudo moderado a severo. Procesos inflamatorios osteoarticulares, artritis.</p>', 10, 13, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(45, '1136', 'Domperidona Pediatrico 4 mg / 2 ml', 36, '<p>La domperidona es un antagonista dopamin&eacute;rgico actualmente autorizado para el alivio de los s&iacute;ntomas de n&aacute;useas y v&oacute;mitos (tanto en adultos como en ni&ntilde;os) as&iacute; como para el tratamiento de la sensaci&oacute;n de plenitud epig&aacute;strica, malestar abdominal alto y regurgitaci&oacute;n del contenido g&aacute;strico (indicaci&oacute;n reservada</p>', 10, 11.7, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(46, '1152', 'Etilefrina 10 mg Ampolla (Efortil)', 37, '<p>La etilefrina es un estimulante card&iacute;aco que se utiliza como antihipotensivo. Es una amina simpaticomim&eacute;tica de la serie 3-hidroxi-feniletanolamina utilizada en el tratamiento de la hipotensi&oacute;n ortost&aacute;tica de origen neurol&oacute;gico, cardiovascular, endocrino o metab&oacute;lico.</p>', 10, 13, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (47, '1149', 'Fenitoína 100 mg Ampolla x 2 ml', 39, '<p>La fenito&iacute;na se usa para controlar cierto tipo de convulsiones y para tratar y prevenir las convulsiones que pueden empezar durante o despu&eacute;s de la cirug&iacute;a ...</p>', 10, 7.8, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (48, '1072', 'Flogiatrin B12 NF Ampolla (Piroxican-VIT: B6B1', 11, '<p>Patolog&iacute;as inflamatorio-dolorosas con componentes neur&iacute;ticos. Compresiones radiculares y nerviosas (cervicobraquialgias, dorsalgias, lumbalgias, lumbociatalgias) Artrosis de columna, cadera, rodilla, etc. Artritis reumatoidea, psori&aacute;sica, gotosa.</p>', 10, 58.5, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (49, '1116', 'Haloperidol 5mg Ampolla ', 41, '<p>El haloperidol es un f&aacute;rmaco antipsic&oacute;tico t&iacute;pico con acci&oacute;n farmacol&oacute;gica de tipo neurol&eacute;ptico, ​ que forma parte de las butirofenonas. Se trata de uno de los primeros medicamentos que se usaron en el siglo XX para el tratamiento de esquizofrenia y otras enfermedades mentales</p>', 10, 13, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (50, '1125', 'Hidrocortisona 100 mg  ', 42, '<p>La hidrocortisona, que se vende con varios nombres comerciales, es el nombre de la hormona cortisol cuando se suministra como medicamento.​ Los usos incluyen afecciones como insuficiencia adrenocortical, s&iacute;ndrome adrenogenital, calcio en sangre elevado, tiroiditis, artritis reumatoide, dermatitis, asma y EPOC</p>', 10, 15.6, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(51, '1156', 'Hidrocortisona 500 mg Ampolla', 42, '<p>La hidrocortisona, que se vende con varios nombres comerciales, es el nombre de la hormona cortisol cuando se suministra como medicamento.​ Los usos incluyen afecciones como insuficiencia adrenocortical, s&iacute;ndrome adrenogenital, calcio en sangre elevado, tiroiditis, artritis reumatoide, dermatitis, asma y EPOC</p>', 12, 42.3, 'V&C MEDICAMENTOS', '2023-01-21', 1),
+(51, '1156', 'Hidrocortisona 500 mg Ampolla', 42, '<p>La hidrocortisona, que se vende con varios nombres comerciales, es el nombre de la hormona cortisol cuando se suministra como medicamento.​ Los usos incluyen afecciones como insuficiencia adrenocortical, s&iacute;ndrome adrenogenital, calcio en sangre elevado, tiroiditis, artritis reumatoide, dermatitis, asma y EPOC</p>', 10, 42.3, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (52, '1129', 'Imipenem + Cilastina 500/500mg Intro Veno', 43, '<p>La inyecci&oacute;n de imipenem y cilastatina se usa para tratar algunas infecciones graves que son provocadas por bacterias, incluyendo la endocarditis (infecci&oacute;n de las v&aacute;lvulas y revestimiento del coraz&oacute;n) e infecciones del tracto respiratorio (incluyendo la neumon&iacute;a), del tracto urinario, abdominales (&aacute;rea del est&oacute;mago), ginecol&oacute;gicas, de la sangre, de la piel, de los huesos y de las articulaciones. El imipenem pertenece a una clase de medicamentos llamados antibi&oacute;ticos de carbapenem. Funciona matando las bacterias. La cilastatina pertenece a una clase de medicamentos llamados inhibidores de la dehidropeptidasa. Funciona ayudando a que el imipenem se mantenga activo en el cuerpo durante un per&iacute;odo m&aacute;s prolongado.</p>', 10, 58.6, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (53, '1235', 'Iopamiron 300 (Contraste Ultravit)', 44, '<p>Ultravist pertenece al grupo de medicamentos denominados medios de contraste para rayos X de baja osmolaridad, hidrosolubles y nefrotr&oacute;picos.</p>', 10, 169, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (54, '1221', 'Ipsilon Ampolla Äcido & Amonocaproico', 51, '<p>El &aacute;cido aminocaproico (&aacute;cido 6-aminohexanoico) es un inhibidor de la fibrin&oacute;lisis que se utiliza para controlar la hemostasia cuando la fibrin&oacute;lisis contribuye al sangrado. En situaciones potencialmente mortales, puede ser necesaria la transfusi&oacute;n de hemoderivados adecuados u otras medidas de emergencia.</p>', 10, 182, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (55, '1176', 'Meropenem 1gr Ampolla', 43, '<p>Meropenem Accordpharma pertenece a un grupo de medicamentos denominados antibi&oacute;ticos carbapenemes. Act&uacute;a destruyendo bacterias, que pueden causar infecciones graves. Los antibi&oacute;ticos se utilizan para tratar infecciones bacterianas y no sirven para tratar infecciones v&iacute;ricas como la gripe o el catarro.</p>', 10, 91, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (56, '1212', 'Meropenem 500 mg Meroprem', 43, '<p>Meropenem Accordpharma pertenece a un grupo de medicamentos denominados antibi&oacute;ticos carbapenemes. Act&uacute;a destruyendo bacterias, que pueden causar infecciones graves. Los antibi&oacute;ticos se utilizan para tratar infecciones bacterianas y no sirven para tratar infecciones v&iacute;ricas como la gripe o el catarro.</p>', 10, 31.2, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (57, '1232', 'Mesigyna Ampolla', 47, '<p>Mesigyna es una inyecci&oacute;n anticonceptiva que protege contra el embarazo principalmente al inhibir la ovulaci&oacute;n y ocasionar cambios en el moco cervical. Este anticonceptivo inyectable tiene un efecto que se ejerce sobre el endometrio, similar al de los anticonceptivos orales combinados.</p>', 10, 44.2, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(58, '1148', 'Metilprednisolona Richert 500mg', 42, '<p>Los corticosteroides se utilizan para tratar la artritis reumatoide, la enfermedad intestinal inflamatoria, el asma, las alergias y muchas otras afecciones.</p>', 0, 114.8, 'V&C MEDICAMENTOS', '2023-01-21', 1),
+(58, '1148', 'Metilprednisolona Richert 500mg', 42, '<p>Los corticosteroides se utilizan para tratar la artritis reumatoide, la enfermedad intestinal inflamatoria, el asma, las alergias y muchas otras afecciones.</p>', 10, 114.8, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (59, '1206', 'Midazolam 15 mg X 3 ml Ampolla', 49, '<p>Las benzodiazepinas son medicamentos psicotr&oacute;picos con efectos sedantes, hipn&oacute;ticos, ansiol&iacute;ticos, anticonvulsivos, amn&eacute;sicos y miorrelajantes.​</p>', 10, 32.5, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (60, '1111', 'Naloxona Ampolla', 50, 'La naloxona , que se vende bajo las marcas Narcan (en mayúsculas) entre otras, es un medicamento que se usa para revertir o reducir los efectos de los opioides . [10] Se usa comúnmente para contrarrestar la disminución de la respiración en caso de sobredosis de opioides . [10] Los efectos comienzan en dos minutos cuando se administra por vía intravenosa y en cinco minutos cuando se inyecta en un músculo . [10] El medicamento también se puede administrar rociándolo en la nariz de una persona . [11] La naloxona suele bloquear los efectos de los opioides durante 30 a 90 minutos. [12]Es posible que se requieran dosis múltiples, ya que la duración de la acción de algunos opioides es mayor que la de la naloxona', 0, 9, '', '2023-01-17', 1),
-(61, '1132', 'Neostigmina 0,5mg/1ml', 51, '<p>La neostigmina es un inhibidor reversible de la enzima colinesterasa, que impide la destrucci&oacute;n de la acetilcolina y produce un efecto parasimpaticomim&eacute;tico indirecto mediante el aumento de la concentraci&oacute;n de acetilcolina en el receptor. Es de duraci&oacute;n corta.</p>', 23, 8.2, 'V&C MEDICAMENTOS', '2023-01-26', 1),
-(62, '1157', 'Nitroglicerina 25 mg x 5ml IV Ampolla Trinitroglicerina', 0, 'La nitroglicerina se encuentra en una clase de medicamentos llamados vasodilatadores. Funciona al relajar los vasos sanguíneos para que el corazón no trabaje tan duro y por consiguiente no necesite tanto oxígeno.', 10, 36.5, '', '2023-01-17', 1),
+(61, '1132', 'Neostigmina 0,5mg/1ml', 51, '<p>La neostigmina es un inhibidor reversible de la enzima colinesterasa, que impide la destrucci&oacute;n de la acetilcolina y produce un efecto parasimpaticomim&eacute;tico indirecto mediante el aumento de la concentraci&oacute;n de acetilcolina en el receptor. Es de duraci&oacute;n corta.</p>', 10, 8.2, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(62, '1157', 'Nitroglicerina 25 mg x 5ml IV Ampolla Trinitroglicerina', 91, '<p>La nitroglicerina se encuentra en una clase de medicamentos llamados vasodilatadores. Funciona al relajar los vasos sangu&iacute;neos para que el coraz&oacute;n no trabaje tan duro y por consiguiente no necesite tanto ox&iacute;geno.</p>', 10, 47.5, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (63, '1150', 'Noradrenalina Ampolla', 95, '<p>La noradrenalina es una catecolamina con m&uacute;ltiples funciones fisiol&oacute;gicas y homeost&aacute;ticas que puede actuar como hormona y como neurotransmisor.​ Las &aacute;reas del cuerpo que producen o se ven afectadas por la norepinefrina son descritas como noradren&eacute;rgicas</p>', 10, 15.6, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (64, '1237', 'Novalgina 10 mg Ampolla Morfina', 96, '<p>Novalgina es un medicamento que sirve como un analg&eacute;sico y antit&eacute;rmico que act&uacute;a reduciendo el dolor y la fiebre. Este medicamento tiene dipirona como su principio activo, que es ampliamente utilizado en las manifestaciones de dolor y fiebre.</p>', 10, 32.5, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(65, '1113', 'Ondanstrón', 54, 'El ondansetrón, desarrollado y comercializado por primera vez por GlaxoSmithKline como Zofran® es un antagonista del receptor de serotonina 5-HT₃, utilizado principalmente como un antiemético, a menudo después de quimioterapia. Afecta a los nervios periféricos y centrales', 0, 10, '', '2023-01-17', 1),
-(66, '1113', 'Ondansetrón', 54, 'El ondansetrón, desarrollado y comercializado por primera vez por GlaxoSmithKline como Zofran® es un antagonista del receptor de serotonina 5-HT₃, utilizado principalmente como un antiemético, a menudo después de quimioterapia. Afecta a los nervios periféricos y centrales', 0, 10, '', '2023-01-17', 1),
-(67, '1113', 'Ondansetrón 8 mg Ampolla', 54, 'El ondansetrón, desarrollado y comercializado por primera vez por GlaxoSmithKline como Zofran® es un antagonista del receptor de serotonina 5-HT₃, utilizado principalmente como un antiemético, a menudo después de quimioterapia. Afecta a los nervios periféricos y centrales', 10, 10, '', '2023-01-17', 1),
-(68, '1122', 'Piperacilina + tazobactam Ampolla', 55, '<p>La piperacilina se encuentra en una clase de medicamentos llamados antibi&oacute;ticos de penicilina. Funciona matando las bacterias que causan infecci&oacute;n. El tazobactam pertenece a una clase llamada inhibidor de beta-lactamasa. Funciona al prevenir que las bacterias destruyan la piperacilina.</p>', 14, 60.1, 'V&C MEDICAMENTOS', '2023-01-21', 1),
-(69, '1122', 'Propofol 1% Intro Veno', 56, 'El propofol es un agente anestésico de acción corta con un comienzo de acción rápido de aproximadamente 30 segundos y una recuperación de la anestesia normalmente también rápida', 0, 45.5, '', '2023-01-17', 1),
-(70, '1127', 'Propofol 1% Intro Venoso', 56, 'El propofol es un agente anestésico de acción corta con un comienzo de acción rápido de aproximadamente 30 segundos y una recuperación de la anestesia normalmente también rápida', 10, 45.5, '', '2023-01-17', 1),
-(71, '1127', 'Propofol 1% Intro Venoso', 56, 'El propofol es un agente anestésico de acción corta con un comienzo de acción rápido de aproximadamente 30 segundos y una recuperación de la anestesia normalmente también rápida', 10, 55.25, '', '2023-01-17', 1),
-(72, '1257', 'Remifentanilo Ampolla', 0, 'El remifentanilo es un opioide agonista puro de los receptores μ de la morfina. Es potente, de acción ultracorta y no acumulable, que se emplea durante las intervenciones quirúrgicas y procedimientos dolorosos para suministrar analgesia y sedación', 10, 84.5, '', '2023-01-17', 1),
+(67, '1113', 'Ondansetrón 8 mg Ampolla', 54, '<p>El ondansetr&oacute;n, desarrollado y comercializado por primera vez por GlaxoSmithKline como Zofran&reg; es un antagonista del receptor de serotonina 5-HT₃, utilizado principalmente como un antiem&eacute;tico, a menudo despu&eacute;s de quimioterapia. Afecta a los nervios perif&eacute;ricos y centrales</p>', 10, 13, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(68, '1122', 'Piperacilina + tazobactam Ampolla', 55, '<p>La piperacilina se encuentra en una clase de medicamentos llamados antibi&oacute;ticos de penicilina. Funciona matando las bacterias que causan infecci&oacute;n. El tazobactam pertenece a una clase llamada inhibidor de beta-lactamasa. Funciona al prevenir que las bacterias destruyan la piperacilina.</p>', 10, 60.1, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(71, '1127', 'Propofol 1% Intro Venoso', 56, '<p>El propofol es un agente anest&eacute;sico de acci&oacute;n corta con un comienzo de acci&oacute;n r&aacute;pido de aproximadamente 30 segundos y una recuperaci&oacute;n de la anestesia normalmente tambi&eacute;n r&aacute;pida</p>', 10, 59.2, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(72, '1257', 'Remifentanilo Ampolla', 102, '<p>El remifentanilo es un opioide agonista puro de los receptores &mu; de la morfina. Es potente, de acci&oacute;n ultracorta y no acumulable, que se emplea durante las intervenciones quir&uacute;rgicas y procedimientos dolorosos para suministrar analgesia y sedaci&oacute;n</p>', 10, 84.5, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (73, '1032', 'Sevogesic Frasco 250 ml (Sevoflurano Anestésico)', 18, '<p>Es un agente anest&eacute;sico l&iacute;quido no inflamable que se administra por vaporizaci&oacute;n, y qu&iacute;micamente es un derivado fluorinado del &eacute;ter metil isopropilo, que induce una p&eacute;rdida de conciencia suave y r&aacute;pida durante la inducci&oacute;n inhalatoria y una r&aacute;pida recuperaci&oacute;n despu&eacute;s de su discontinuaci&oacute;n.</p>', 1, 6, 'V&C MEDICAMENTOS', '2023-01-21', 1),
 (74, '1177', 'Tramadol 100 mg Ampolla Intro Veno', 59, 'Los fármacos agonistas puros son los siguientes: morfina, metadona, meperidina, tramadol, codeína, dihidrocodeína y dextropropoxifeno. Son fármacos con una baja actividad intrínseca (eficacia), de forma que su curva dosis-respuesta presenta un efecto techo menor que el máximo efecto produci do por un agonista puro.', 10, 11.9, '', '2023-01-17', 1),
-(75, '1126', 'Vancomicina 1 gr', 60, 'La vancomicina pertenece a una clase de medicamentos llamados antibióticos glicopéptidos. Su acción consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por vía oral.', 10, 40.99, '', '2023-01-17', 1),
-(78, '1128', 'Vancomicina 500mg Ampolla', 60, 'La vancomicina pertenece a una clase de medicamentos llamados antibióticos glicopéptidos. Su acción consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por vía oral.', 10, 19.5, '', '2023-01-17', 1),
+(75, '1126', 'Vancomicina 1 gr', 60, '<p>La vancomicina pertenece a una clase de medicamentos llamados antibi&oacute;ticos glicop&eacute;ptidos. Su acci&oacute;n consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por v&iacute;a oral.</p>', 10, 40.95, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(78, '1128', 'Vancomicina 500mg Ampolla', 60, '<p>La vancomicina pertenece a una clase de medicamentos llamados antibi&oacute;ticos glicop&eacute;ptidos. Su acci&oacute;n consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por v&iacute;a oral.</p>', 10, 19.5, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (79, '5110', 'Suero Dextrosa 500 ml', 108, '<p>Qu&eacute; es Suero Glucosado Vitulia 5% y para qu&eacute; se utiliza para el tratamiento de la p&eacute;rdida de agua (deshidrataci&oacute;n hipert&oacute;nica) por v&oacute;mitos, diarrea. como aporte de energ&iacute;a en nutrici&oacute;n parenteral cuando la toma de alimentos por la boca est&aacute; limitada.</p>', 146, 18, 'N Y L', '2023-01-24', 1),
 (80, '5120', 'Suero Fisiológico', 0, 'Suero Fisiológico Vitulia se utiliza para reemplazar el agua y las sales de sodio y cloruro que pueden llegar a ser bajos como consecuencia de diferentes alteraciones o trastornos. También se utiliza como solución de transporte de otros medicamentos compatibles.', 48, 15, '', '2023-01-17', 1),
 (81, '5120', 'Suero Fisiológico 1000 ml', 0, 'Suero Fisiológico Vitulia se utiliza para reemplazar el agua y las sales de sodio y cloruro que pueden llegar a ser bajos como consecuencia de diferentes alteraciones o trastornos. También se utiliza como solución de transporte de otros medicamentos compatibles.', 96, 15, '', '2023-01-17', 1),
@@ -1854,14 +1857,20 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (155, '1075', 'Hilo Lino Quirúrgico 10 x 75cm', 111, '<p>La sutura de&nbsp;<em>Lino</em>&nbsp;es una sutura&nbsp;<em>quir&uacute;rgica</em>&nbsp;de tipo no absorbible de origen vegetal. Sus fibras son procesadas resultando en&nbsp;<em>hilos</em>&nbsp;de polifilamentos de color&nbsp;</p>\r\n<p>Definici&oacute;n de&nbsp;<strong>Sutura</strong>: Sutura es el material destinado a favorecer la cicatrizaci&oacute;n de una herida, manteniendo los bordes aproximados de forma que disminuya la tensi&oacute;n entre ellos.</p>', 21, 0, 'Betancourt', '2023-01-28', 1),
 (156, '31', 'Transpore 3M / 1,25cm', 22, '<p><strong>Cinta adhesiva hipoalerg&eacute;nica y libre de l&aacute;tex</strong>. Es suave con la piel y reduce la posibilidad de irritaci&oacute;n de la misma. Su respaldo microporoso permite el funcionamiento normal de la piel.</p>\r\n<p>Microfoam es una cinta quir&uacute;rgica compuesta de un respaldo formado principalmente de espuma cerrada de cloruro de polivinilo (PVC) y un adhesivo hipoalerg&eacute;nico, esta combinaci&oacute;n convierte a la cinta Microfoam en la clave para&nbsp;<strong>proporcionar el soporte y elasticidad necesarios para vendajes de compresi&oacute;n</strong>.</p>', 19, 0, 'Betancourt', '2023-01-28', 1),
 (157, '64', 'Bolsa De Colostomía 64mm', 22, '<p>Una bolsa de colostom&iacute;a&nbsp;<strong>se adhiere al estoma para recoger los desechos</strong>.</p>\r\n<p>&Eacute;ste consiste en una&nbsp;<em>bolsa</em>&nbsp;liviana con drenaje que colecta las evacuaciones y protege a la piel del contacto con la materia fecal.&nbsp;</p>', 1, 0, 'Betancourt', '2023-01-28', 1),
-(158, '42', 'Terbometasona 4mg/2ml Dexametasona', 63, '<p>La dexametasona es un&nbsp;<strong>corticosteroide</strong>, es decir, es similar a una hormona natural producida por las gl&aacute;ndulas suprarrenales. Por lo general, se usa para reemplazar este producto qu&iacute;mico cuando su cuerpo no fabrica suficiente.</p>\r\n<p>Dexametasona Kern Pharma 4 mg/ml soluci&oacute;n inyectable pertenece al grupo terap&eacute;utico&nbsp;<strong>H02AB02</strong>. La dexametasona es un corticoide fluorado, de larga duraci&oacute;n de acci&oacute;n, de elevada potencia antiinflamatoria e inmunosupresora y baja actividad mineralocorticoide.</p>', 3, 0, 'Betancourt', '2023-01-30', 1);
-INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `quantity`, `price`, `manufactured_by`, `create_date`, `status`) VALUES
+(158, '42', 'Terbometasona 4mg/2ml Dexametasona', 63, '<p>La dexametasona es un&nbsp;<strong>corticosteroide</strong>, es decir, es similar a una hormona natural producida por las gl&aacute;ndulas suprarrenales. Por lo general, se usa para reemplazar este producto qu&iacute;mico cuando su cuerpo no fabrica suficiente.</p>\r\n<p>Dexametasona Kern Pharma 4 mg/ml soluci&oacute;n inyectable pertenece al grupo terap&eacute;utico&nbsp;<strong>H02AB02</strong>. La dexametasona es un corticoide fluorado, de larga duraci&oacute;n de acci&oacute;n, de elevada potencia antiinflamatoria e inmunosupresora y baja actividad mineralocorticoide.</p>', 3, 0, 'Betancourt', '2023-01-30', 1),
 (159, '101', 'Bisturí #10', 22, '<p>Las hojas de bistur&iacute; de n&uacute;mero 10 son de las m&aacute;s utilizadas. Se trata de una&nbsp;<strong>hoja de acero que posee un borde cortante curvo en uno de sus lados y se adapta a distintos tipos de mangos</strong>.</p>\r\n<p><strong>Cuchillo peque&ntilde;o y delgado que se usa durante una cirug&iacute;a</strong>. Tambi&eacute;n se llama bistur&iacute; fr&iacute;o y escalpelo.</p>', 96, 0, 'Betancourt', '2023-01-30', 1),
 (160, '22', 'Bisturí #22', 22, '<p><strong>Cuchillo peque&ntilde;o y delgado que se usa durante una cirug&iacute;a</strong>. Tambi&eacute;n se llama bistur&iacute; fr&iacute;o y escalpelo.</p>\r\n<p>La hoja n&ordm;&nbsp;<em>22</em>&nbsp;es una versi&oacute;n alargada de la hoja de uso com&uacute;n n&ordm; 10. Se utiliza preferentemente para realizar incisiones en cirug&iacute;as generales, cardiacas&nbsp;</p>', 194, 0, 'Betancourt', '2023-01-30', 1),
 (161, '505', 'Neocaína Pesada 0,50% (5mg/ml', 118, '<p>Anest&eacute;sico local; bloquea la propagaci&oacute;n del impulso nervioso impidiendo la entrada de iones Na&nbsp;<sup>+</sup>&nbsp;a trav&eacute;s de la membrana nerviosa.</p>\r\n<p><strong>La soluci&oacute;n de lidoca&iacute;na hipob&aacute;rica proporciona una analgesia con la misma dispersi&oacute;n de la bupivaca&iacute;na, pero con menor duraci&oacute;n</strong>. Las mayores ventajas incluyen una estabilidad hemodin&aacute;mica y la ausencia de bloqueo motor.</p>', 1, 0, 'Betancourt', '2023-01-30', 1),
 (162, '12', 'Vitamina K - Fitomenadiiona 1ml ', 32, '<p>La&nbsp;<strong>fitomenadiona</strong>&nbsp;(vitamina K) se usa para prevenir las hemorragias en personas con problemas de coagulaci&oacute;n o con muy poca vitamina K en el cuerpo. La fitomenadiona pertenece a una clase de medicamentos llamados vitaminas.</p>\r\n<p>La&nbsp;<em>vitamina K</em>&nbsp;se conoce como la vitamina de la coagulaci&oacute;n. Sin ella la sangre no coagular&iacute;a. Algunos estudios sugieren que ayuda a que los adultos mayores&nbsp;.</p>', 151, 0, 'Betancourt', '2023-01-30', 1),
-(163, '4', 'Suturas Mononylon # 4/0 (45cm/SC-20) 3/8', 111, '<p>&nbsp;El mononylon, es un&nbsp;<strong>material sint&eacute;tico, no absorbible, monofilamento, compuesto por nylon y un pol&iacute;mero de poliamida, resultante de la interacci&oacute;n de un &aacute;cido dicarbox&iacute;lico y una diamida</strong>, tiene una fuerza de tensi&oacute;n alta, buena elasticidad y una m&iacute;nima reacci&oacute;n de tejido; presentando el inconveniente de poseer memoria,&nbsp;</p>', 25, 0, 'Betancourt', '2023-01-30', 1),
-(164, '40', 'Suturas Mononylon # 4/0 (75cm/25mm) 1/2', 111, '<p>El mononylon, es un&nbsp;<strong>material sint&eacute;tico, no absorbible, monofilamento, compuesto por nylon y un pol&iacute;mero de poliamida, resultante de la interacci&oacute;n de un &aacute;cido dicarbox&iacute;lico y una diamida</strong>, tiene una fuerza de tensi&oacute;n alta, buena elasticidad y una m&iacute;nima reacci&oacute;n de tejido; presentando el inconveniente de poseer memoria,&nbsp;</p>', 22, 0, 'Betancourt', '2023-01-30', 1);
+(163, '4', 'Suturas Mononylon # 4/0 (45cm/SC-20) 3/8', 111, '<p>&nbsp;El mononylon, es un&nbsp;<strong>material sint&eacute;tico, no absorbible, monofilamento, compuesto por nylon y un pol&iacute;mero de poliamida, resultante de la interacci&oacute;n de un &aacute;cido dicarbox&iacute;lico y una diamida</strong>, tiene una fuerza de tensi&oacute;n alta, buena elasticidad y una m&iacute;nima reacci&oacute;n de tejido; presentando el inconveniente de poseer memoria,&nbsp;</p>', 25, 0, 'Betancourt', '2023-01-30', 1);
+INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `quantity`, `price`, `manufactured_by`, `create_date`, `status`) VALUES
+(164, '40', 'Suturas Mononylon # 4/0 (75cm/25mm) 1/2', 111, '<p>El mononylon, es un&nbsp;<strong>material sint&eacute;tico, no absorbible, monofilamento, compuesto por nylon y un pol&iacute;mero de poliamida, resultante de la interacci&oacute;n de un &aacute;cido dicarbox&iacute;lico y una diamida</strong>, tiene una fuerza de tensi&oacute;n alta, buena elasticidad y una m&iacute;nima reacci&oacute;n de tejido; presentando el inconveniente de poseer memoria,&nbsp;</p>', 22, 0, 'Betancourt', '2023-01-30', 1),
+(165, '30', 'Suturas Mononylon # 3-0 (45cm/30) 3/8', 111, '<p>El mononylon, es un&nbsp;<strong>material sint&eacute;tico, no absorbible, monofilamento, compuesto por nylon y un pol&iacute;mero de poliamida, resultante de la interacci&oacute;n de un &aacute;cido dicarbox&iacute;lico y una diamida</strong>, tiene una fuerza de tensi&oacute;n alta, buena elasticidad y una m&iacute;nima reacci&oacute;n de tejido; presentando el inconveniente de poseer memoria,&nbsp;</p>', 10, 0, 'Betancourt', '2023-01-30', 1),
+(166, '375', 'Suturas Mononylon # 3-0 (75cm/30) 3/8', 111, '<div id=\"fQzZY6-XMKSe5OUPysW2oAI__80\">\r\n<div class=\"wDYxhc\" data-md=\"61\">\r\n<div class=\"LGOjhe\" data-attrid=\"wa:/description\" data-hveid=\"CGkQAA\"><span class=\"ILfuVd\" lang=\"es\"><span class=\"hgKElc\">Suturas de Nylon Azul Monofilamento Calibre 3/0 - Cirug&iacute;a Peruana. Es una&nbsp;<strong>sutura sint&eacute;tica no absorbible monofilamento, compuesta de poliamida 6.6</strong>. De superficie suave, permite un deslizamiento atraum&aacute;tico entre los tejidos.</span></span></div>\r\n</div>\r\n</div>\r\n<div id=\"fQzZY6-XMKSe5OUPysW2oAI__81\">&nbsp;</div>', 1, 0, 'Betancourt', '2023-01-31', 1),
+(167, '236', 'Suturas Mononylon # 2-0 (36,4mm- 1/2 C)', 111, '<p>La Sutura VICRYL Recubierta&nbsp;<strong>est&aacute; indicada para uso en la aproximaci&oacute;n y/o ligadura de tejidos blandos en general, incluyendo el uso en procedimientos oft&aacute;lmicos, pero no para uso en tejidos neurol&oacute;gicos</strong>. La Sutura VICRYL Recubierta ofrece un paso suave por el tejido, manejo excepcional y seguridad de nudos.</p>', 5, 0, 'Betancourt', '2023-01-31', 1),
+(168, '275', 'Suturas Mononylon # 2-0 (75cm- 30 ) 1/2', 111, '<p>La Sutura VICRYL Recubierta&nbsp;<strong>est&aacute; indicada para uso en la aproximaci&oacute;n y/o ligadura de tejidos blandos en general, incluyendo el uso en procedimientos oft&aacute;lmicos, pero no para uso en tejidos neurol&oacute;gicos</strong>. La Sutura VICRYL Recubierta ofrece un paso suave por el tejido, manejo excepcional y seguridad de nudos.</p>\r\n<p>El Vicryl o poliglactina 910&nbsp;<strong>es un tipo de sutura absorbible, sint&eacute;tica, multifilamentosa y entrelazada</strong>. Se indica para la aproximaci&oacute;n y la ligadura de tejidos blandos. Calibre: 2/0.</p>', 4, 0, 'Betancourt', '2023-01-31', 1),
+(169, '1214', 'Atrovent Ipratropio 0,25 mg/ml - Frasco 20 ml ', 23, '<p>Atrovent&nbsp;<strong>pertenece al grupo de medicamentos denominados broncodilatadores por inhalaci&oacute;n</strong>. Atrovent se utiliza para el tratamiento de mantenimiento del broncoespasmo asociado a enfermedades pulmonares obstructivas cr&oacute;nicas (EPOC).</p>', 10, 54, 'V&C MEDICAMENTOS', '2023-01-31', 1),
+(170, '1216', 'Alburex 20% Albúmina Humana Solución para Perfusión 200 g/l', 134, '<p>La&nbsp;<strong>alb&uacute;mina</strong>&nbsp;es un agente onc&oacute;tico derivado del plasma que se emplea para uso a corto plazo en el mantenimiento del volumen intravascular en situaciones cl&iacute;nicas limitadas actuando como un expansor de volumen.</p>', 10, 182, 'V&C MEDICAMENTOS', '2023-01-31', 1);
 
 -- --------------------------------------------------------
 
@@ -3203,7 +3212,13 @@ INSERT INTO `mercaderia` (`id`, `id_mercaderia`, `fecha_entrada`, `fecha_factura
 (208, 54, '2023-01-30', '2023-01-30', '0', 'Betancourt', '505', 'Neocaína Pesada 0,50% (5mg/ml', '21050716', '1', '0', '2023-05-31', 'Jose Ginarte'),
 (209, 55, '2023-01-30', '2023-01-30', '0', 'Betancourt', '12', 'Vitamina K - Fitomenadiiona 1ml ', '200220', '151', '0', '2023-02-20', 'Jose Ginarte'),
 (210, 56, '2023-01-30', '2023-01-30', '0', 'Betancourt', '4', 'Suturas Mononylon # 4/0 (45cm/SC-20) 3/8', 'AF4564', '25', '0', '2023-01-31', 'Jose Ginarte'),
-(211, 56, '2023-01-30', '2023-01-30', '0', 'Betancourt', '40', 'Suturas Mononylon # 4/0 (75cm/25mm) 1/2', '1711250', '22', '0', '2022-12-31', 'Jose Ginarte');
+(211, 56, '2023-01-30', '2023-01-30', '0', 'Betancourt', '40', 'Suturas Mononylon # 4/0 (75cm/25mm) 1/2', '1711250', '22', '0', '2022-12-31', 'Jose Ginarte'),
+(212, 57, '2023-01-30', '2023-01-30', '0', 'Betancourt', '30', 'Suturas Mononylon # 3-0 (45cm/30) 3/8', 'AN1960', '1', '0', '2024-12-31', 'Jose Ginarte'),
+(213, 57, '2023-01-30', '2023-01-30', '0', 'Betancourt', '30', 'Suturas Mononylon # 3-0 (45cm/30) 3/8', 'AN9782', '6', '0', '2025-09-30', 'Jose Ginarte'),
+(214, 57, '2023-01-30', '2023-01-30', '0', 'Betancourt', '30', 'Suturas Mononylon # 3-0 (45cm/30) 3/8', 'AP0782', '3', '0', '2025-10-31', 'Jose Ginarte'),
+(215, 58, '2023-01-31', '2023-01-31', '0', 'Betancourt', '375', 'Suturas Mononylon # 3-0 (75cm/30) 3/8', 'SS208-17', '1', '0', '2022-09-30', 'Jose Ginarte'),
+(216, 59, '2023-01-31', '2023-01-31', '0', 'Betancourt', '236', 'Suturas Mononylon # 2-0 (36,4mm- 1/2 C)', '15SE1749', '5', '0', '2020-05-31', 'Jose Ginarte'),
+(217, 59, '2023-01-31', '2023-01-31', '0', 'Betancourt', '275', 'Suturas Mononylon # 2-0 (75cm- 30 ) 1/2', 'N199-20', '4', '0', '2025-07-31', 'Jose Ginarte');
 
 -- --------------------------------------------------------
 
@@ -3337,7 +3352,8 @@ INSERT INTO `patient` (`id`, `patient_id`, `firstname`, `lastname`, `email`, `pa
 (11, 'P70POQX8', 'Javier', 'Gonzalez', '', 'd41d8cd98f00b204e9800998ecf8427e', NULL, '123', 'Nueva via', 'Male', 'O+', '1992-10-08', NULL, NULL, 1, '2023-01-25', 1, ''),
 (12, 'P8MO0SAU', 'carla ninet', 'ardaya arteaga', 'ardayaarteagacarlaninet@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '74625333', 'av. 3 pasos al frente ', 'Female', 'B+', '1996-09-23', NULL, '', 10, '2023-01-26', 1, ''),
 (13, 'P425VEPW', 'Isabel', 'Romero Mendez', '', 'd41d8cd98f00b204e9800998ecf8427e', NULL, '65704565', 'EL TROMPILLO', 'Female', '', '2015-01-14', NULL, NULL, 4, '2023-01-27', 1, ''),
-(14, 'PMAWMJL5', 'juana ', 'perez', '', 'd41d8cd98f00b204e9800998ecf8427e', NULL, '69270050', 'cuarto anillo ', 'Female', '', '2008-03-05', NULL, NULL, 4, '2023-01-30', 1, '');
+(14, 'PMAWMJL5', 'juana ', 'perez', '', 'd41d8cd98f00b204e9800998ecf8427e', NULL, '69270050', 'cuarto anillo ', 'Female', '', '2008-03-05', NULL, NULL, 4, '2023-01-30', 1, ''),
+(15, 'PKSDH0BU', 'Daiane', 'Marques', 'dradaianemarques@gimail.com', '827ccb0eea8a706c4c34a16891f84e7b', '', '755602777', '', 'Female', '', '1989-01-09', NULL, '', 4, '2023-01-30', 1, '');
 
 -- --------------------------------------------------------
 
@@ -5257,9 +5273,13 @@ INSERT INTO `user_log` (`id`, `user_id`, `in_time`, `out_time`, `date`, `status`
 (141, 13, '21:10:08', '00:00:00', '2023-01-28', 1),
 (142, 11, '04:25:31', '00:00:00', '2023-01-29', 1),
 (143, 1, '00:29:55', '00:00:00', '2023-01-30', 1),
-(144, 8, '12:45:49', '20:04:07', '2023-01-30', 0),
+(144, 8, '12:45:49', '21:56:15', '2023-01-30', 0),
 (145, 4, '12:52:57', '00:00:00', '2023-01-30', 1),
-(146, 13, '19:36:10', '00:00:00', '2023-01-30', 1);
+(146, 13, '19:36:10', '00:00:00', '2023-01-30', 1),
+(147, 1, '02:09:18', '00:00:00', '2023-01-31', 1),
+(148, 8, '12:32:48', '16:12:05', '2023-01-31', 1),
+(149, 14, '13:57:58', '00:00:00', '2023-01-31', 1),
+(150, 13, '16:07:54', '00:00:00', '2023-01-31', 1);
 
 -- --------------------------------------------------------
 
@@ -6457,7 +6477,7 @@ ALTER TABLE `acc_account_name`
 -- AUTO_INCREMENT de la tabla `acc_transaction`
 --
 ALTER TABLE `acc_transaction`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `acm_account`
@@ -6511,7 +6531,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT de la tabla `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT de la tabla `bill_admission`
@@ -6523,7 +6543,7 @@ ALTER TABLE `bill_admission`
 -- AUTO_INCREMENT de la tabla `bill_advanced`
 --
 ALTER TABLE `bill_advanced`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `bill_details`
@@ -6571,7 +6591,7 @@ ALTER TABLE `bm_room`
 -- AUTO_INCREMENT de la tabla `caja`
 --
 ALTER TABLE `caja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
 -- AUTO_INCREMENT de la tabla `cm_patient`
@@ -6637,7 +6657,7 @@ ALTER TABLE `ha_birth`
 -- AUTO_INCREMENT de la tabla `ha_category`
 --
 ALTER TABLE `ha_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT de la tabla `ha_death`
@@ -6655,7 +6675,7 @@ ALTER TABLE `ha_investigation`
 -- AUTO_INCREMENT de la tabla `ha_medicine`
 --
 ALTER TABLE `ha_medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT de la tabla `ha_operation`
@@ -6727,7 +6747,7 @@ ALTER TABLE `medication`
 -- AUTO_INCREMENT de la tabla `mercaderia`
 --
 ALTER TABLE `mercaderia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT de la tabla `message`
@@ -6751,7 +6771,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT de la tabla `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `pa_visit`
@@ -6901,7 +6921,7 @@ ALTER TABLE `user_language`
 -- AUTO_INCREMENT de la tabla `user_log`
 --
 ALTER TABLE `user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

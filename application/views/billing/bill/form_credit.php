@@ -773,7 +773,7 @@ $(document).ready(function(){
         endforeach;
 
         foreach ($medicines as $meidicne):
-            echo "{label:'Producto: $meidicne->name', service_id:'$meidicne->id', quantity:'$meidicne->quantity', amount:'$meidicne->price', professional:'',product:1}, "; 
+            echo "{label:'{$meidicne['name']}', service_id:'{$meidicne['id']}', quantity:'1', amount:'{$meidicne['price']}', professional:'',product:1}, "; 
         endforeach;
         ?>
         ],

@@ -34,7 +34,7 @@
                             $visit[$i] = false;
 
                         }
-                          $this->accounts_model->dfs("Chart Of Accounts","0",$userList,$visit,0);
+                          $this->accounts_model->dfs("Plan de cuentas","0",$userList,$visit,0);
 
                         ?>
                         </ul>
@@ -47,26 +47,26 @@
                        <table width="100%" border="0" cellspacing="0" cellpadding="5">
                         
                           <tr>
-                            <td>Head Code</td>
+                            <td>Código</td>
                             <td><input type="text" name="txtHeadCode" id="txtHeadCode" class="form_input"  value="<?php echo $role_reult->HeadCode?>" readonly="readonly"/></td>
                           </tr>
                           <tr>
-                            <td>Head Name</td>
+                            <td>Nombre</td>
                             <td><input type="text" name="txtHeadName" id="txtHeadName" class="form_input" value="<?php echo $role_reult->HeadName?>"/>
                              <input type="hidden" name="HeadName" id="HeadName" class="form_input" value="<?php echo $role_reult->HeadName?>"/>
                             </td>
                           </tr>
                           <tr>
-                            <td>Parent Head</td>
+                            <td>Pertenece a</td>
                             <td><input type="text" name="txtPHead" id="txtPHead" class="form_input" readonly="readonly" value="<?php echo $role_reult->PHeadName?>"/></td>
                           </tr>
                           <tr>
 
-                            <td>Head Level</td>
+                            <td>Nivel</td>
                             <td><input type="text" name="txtHeadLevel" id="txtHeadLevel" class="form_input" readonly="readonly" value="<?php echo $role_reult->HeadLevel?>"/></td>
                           </tr>
                            <tr>
-                            <td>Head Type</td>
+                            <td>Tipo</td>
                             <td><input type="text" name="txtHeadType" id="txtHeadType" class="form_input" readonly="readonly" value="<?php echo $role_reult->HeadType?>"/></td>
                           </tr>
 
@@ -74,13 +74,13 @@
                             <td>&nbsp;</td>
                             <td><input type="checkbox" name="IsTransaction" value="1" id="IsTransaction" size="28"  onchange="IsTransaction_change();"
                                 <?php if($role_reult->IsTransaction==1){ echo "checked";}?>"/>
-                                <label for="IsTransaction"> IsTransaction</label>
+                                <label for="IsTransaction"> Transacción</label>
                             <input type="checkbox" value="1" name="IsActive" id="IsActive"
                            <?php if($role_reult->IsActive==1){ echo "checked";}?>
-                              size="28" checked="" /><label for="IsActive"> IsActive</label>
+                              size="28" checked="" /><label for="IsActive"> Activo</label>
                             <input type="checkbox" value="1" name="IsGL" id="IsGL" size="28"
                              <?php if($role_reult->IsGL==1){ echo "checked";}?>
-                            onchange="IsGL_change();"/><label for="IsGL"> IsGL</label>
+                            onchange="IsGL_change();"/><label for="IsGL"> GL</label>
 
                             </td>
                           </tr>
@@ -89,11 +89,11 @@
                             <td>
                             <?php
                            if( $this->permission->method('accounts','create')->access()){?>
-                            <input type="button" name="btnNew" id="btnNew" value="New" onClick="newdata(<?= $role_reult->HeadCode?>)" />
-                             <input type="submit" name="btnSave" id="btnSave" value="Save" disabled="disabled"/>
+                            <input type="button" name="btnNew" id="btnNew" value="Nuevo" onClick="newdata(<?= $role_reult->HeadCode?>)" />
+                             <input type="submit" name="btnSave" id="btnSave" value="Guardar" disabled="disabled"/>
                              <?php }
                             if($this->permission->method('accounts','update')->access()){?>
-                            <input type="submit" name="btnUpdate" id="btnUpdate" value="Update" />
+                            <input type="submit" name="btnUpdate" id="btnUpdate" value="Actualizar" />
                             <?php }?>
                             </td>
                           </tr>
