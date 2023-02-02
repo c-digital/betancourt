@@ -133,18 +133,30 @@
                             </td>
                             <td class="description">
                                 <p>
-                                    <?php if ($service->product): ?>
-                                        <?php $medicine = $this->db->from('almacenes_productos')->where('id', $service->service_id)->get()->row() ?>
+                                    <?php
+                                        if ($service->product) {
+                                            if ($service->almacen == 'general') {
+                                                $medicine = $this->db->from('ha_medicine')
+                                                    ->where('id', $service->service_id)
+                                                    ->get()
+                                                    ->row();
 
-                                        <?php echo 'Producto: ' . $medicine->name; ?>
+                                            } else {
+                                                $medicine = $this->db->from('almacenes_productos')
+                                                    ->where('id', $service->service_id)
+                                                    ->get()
+                                                    ->row();
+                                            }
 
-                                    <?php else: ?>
-                                        <?php echo 'Servicio: ' . $service->name; ?>
+                                            echo 'Producto: ' . $medicine->name;
+                                        } else {
+                                            echo 'Servicio: ' . $service->name;
 
-                                        <?php if ($service->professional_id): ?> 
-                                            <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
+                                            if ($service->professional_id) {
+                                                echo '<br>(Profesional: ' . $service->professional . ')';
+                                            }
+                                        }
+                                    ?>
                                 </p>  
                             </td>
                             <td class="charge">
@@ -198,59 +210,42 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="row">
-                             <div class="col-xs-6">
+                             <div class="col-xs-12">
                                 <div class="advance_payment"> 
                                     <table class="payment">
                                         <thead>
                                             <tr>
-                                                <th colspan="3"><h4><?php echo display('advance_payment'); ?></h4></th> 
+                                                <th colspan="4"><h4><?php echo 'Historial de pagos'; ?></h4></th> 
                                             </tr>
                                             <tr>
-                                                <th><?php echo display('date'); ?></th>
-                                                <th><?php echo display('receipt_no'); ?></th>
-                                                <th><?php echo display('amount'); ?></th>
-                                            </tr> 
+                                                <th>Cajero</th>
+                                                <th>Monto</th>
+                                                <th>Método de pago</th>
+                                                <th>Fecha</th>
+                                            </tr>  
                                         </thead>
                                         <tbody>
-                                            <?php  
-                                            $pay_advance = "0.00";
-                                            foreach($advance as $adv)
-                                            {
-                                            $pay_advance+=$adv->amount;
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $adv->date ?></td>
-                                                <td><?php echo $adv->receipt_no ?></td>
-                                                <td><?php echo $adv->amount ?></td>
-                                            </tr>
+
                                             <?php
-                                            }
+                                                $facturas = $bill->bill_id;
+
+                                                $ci = &get_instance();
+
+                                                $pagos = $ci->db->query("SELECT * FROM caja WHERE concepto REGEXP ('$facturas')")->result();
+                                                $pagos = [];
                                             ?>
+
+                                            <?php foreach ($pagos as $pago): ?>
+                                                <tr>
+                                                    <td><?php echo $pago->cajero ?></td>
+                                                    <td><?php echo $pago->monto ?></td>
+                                                    <td><?php echo $pago->metodo_pago ?></td>
+                                                    <td><?php echo $pago->fecha ?></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="table-responsive table-height">
-                                    <table class="payment">
-                                        <thead>
-                                            <tr>
-                                                <th><?php echo display('payment_method'); ?></th>
-                                                <th><?php echo $bill->payment_method ?></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo display('card_cheque_no'); ?></td>
-                                                <td><?php echo $bill->card_cheque_no ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><?php echo display('receipt_no'); ?></td>
-                                                <td><?php echo $bill->receipt_no ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                 </div>
                             </div>
                         </div>
                         <br>

@@ -490,6 +490,7 @@ $(document).ready(function(){
     "</select></div>"+
     "<input name=\"service_id[]\" type=\"hidden\" class=\"service_id\" required></td>"+
     "<input name=\"product[]\" type=\"hidden\" class=\"product\" required></td>"+
+    "<input name=\"almacen[]\" type=\"hidden\" class=\"almacen\" required></td>"+
     "<td><input name=\"quantity[]\" class=\"form-control quantity item-calc\" type=\"text\" placeholder=\"<?php echo display('quantity') ?>\" value=\"1\" required></td>"+
     "<td><input name=\"amount[]\" class=\"form-control amount item-calc\" type=\"text\" placeholder=\"<?php echo display('amount') ?>\"  value=\"0.00\"  required></td>"+
     "<td><input name=\"subtotal[]\" class=\"form-control subtotal\" type=\"text\" placeholder=\"<?php echo display('subtotal') ?>\"  value=\"0.00\" required></td>"+
@@ -769,11 +770,11 @@ $(document).ready(function(){
       source: [
         <?php 
         foreach ($service_list as $service):
-            echo "{label:'Servicio: $service->name', service_id:'$service->id', quantity:'$service->quantity', amount:'$service->amount', professional:'$service->professional_commission',product:0}, "; 
+            echo "{label:'Servicio: $service->name', service_id:'$service->id', quantity:'$service->quantity', amount:'$service->amount', professional:'$service->professional_commission',product:0,almacen:''}, ";
         endforeach;
 
         foreach ($medicines as $meidicne):
-            echo "{label:'{$meidicne['name']}', service_id:'{$meidicne['id']}', quantity:'1', amount:'{$meidicne['price']}', professional:'',product:1}, "; 
+            echo "{label:'{$meidicne['name']}', service_id:'{$meidicne['id']}', quantity:'1', amount:'{$meidicne['price']}', professional:'',product:1, almacen:'{$meidicne['almacen']}'}, ";
         endforeach;
         ?>
         ],
@@ -783,6 +784,7 @@ $(document).ready(function(){
         },
         select: function( event, ui ) {
             $(this).parent().parent().find(".product").val(ui.item.product);
+            $(this).parent().parent().find(".almacen").val(ui.item.almacen);
             $(this).parent().parent().find(".service_name").val(ui.item.label);
             $(this).parent().parent().find(".service_id").val(ui.item.service_id);
             $(this).parent().parent().find(".quantity").val(ui.item.quantity);

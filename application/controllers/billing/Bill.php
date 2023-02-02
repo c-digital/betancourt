@@ -26,6 +26,31 @@ class Bill extends CI_Controller {
 			redirect('login');
 	}
 
+	public function cobrar()
+	{
+		extract($_POST);
+
+		$cajero = $this->session->userdata('fullname');
+		$caja = $this->db->query("SELECT * FROM caja WHERE cajero = '$cajero' ORDER BY id DESC")->row();
+		$estado = $caja->estado;
+
+		$saldo = $caja->saldo;
+		$saldo = $saldo + $monto;
+
+		if ($estado == 'Caja cerrada') {
+			$this->session->set_flashdata('exception', 'No puede realizar operaciones de facturacion porque la caja está cerrada');
+			return redirect("/billing/bill/all/$bill_id");
+		}
+
+		$concepto = 'Pago de internacion: ' . $bill_id;
+
+		$this->db->query("INSERT INTO caja (tipo_movimiento, fecha, monto, metodo_pago, concepto, saldo, estado, cajero) VALUES ('Entrada', NOW(), '$monto', '$metodo_pago', '$concepto', '$saldo', 'Caja abierta', '$cajero')");
+
+		$this->db->query("UPDATE bill_admission SET pagado = pagado + $monto WHERE bill_id = '$bill_id'");
+
+		return redirect("/billing/bill/all/$bill_id");
+	}
+
 	public function all($admission_id)
 	{
 		$sql = "
@@ -157,9 +182,10 @@ class Bill extends CI_Controller {
 			$data['medicines'][$i]['name'] = 'Producto: ' . $almacen->name . ' (Almacen general)';
 			$data['medicines'][$i]['id'] = $almacen->id;
 			$data['medicines'][$i]['quantity'] = $almacen->quantity;
-			$data['medicines'][$i]['amount'] = $almacen->price;
+			$data['medicines'][$i]['price'] = $almacen->price;
 			$data['medicines'][$i]['professional'] = '';
 			$data['medicines'][$i]['product'] = '1';
+			$data['medicines'][$i]['almacen'] = 'general';
 
 			$i++;
 			$j++;
@@ -172,9 +198,10 @@ class Bill extends CI_Controller {
 			$data['medicines'][$i]['name'] = 'Producto: ' . $farmacia->name . ' (' . $farmacia->nombre . ')';
 			$data['medicines'][$i]['id'] = $farmacia->id;
 			$data['medicines'][$i]['quantity'] = $farmacia->quantity;
-			$data['medicines'][$i]['amount'] = $farmacia->price;
+			$data['medicines'][$i]['price'] = $farmacia->price;
 			$data['medicines'][$i]['professional'] = '';
 			$data['medicines'][$i]['product'] = '1';
+			$data['medicines'][$i]['almacen'] = $farmacia->id_almacen;
 
 			$i++;
 			$j++;
@@ -259,6 +286,7 @@ class Bill extends CI_Controller {
 				$sProfessional  = $this->input->post('service_professional');
 				$sQty  			= $this->input->post('quantity');
 				$sAmt  			= $this->input->post('amount');
+				$sAmt  			= $this->input->post('amount');				
 				$services 		= array();
 
 				for ($i=0; $i < sizeof($sID); $i++)
@@ -505,6 +533,7 @@ class Bill extends CI_Controller {
 				$sQty  			= $this->input->post('quantity');
 				$sAmt  			= $this->input->post('amount');
 				$product  		= $this->input->post('product');
+				$almacen  		= $this->input->post('almacen');
 				$services 		= array();
 
 				for ($i=0; $i < sizeof($sID); $i++)
@@ -524,6 +553,7 @@ class Bill extends CI_Controller {
 						'service_id'   		=> $sID[$i],
 						'professional_id'   => $professional_id,
 						'product'           => $product[$i],
+						'almacen'           => $almacen[$i],
 						'quantity'     		=> $sQty[$i],
 						'amount'       		=> $sAmt[$i],
 						'date'         		=> date('Y-m-d')
@@ -741,6 +771,8 @@ class Bill extends CI_Controller {
 					$sName = $this->input->post('service_name');
 					$sQty  = $this->input->post('quantity');
 					$sAmt  = $this->input->post('amount');
+					$product  		= $this->input->post('product');
+					$almacen  		= $this->input->post('almacen');
 					$services = array();
 
 					if ($sID) {
@@ -754,6 +786,8 @@ class Bill extends CI_Controller {
 								'service_id'   => $sID[$i],
 								'quantity'     => $sQty[$i],
 								'amount'       => $sAmt[$i],
+								'product'           => $product[$i],
+								'almacen'           => $almacen[$i],
 								'date'         => date('Y-m-d')
 							));
 						} 

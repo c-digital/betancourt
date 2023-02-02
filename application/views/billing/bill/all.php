@@ -25,6 +25,12 @@
                     <button onclick="printContent('printMe')" type="button" class="btn btn-danger"><i class="fa fa-print"></i> <?php echo display("print") ?></button>
                     <?php } ?>
 
+                    <?php
+                    if($this->permission->method('bill_list','read')->access()){
+                    ?>
+                    <button type="button" data-toggle="modal" data-target="#cobrar" class="btn btn-info"><i class="fa fa-money"></i> <?php echo 'Cobar' ?></button>
+                    <?php } ?>
+
                 </div>
                 <h2 class="col-xs-8 text-left text-success"><?php echo display('bill_details') ?></h2>
             </div>  
@@ -116,7 +122,6 @@
                                 <th><?php echo display('rate'); ?></th>
                                 <th><?php echo display('subtotal'); ?></th> 
                                 <th>Numero factura</th>
-                                <th>Estado factura</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,18 +139,30 @@
                             </td>
                             <td class="description">
                                 <p>
-                                    <?php if ($service->product): ?>
-                                        <?php $medicine = $this->db->from('almacenes_productos')->where('id', $service->service_id)->get()->row() ?>
+                                    <?php
+                                        if ($service->product) {
+                                            if ($service->almacen == 'general') {
+                                                $medicine = $this->db->from('ha_medicine')
+                                                    ->where('id', $service->service_id)
+                                                    ->get()
+                                                    ->row();
 
-                                        <?php echo 'Producto: ' . $medicine->name; ?>
+                                            } else {
+                                                $medicine = $this->db->from('almacenes_productos')
+                                                    ->where('id', $service->service_id)
+                                                    ->get()
+                                                    ->row();
+                                            }
 
-                                    <?php else: ?>
-                                        <?php echo 'Servicio: ' . $service->name; ?>
+                                            echo 'Producto: ' . $medicine->name;
+                                        } else {
+                                            echo 'Servicio: ' . $service->name;
 
-                                        <?php if ($service->professional_id): ?> 
-                                            <?php echo '<br>(Profesional: ' . $service->professional . ')'; ?>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
+                                            if ($service->professional_id) {
+                                                echo '<br>(Profesional: ' . $service->professional . ')';
+                                            }
+                                        }
+                                    ?>
                                 </p> 
                             </td>
                             <td class="charge">
@@ -160,16 +177,9 @@
                             <td class="discount">
                                 <p>
                                     <a href="https://clinicamedicabetancourt.com/billing/bill/view/<?php echo $service->bill_id; ?>">
-                                        <?php echo $service->bill_id; ?>                                        
+                                        <?php echo $service->bill_id; $facturas[] = $service->bill_id; ?>                                        
                                     </a>
                                 </p> 
-                            </td>
-                            <td class="discount">
-                                <?php if ($service->bill_status == 'Pagada'): $pagado = $pagado + ($service->quantity*$service->amount); ?>
-                                    <span class="label label-xs label-success"><?php echo $service->bill_status; ?></span>
-                                <?php else: ?>
-                                    <span class="label label-xs label-danger"><?php echo $service->bill_status; ?></span>
-                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php
@@ -213,59 +223,43 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="row">
-                             <div class="col-xs-6">
+                             <div class="col-xs-12">
                                 <div class="advance_payment"> 
                                     <table class="payment">
                                         <thead>
                                             <tr>
-                                                <th colspan="3"><h4><?php echo display('advance_payment'); ?></h4></th> 
+                                                <th colspan="4"><h4><?php echo 'Historial de pagos'; ?></h4></th> 
                                             </tr>
                                             <tr>
-                                                <th><?php echo display('date'); ?></th>
-                                                <th><?php echo display('receipt_no'); ?></th>
-                                                <th><?php echo display('amount'); ?></th>
+                                                <th>Cajero</th>
+                                                <th>Monto</th>
+                                                <th>Método de pago</th>
+                                                <th>Fecha</th>
                                             </tr> 
                                         </thead>
+
                                         <tbody>
-                                            <?php  
-                                            $pay_advance = "0.00";
-                                            foreach($advance as $adv)
-                                            {
-                                            $pay_advance+=$adv->amount;
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $adv->date ?></td>
-                                                <td><?php echo $adv->receipt_no ?></td>
-                                                <td><?php echo $adv->amount ?></td>
-                                            </tr>
+
                                             <?php
-                                            }
+                                                $facturas = implode("|", $facturas);
+
+                                                $ci = &get_instance();
+
+                                                $pagos = $ci->db->query("SELECT * FROM caja WHERE concepto LIKE '$bill->bill_id' OR concepto REGEXP ('$bill->admission_id')")->result();
+                                                $pagos = [];
                                             ?>
+
+                                            <?php foreach ($pagos as $pago): ?>
+                                                <tr>
+                                                    <td><?php echo $pago->cajero ?></td>
+                                                    <td><?php echo $pago->monto ?></td>
+                                                    <td><?php echo $pago->metodo_pago ?></td>
+                                                    <td><?php echo $pago->fecha ?></td>
+                                                </tr>
+                                            <?php endforeach ?>
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="table-responsive table-height">
-                                    <table class="payment">
-                                        <thead>
-                                            <tr>
-                                                <th><?php echo display('payment_method'); ?></th>
-                                                <th><?php echo $bill->payment_method ?></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo display('card_cheque_no'); ?></td>
-                                                <td><?php echo $bill->card_cheque_no ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td><?php echo display('receipt_no'); ?></td>
-                                                <td><?php echo $bill->receipt_no ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                 </div>
                             </div>
                         </div>
                         <br>
@@ -390,4 +384,42 @@
             
         </div>
     </div>
+</div>
+
+
+<div class="modal fade" id="cobrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close_crear_proveedor" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Agregar pago</h4>
+      </div>
+
+      <form action="/billing/bill/cobrar" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="monto">Monto</label>
+                <input type="number" required class="form-control" name="monto">
+            </div>
+
+            <div class="form-group">
+                <label for="metodo_pago">Método de pago</label>
+                <select name="metodo_pago" class="form-control" required>
+                    <option value="Todos">Todos</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="QR">QR</option>
+                    <option value="Débito">Débito</option>
+                    <option value="Crédito">Crédito</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </div>
+      </form>
+    </div>
+  </div>
 </div>
