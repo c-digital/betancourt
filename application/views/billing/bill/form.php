@@ -43,29 +43,29 @@
                                     
                                     <div class="col-sm-5">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="patient_id" id="patient_id" value="" placeholder="<?php echo display('patient_id') ?>">
+                                            <input type="text" class="form-control" name="patient_id" id="patient_id" value="<?php echo (isset($_GET['aid'])) ? $admission->patient_id : '' ?>" placeholder="<?php echo display('patient_id') ?>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <input name="bill_date" type="text" class="form-control datepicker" id="bill_date"  placeholder="<?php echo display('bill_date') ?>" autocomplete="off" required/>
+                                    <input name="bill_date" type="text" class="form-control datepicker" id="bill_date" value="<?php echo (isset($_GET['aid'])) ? $admission->bill_date : '' ?>" placeholder="<?php echo display('bill_date') ?>" autocomplete="off" required/>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="patient_name" placeholder="<?php echo display('patient_name') ?>" disabled/>
+                                    <input type="text" class="form-control" id="patient_name" value="<?php echo (isset($_GET['aid'])) ? $admission->patient_name : '' ?>" placeholder="<?php echo display('patient_name') ?>" disabled/>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="date_of_birth" placeholder="<?php echo display('date_of_birth') ?>" disabled/>
+                                    <input type="text" class="form-control" value="<?php echo (isset($_GET['aid'])) ? $admission->date_of_birth : '' ?>" id="date_of_birth" placeholder="<?php echo display('date_of_birth') ?>" disabled/>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="3" placeholder="<?php echo display('address') ?>" id="address"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="<?php echo display('address') ?>" id="address"><?php echo (isset($_GET['aid'])) ? $admission->address : '' ?></textarea>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
@@ -73,15 +73,15 @@
                                     <label for="sex" class="col-sm-4 col-md-2 col-form-label"><?php echo display('sex') ?></label>
                                     <div id="sex" class="col-sm-8 col-md-10">
                                         <div class="radio radio-info radio-inline">
-                                            <input type="radio" id="male"  disabled>
-                                            <label for="male"><?php echo display('male') ?></label>
+                                            <input <?php echo (isset($_GET['aid']) && $admission->patient_sex == 'Male') ? 'checked' : '' ?> type="radio" id="male"  disabled>
+                                            <label for="male"><?php echo display('Male') ?></label>
                                         </div>
                                         <div class="radio radio-inline">
-                                            <input type="radio" id="female" disabled>
-                                            <label for="female"><?php echo display('female') ?></label>
+                                            <input <?php echo (isset($_GET['aid']) && $admission->patient_sex == 'Female') ? 'checked' : '' ?> type="radio" id="female" disabled>
+                                            <label for="female"><?php echo display('Female') ?></label>
                                         </div>
                                         <div class="radio radio-inline">
-                                            <input type="radio" id="others" disabled>
+                                            <input <?php echo (isset($_GET['aid']) && $admission->patient_sex == 'Others') ? 'checked' : '' ?> type="radio" id="others" disabled>
                                             <label for="others"><?php echo display('others') ?></label>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="doctor_name"  placeholder="<?php echo display('doctor_name') ?>" disabled/>
+                                    <input type="text" class="form-control" id="doctor_name" value="<?php echo (isset($_GET['aid'])) ? $admission->doctor_name : '' ?>" placeholder="<?php echo display('doctor_name') ?>" disabled/>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="form-group row">
                                 <label for="admission_date" class="col-sm-4 col-form-label"><?php echo display('admission_date') ?></label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" value="" placeholder="<?php echo display('admission_date') ?>" id="admission_date" disabled>
+                                    <input class="form-control" type="text" value="<?php echo (isset($_GET['aid'])) ? $admission->admission_date : '' ?>" placeholder="<?php echo display('admission_date') ?>" id="admission_date" disabled>
                                 </div>
                             </div>
                         </div> 
@@ -116,7 +116,7 @@
                             <div class="form-group row">
                                 <label for="package_name" class="col-sm-4 col-form-label"><?php echo display('package_name') ?></label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" id="package_name" type="text" value="" placeholder="<?php echo display('package_name') ?>" id="package_name" disabled>
+                                    <input class="form-control" id="package_name" type="text" value="<?php echo (isset($_GET['aid'])) ? $admission->package_name : '' ?>" placeholder="<?php echo display('package_name') ?>" id="package_name" disabled>
                                     <input name="package_id" type="hidden" id="package_id">
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                             <div class="form-group row">
                                 <label for="total_days" class="col-sm-4 col-form-label"><?php echo display('total_days') ?><br/>&nbsp;</label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text"  placeholder="<?php echo display('total_days') ?>" id="total_days" disabled>
+                                    <input class="form-control" type="text" value="<?php echo isset($_GET['aid']) ? date_diff(date_create($admission->admission_date), date_create($admission->discharge_date)) : '' ?>" placeholder="<?php echo display('total_days') ?>" id="total_days" disabled>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                             <div class="form-group row">
                                 <label for="discharge_date" class="col-sm-4 col-form-label"><?php echo display('discharge_date') ?></label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" value="" placeholder="<?php echo display('discharge_date') ?>" id="discharge_date" disabled>
+                                    <input class="form-control" type="text" value="<?php echo (isset($_GET['aid'])) ? $admission->discharge_date : '' ?>" placeholder="<?php echo display('discharge_date') ?>" id="discharge_date" disabled>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                             <div class="form-group row">
                                 <label for="insurance_name" class="col-sm-4 col-form-label"><?php echo display('insurance_name') ?></label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" value="" placeholder="<?php echo display('insurance_name') ?>" id="insurance_name" disabled>
+                                    <input class="form-control" type="text" value="<?php echo (isset($_GET['aid'])) ? $admission->insurance_name : '' ?>" placeholder="<?php echo display('insurance_name') ?>" id="insurance_name" disabled>
                                 </div>
                             </div>
                         </div> 
@@ -149,7 +149,7 @@
                             <div class="form-group row">
                                 <label for="policy_no" class="col-sm-4 col-form-label"><?php echo display('policy_no') ?></label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" value="" placeholder="<?php echo display('policy_no') ?>" id="policy_no" disabled>
+                                    <input class="form-control" type="text" placeholder="<?php echo display('policy_no') ?>" value="<?php echo (isset($_GET['aid'])) ? $admission->policy_no : '' ?>" id="policy_no" disabled>
                                 </div>
                             </div>
                         </div>  

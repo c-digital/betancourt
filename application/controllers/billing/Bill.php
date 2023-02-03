@@ -172,6 +172,28 @@ class Bill extends CI_Controller {
 	} 
 
 	public function form_credit(){
+		if (isset($_GET['aid'])) {
+			$admission_id = $_GET['aid'];
+			
+			$data['admission'] = $this->db->query("
+				SELECT
+				    *,
+				    inc_insurance.insurance_name,
+				    patient.address,
+				    patient.sex AS patient_sex,
+				    CONCAT_WS(' ', patient.firstname, patient.lastname) AS patient_name,
+				    patient.date_of_birth,
+				    bill_package.name AS package_name
+				FROM
+				    bill_admission
+				    LEFT JOIN patient ON bill_admission.patient_id = patient.patient_id
+				    LEFT JOIN inc_insurance ON bill_admission.insurance_id = inc_insurance.id
+				    LEFT JOIN bill_package ON bill_admission.package_id = bill_package.id
+				WHERE
+				    bill_admission.admission_id = '$admission_id'
+			")->row();
+		}
+		
 		$almacenes = $this->db->query('SELECT * FROM ha_medicine WHERE quantity > 0 GROUP BY name')->result();
 
 		$i = 0;
@@ -452,6 +474,28 @@ class Bill extends CI_Controller {
 
 		$i = 0;
 		$j = 1;
+
+		if (isset($_GET['aid'])) {
+			$admission_id = $_GET['aid'];
+
+			$data['admission'] = $this->db->query("
+				SELECT
+				    *,
+				    inc_insurance.insurance_name,
+				    patient.address,
+				    patient.sex AS patient_sex,
+				    CONCAT_WS(' ', patient.firstname, patient.lastname) AS patient_name,
+				    patient.date_of_birth,
+				    bill_package.name AS package_name
+				FROM
+				    bill_admission
+				    LEFT JOIN patient ON bill_admission.patient_id = patient.patient_id
+				    LEFT JOIN inc_insurance ON bill_admission.insurance_id = inc_insurance.id
+				    LEFT JOIN bill_package ON bill_admission.package_id = bill_package.id
+				WHERE
+				    bill_admission.admission_id = '$admission_id'
+			")->row();
+		}
 
 		foreach ($almacenes as $almacen) {
 			$data['medicines'][$i]['i'] = $j;

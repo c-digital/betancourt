@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 02-02-2023 a las 11:31:16
+-- Tiempo de generación: 03-02-2023 a las 16:02:25
 -- Versión del servidor: 5.7.41
 -- Versión de PHP: 7.4.33
 
@@ -743,15 +743,15 @@ INSERT INTO `bill_admission` (`id`, `admission_id`, `patient_id`, `doctor_id`, `
 (60, 'UMKEZ570', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (61, 'UBO0LJ2H', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
 (62, 'UUEBBPQ0', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(63, 'U4QL39TJ', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(64, 'U666YBOV', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(65, 'UQMSBFPV', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(66, 'UFNLAQUI', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(67, 'UU47ZMF6', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(68, 'UJ67FNGU', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(69, 'U5PJHPLN', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(70, 'UTKH9604', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
-(71, 'U17Q99MO', 'PQHZMY23', NULL, NULL, '2022-06-15', '2022-06-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, 1, '0'),
+(63, 'U4QL39TJ', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-02-20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(64, 'U666YBOV', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-02-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(65, 'UQMSBFPV', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-02-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(66, 'UFNLAQUI', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-02-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(67, 'UU47ZMF6', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-02-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(68, 'UJ67FNGU', 'PQHZMY23', NULL, NULL, '2022-06-15', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(69, 'U5PJHPLN', 'PQHZMY23', NULL, NULL, '2022-06-15', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(70, 'UTKH9604', 'PQHZMY23', NULL, NULL, '2022-06-15', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
+(71, 'U17Q99MO', 'PQHZMY23', NULL, NULL, '2022-06-15', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '0'),
 (72, 'U0MZY1MP', 'PQHZMY23', NULL, NULL, '2022-06-15', '2023-01-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '120'),
 (73, 'UWSHNHVB', 'PHLJBMVS', NULL, NULL, '2022-06-17', '2023-01-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Finalizado', 1, 1, '723'),
 (74, 'U8109XLU', 'PJXGONMO', 3, 0, '2022-06-17', '2023-01-24', 0, '', '', '', '', '', '', 1, 'Finalizado', 1, 1, '0'),
@@ -1790,7 +1790,7 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (71, '1127', 'Propofol 1% Intro Venoso', 56, '<p>El propofol es un agente anest&eacute;sico de acci&oacute;n corta con un comienzo de acci&oacute;n r&aacute;pido de aproximadamente 30 segundos y una recuperaci&oacute;n de la anestesia normalmente tambi&eacute;n r&aacute;pida</p>', 10, 59.2, 'V&C MEDICAMENTOS', '2023-01-31', 1),
 (72, '1257', 'Remifentanilo Ampolla', 102, '<p>El remifentanilo es un opioide agonista puro de los receptores &mu; de la morfina. Es potente, de acci&oacute;n ultracorta y no acumulable, que se emplea durante las intervenciones quir&uacute;rgicas y procedimientos dolorosos para suministrar analgesia y sedaci&oacute;n</p>', 10, 91, 'V&C MEDICAMENTOS', '2023-02-01', 1),
 (73, '1032', 'Sevogesic 1 ml (Sevoflurano Anestésico)', 18, '<p>Presentaci&oacute;n Frasco 250 ml y se vende por ml</p>\r\n<p>Es un agente anest&eacute;sico l&iacute;quido no inflamable que se administra por vaporizaci&oacute;n, y qu&iacute;micamente es un derivado fluorinado del &eacute;ter metil isopropilo, que induce una p&eacute;rdida de conciencia suave y r&aacute;pida durante la inducci&oacute;n inhalatoria y una r&aacute;pida recuperaci&oacute;n despu&eacute;s de su discontinuaci&oacute;n.</p>', 250, 6, 'V&C MEDICAMENTOS', '2023-02-01', 1),
-(74, '1177', 'Tramadol 100 mg Ampolla Intro Veno', 59, '<p>Los f&aacute;rmacos agonistas puros son los siguientes: morfina, metadona, meperidina, tramadol, code&iacute;na, dihidrocode&iacute;na y dextropropoxifeno. Son f&aacute;rmacos con una baja actividad intr&iacute;nseca (eficacia), de forma que su curva dosis-respuesta presenta un efecto techo menor que el m&aacute;ximo efecto produci do por un agonista puro.</p>', 10, 13, '', '2023-02-01', 1),
+(74, '1177', 'Tramadol 100 mg Ampolla Intro Veno', 59, '<p>Los f&aacute;rmacos agonistas puros son los siguientes: morfina, metadona, meperidina, tramadol, code&iacute;na, dihidrocode&iacute;na y dextropropoxifeno. Son f&aacute;rmacos con una baja actividad intr&iacute;nseca (eficacia), de forma que su curva dosis-respuesta presenta un efecto techo menor que el m&aacute;ximo efecto produci do por un agonista puro.</p>', 10, 13, 'V&C MEDICAMENTOS', '2023-02-02', 1),
 (75, '1126', 'Vancomicina 1 gr', 60, '<p>La vancomicina pertenece a una clase de medicamentos llamados antibi&oacute;ticos glicop&eacute;ptidos. Su acci&oacute;n consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por v&iacute;a oral.</p>', 10, 45, 'V&C MEDICAMENTOS', '2023-02-01', 1),
 (78, '1128', 'Vancomicina 500mg Ampolla', 60, '<p>La vancomicina pertenece a una clase de medicamentos llamados antibi&oacute;ticos glicop&eacute;ptidos. Su acci&oacute;n consiste en eliminar las bacterias en los intestinos. La vancomicina no elimina las bacterias ni trata las infecciones en ninguna otra parte del cuerpo cuando se toma por v&iacute;a oral.</p>', 10, 24, 'V&C MEDICAMENTOS', '2023-02-01', 1),
 (82, '396', 'Betametasona 4mg Ampolla', 42, '<p>La betametasona pertenece a una clase de medicamentos llamados corticoesteroides. Funciona al activar las sustancias naturales en la piel para reducir la hinchaz&oacute;n, el enrojecimiento y la picaz&oacute;n.</p>', 10, 6.95, 'N Y L', '2023-01-31', 1),
@@ -1812,7 +1812,7 @@ INSERT INTO `ha_medicine` (`id`, `code`, `name`, `category_id`, `description`, `
 (104, '0', 'Tubo Endotraqueal # 7', 22, 'La intubación endotraqueal se realiza para: Mantener la vía respiratoria abierta con el fin de suministrar oxígeno, medicamento o anestesia. Apoyar la respiración en ciertas enfermedades, tales como neumonía, enfisema, insuficiencia cardíaca, colapso pulmonar o traumatismo grave.', 6, 0, 'Betancourt', '2023-01-24', 1),
 (105, '55', 'Electrodos Para EKG', 22, 'Durante un electrocardiograma , se te colocan hasta 12 sensores (electrodos) en el pecho y las extremidades. Los electrodos son parches adhesivos con cables que se conectan a un monitor. Estos registran las señales eléctricas que hacen que el corazón lata.', 46, 0, 'Betancourt', '2023-01-24', 1),
 (106, '444', 'Bolsas Colectoras De Orina', 22, '¿Qué es la bolsa recolectora de orina? La bolsa recolectora de orina, o el sondaje vesical, se define como una técnica que consiste en la introducción de una sonda a través del meato uretral y hasta la vejiga, con el objetivo de establecer una vía de drenaje que expulse la orina.', 16, 0, '', '2023-01-24', 1),
-(107, '6666', 'Equipos De Sueros', 22, 'Los Sistemas de Suero sirven para administrar el suero al paciente, con una llave para regular el flujo de suero. Si lo que estás buscando es ofrecer a tus pacientes un trabajo de precisión y de calidad, éste es tu sitio.', 19, 0, '', '2023-01-24', 1),
+(107, '6666', 'Equipos De Sueros', 22, '<p>Los Sistemas de Suero sirven para administrar el suero al paciente, con una llave para regular el flujo de suero. Si lo que est&aacute;s buscando es ofrecer a tus pacientes un trabajo de precisi&oacute;n y de calidad, &eacute;ste es tu sitio.</p>', 18, 0, 'Betancourt', '2023-02-02', 1),
 (108, '333', 'Vendas De Gasa - 15cm', 22, 'Sirven sobre todo para fijar apósitos y gasas impregnadas en medicamentos y para la compresión de articulaciones, extremidades y demás zonas del cuerpo humano.', 18, 0, '', '2023-01-24', 1),
 (109, '222', 'Mariposas / Scalp Vein # 21', 22, 'Este dispositivo medico desechable llamado scalp vein o mariposa, como se conoce de manera coloquial, tiene una aguja de acero inoxidable flanqueada por dos aletas para mejorar el sostén durante la punción endovenosa.', 24, 0, '', '2023-01-24', 1),
 (110, '456', 'Vendas Elásticas - 15cm', 22, '<p>Se emplea una venda el&aacute;stica o semiel&aacute;stica, porque puede adaptarse a la zona que se va a vendar. Se usa para sujetar gasa, ap&oacute;sitos o f&eacute;rulas en brazo, antebrazo, mano, muslo, pierna y pie. Inicie el vendaje siempre en la parte m&aacute;s distal al coraz&oacute;n en direcci&oacute;n a la circulaci&oacute;n venosa.</p>', 3, 0, 'Betancourt', '2023-01-30', 1),
@@ -5297,7 +5297,9 @@ INSERT INTO `user_log` (`id`, `user_id`, `in_time`, `out_time`, `date`, `status`
 (150, 13, '16:07:54', '00:00:00', '2023-01-31', 1),
 (151, 8, '14:43:09', '22:03:25', '2023-02-01', 0),
 (152, 1, '15:46:53', '00:00:00', '2023-02-01', 1),
-(153, 8, '13:09:52', '13:10:19', '2023-02-02', 0);
+(153, 8, '13:09:52', '21:55:04', '2023-02-02', 0),
+(154, 13, '20:15:14', '00:00:00', '2023-02-02', 1),
+(155, 1, '17:45:45', '00:00:00', '2023-02-03', 1);
 
 -- --------------------------------------------------------
 
@@ -6937,7 +6939,7 @@ ALTER TABLE `user_language`
 -- AUTO_INCREMENT de la tabla `user_log`
 --
 ALTER TABLE `user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`

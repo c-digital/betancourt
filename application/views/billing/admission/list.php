@@ -106,7 +106,7 @@
                                         <a href="<?php echo base_url("medication_visit/visits/create?pid=$admission->patient_id") ?>" class="btn btn-xs  bg-navy-blue" data-toggle="tooltip" data-placement="top" title="<?= display('add_visit')?>"><?= display('patient_visit')?></a> 
                                          <?php } ?>
 
-                                         <a href="/billing/admission/finish/<?php echo $admission->id; ?>" class="btn btn-success btn-xs">Marcar como finalizado</a>
+                                         <a data-toggle="modal" data-target="#modalFinalizarInternacion" data-admission-id="<?php echo $admission->admission_id; ?>" class="btn btn-success btn-xs marcar-como-finalizado">Marcar como finalizado</a>
 
                                          </center>
                                     </td>
@@ -166,3 +166,38 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="modalFinalizarInternacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close_crear_proveedor" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Agregar pago</h4>
+      </div>
+
+      <form action="/billing/admission/finish" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+                <label for="fecha">Fecha de alta</label>
+                <input type="date" required class="form-control" name="fecha">
+                <input type="hidden" name="admission_id" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.marcar-como-finalizado').click(function () {
+            admission_id = $(this).attr('data-admission-id');
+            $('[name=admission_id]').val(admission_id);
+        });
+    });
+</script>

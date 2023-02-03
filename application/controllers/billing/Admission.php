@@ -69,12 +69,8 @@ class Admission extends CI_Controller {
 
 	public function finish()
 	{
-		extract($_POST);
-
-		$this->db->query("UPDATE bill_admission SET discharge_date = '$fecha', estado = 'Finalizado' WHERE admission_id = '$admission_id'");
-
+		$this->db->query("UPDATE bill_admission SET discharge_date = '{$_POST['fecha']}', estado = 'Finalizado' WHERE admission_id = '{$_POST['admission_id']}'");
 		$bed_id = $this->db->query("SELECT bed_id FROM bm_bed_assign WHERE patient_id = '$patient_id'")->row()->bed_id;
-
 		$this->db->query("UPDATE bm_bed SET status = 0 WHERE id = '$bed_id'");
 
 		return redirect('/billing/admission');
