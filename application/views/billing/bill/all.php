@@ -241,12 +241,17 @@
                                         <tbody>
 
                                             <?php
-                                                $facturas = implode("|", $facturas);
+                                                if ($facturas) {
+                                                    $facturas[] = $bill->admission_id;
 
-                                                $ci = &get_instance();
+                                                    $facturas = implode("|", $facturas);
 
-                                                $pagos = $ci->db->query("SELECT * FROM caja WHERE concepto LIKE '$bill->bill_id' OR concepto REGEXP ('$bill->admission_id')")->result();
-                                                $pagos = [];
+                                                    $ci = &get_instance();
+
+                                                    $pagos = $ci->db->query("SELECT * FROM caja WHERE concepto REGEXP ('$facturas')")->result();                                                    
+                                                } else {
+                                                    $pagos = [];
+                                                }
                                             ?>
 
                                             <?php foreach ($pagos as $pago): ?>
@@ -347,12 +352,12 @@
                             <thead>
                                 <tr>
                                     <td><?php echo 'Total pagado'; ?></td>
-                                    <th><?php echo  @sprintf("%.2f", ($pagado),2) ?></th>
+                                    <th><?php echo  @sprintf("%.2f", ($bill->pagado),2) ?></th>
                                 </tr>
 
                                 <tr>
                                     <td><?php echo 'Total pendiente'; ?></td>
-                                    <th><?php echo  @sprintf("%.2f", (($subtotal-$bill->discount+$bill->tax+$pay_bed+$pay_medicine-$pay_advance)-$pagado),2) ?></th>
+                                    <th><?php echo  @sprintf("%.2f", (($subtotal-$bill->discount+$bill->tax+$pay_bed+$pay_medicine-$pay_advance)-$bill->pagado),2) ?></th>
                                 </tr>
                             </thead>
                         </table>
@@ -400,6 +405,8 @@
             <div class="form-group">
                 <label for="monto">Monto</label>
                 <input type="number" required class="form-control" name="monto">
+
+                <input type="hidden" name="admission_id" value="<?php echo $bill->admission_id; ?>">
             </div>
 
             <div class="form-group">

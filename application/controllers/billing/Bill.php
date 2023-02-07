@@ -39,16 +39,16 @@ class Bill extends CI_Controller {
 
 		if ($estado == 'Caja cerrada') {
 			$this->session->set_flashdata('exception', 'No puede realizar operaciones de facturacion porque la caja está cerrada');
-			return redirect("/billing/bill/all/$bill_id");
+			return redirect("/billing/bill/all/$admission_id");
 		}
 
-		$concepto = 'Pago de internacion: ' . $bill_id;
+		$concepto = 'Pago de internacion: ' . $admission_id;
 
 		$this->db->query("INSERT INTO caja (tipo_movimiento, fecha, monto, metodo_pago, concepto, saldo, estado, cajero) VALUES ('Entrada', NOW(), '$monto', '$metodo_pago', '$concepto', '$saldo', 'Caja abierta', '$cajero')");
 
-		$this->db->query("UPDATE bill_admission SET pagado = pagado + $monto WHERE bill_id = '$bill_id'");
+		$this->db->query("UPDATE bill_admission SET pagado = pagado + $monto WHERE admission_id = '$admission_id'");
 
-		return redirect("/billing/bill/all/$bill_id");
+		return redirect("/billing/bill/all/$admission_id");
 	}
 
 	public function all($admission_id)
@@ -68,7 +68,8 @@ class Bill extends CI_Controller {
 				DATEDIFF(ba.discharge_date, ba.admission_date) as total_days,
 				ba.discharge_date AS discharge_date,
 				ini.insurance_name AS insurance_name,
-				ba.policy_no
+				ba.policy_no,
+				ba.pagado
 			FROM
 				bill b
 					LEFT JOIN bill_admission ba ON ba.admission_id = b.admission_id
@@ -693,6 +694,8 @@ class Bill extends CI_Controller {
 					$saldo = $caja->saldo+$monto;
 
 					$cajero = $_SESSION['fullname'];
+
+					$this->db->query("UPDATE bill_admission SET pagado = pagado + $monto WHERE admission_id = '$admission_id'");
 
 					$this->db->query("
 						INSERT INTO caja (
