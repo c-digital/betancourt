@@ -309,7 +309,8 @@ class Bill extends CI_Controller {
 				$sProfessional  = $this->input->post('service_professional');
 				$sQty  			= $this->input->post('quantity');
 				$sAmt  			= $this->input->post('amount');
-				$sAmt  			= $this->input->post('amount');				
+				$product  		= $this->input->post('product');
+				$almacen  		= $this->input->post('almacen');
 				$services 		= array();
 
 				for ($i=0; $i < sizeof($sID); $i++)
@@ -328,6 +329,8 @@ class Bill extends CI_Controller {
 						'package_id'   		=> $package_id,
 						'service_id'   		=> $sID[$i],
 						'professional_id'   => $professional_id,
+						'product'           => $product[$i],
+						'almacen'           => $almacen[$i],
 						'quantity'     		=> $sQty[$i],
 						'amount'       		=> $sAmt[$i],
 						'date'         		=> date('Y-m-d')
@@ -818,8 +821,9 @@ class Bill extends CI_Controller {
 					$sName = $this->input->post('service_name');
 					$sQty  = $this->input->post('quantity');
 					$sAmt  = $this->input->post('amount');
-					$product  		= $this->input->post('product');
-					$almacen  		= $this->input->post('almacen');
+					$product = $this->input->post('product');
+					$almacen = $this->input->post('almacen');
+					$product = $this->input->post('product');
 					$services = array();
 
 					if ($sID) {

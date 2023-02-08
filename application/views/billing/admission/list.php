@@ -106,7 +106,7 @@
                                         <a href="<?php echo base_url("medication_visit/visits/create?pid=$admission->patient_id") ?>" class="btn btn-xs  bg-navy-blue" data-toggle="tooltip" data-placement="top" title="<?= display('add_visit')?>"><?= display('patient_visit')?></a> 
                                          <?php } ?>
 
-                                         <a data-toggle="modal" data-target="#modalFinalizarInternacion" data-admission-id="<?php echo $admission->admission_id; ?>" class="btn btn-success btn-xs marcar-como-finalizado">Marcar como finalizado</a>
+                                         <a data-toggle="modal" data-target="#modalFinalizarInternacion" data-patient-id="<?php echo $admission->patient_id; ?>" data-admission-id="<?php echo $admission->admission_id; ?>" class="btn btn-success btn-xs marcar-como-finalizado">Marcar como finalizado</a>
 
                                          </center>
                                     </td>
@@ -182,6 +182,7 @@
                 <label for="fecha">Fecha de alta</label>
                 <input type="date" required class="form-control" name="fecha">
                 <input type="hidden" name="admission_id" required>
+                <input type="hidden" name="patient_id" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -197,7 +198,10 @@
     $(document).ready(function () {
         $('.marcar-como-finalizado').click(function () {
             admission_id = $(this).attr('data-admission-id');
+            patient_id = $(this).attr('data-patient-id');
+
             $('[name=admission_id]').val(admission_id);
+            $('[name=patient_id]').val(patient_id);
         });
     });
 </script>
